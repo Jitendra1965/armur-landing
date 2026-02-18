@@ -1,0 +1,528 @@
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ARMUR – Privacy Policy</title>
+  <meta name="description" content="ARMUR Privacy Policy (Hoplontec Inc.). Learn how we collect, use, and protect information when you use the Armur mobile app." />
+
+  <style>
+    :root{
+      --bg: #0b0f14;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.10);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --faint: rgba(255,255,255,0.50);
+      --border: rgba(255,255,255,0.14);
+      --accent: #d4af37; /* “Armur” gold */
+      --accent-2: #f2d06b;
+      --shadow: 0 18px 60px rgba(0,0,0,0.45);
+      --radius: 18px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(212,175,55,0.16), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(242,208,107,0.12), transparent 55%),
+        radial-gradient(900px 600px at 40% 110%, rgba(212,175,55,0.10), transparent 50%),
+        var(--bg);
+      line-height: 1.6;
+    }
+
+    a{
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+    a:hover{ text-decoration: underline; }
+
+    .skip{
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .skip:focus{
+      left:16px; top:16px; width:auto; height:auto; padding:10px 12px;
+      background: var(--panel-2);
+      border:1px solid var(--border);
+      border-radius: 10px;
+      z-index: 9999;
+    }
+
+    header{
+      padding: 34px 18px 18px;
+    }
+    .wrap{
+      width:100%;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .brandbar{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .mark{
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 25%, var(--accent-2), var(--accent));
+      box-shadow: 0 10px 30px rgba(212,175,55,0.20);
+      border: 1px solid rgba(255,255,255,0.18);
+      position: relative;
+      flex: 0 0 auto;
+    }
+    .mark:after{
+      content:"";
+      position:absolute;
+      inset: 9px 12px 9px 12px;
+      border: 2px solid rgba(0,0,0,0.35);
+      border-left-color: rgba(0,0,0,0);
+      border-right-color: rgba(0,0,0,0);
+      border-radius: 10px;
+      transform: rotate(12deg);
+      opacity: 0.55;
+    }
+
+    .brand h1{
+      font-size: 18px;
+      margin: 0;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .brand small{
+      display:block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .pill{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.20);
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+    .pill code{
+      font-family: var(--mono);
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    main{ padding: 0 18px 42px; }
+
+    .card{
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .lede{
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .toc{
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.22);
+    }
+    .toc strong{
+      display:block;
+      margin-bottom: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: var(--faint);
+    }
+    .toc ol{
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+      display:grid;
+      gap: 6px;
+    }
+
+    h2{
+      margin: 26px 0 8px;
+      font-size: 18px;
+      letter-spacing: 0.02em;
+    }
+    h3{
+      margin: 16px 0 6px;
+      font-size: 15px;
+      color: var(--text);
+    }
+    p{ margin: 8px 0; color: var(--muted); }
+    ul{
+      margin: 8px 0 10px;
+      color: var(--muted);
+      padding-left: 18px;
+    }
+    li{ margin: 6px 0; }
+
+    .note{
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(212,175,55,0.25);
+      background: rgba(212,175,55,0.10);
+      color: rgba(255,255,255,0.80);
+    }
+    .note strong{ color: rgba(255,255,255,0.92); }
+
+    footer{
+      padding: 18px;
+      color: var(--faint);
+      font-size: 12px;
+    }
+    footer .wrap{
+      display:flex;
+      flex-wrap: wrap;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .fineprint{
+      color: var(--faint);
+    }
+
+    .hr{
+      height:1px;
+      background: rgba(255,255,255,0.10);
+      margin: 22px 0 6px;
+      border:0;
+    }
+
+    @media (max-width: 620px){
+      .pill{ display:none; }
+      .card{ padding: 18px 16px; }
+      .brand h1{ letter-spacing: 0.10em; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <header>
+    <div class="wrap">
+      <div class="brandbar" role="banner" aria-label="ARMUR policy header">
+        <div class="brand">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <h1>ARMUR – Privacy Policy</h1>
+            <small>Operated by Hoplontec Inc.</small>
+          </div>
+        </div>
+        <div class="pill" aria-label="Last updated">
+          Last updated <code>15 February 2026</code>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="wrap">
+      <article class="card" role="article" aria-label="Privacy Policy">
+        <p class="lede">
+          Armur is operated and distributed by Hoplontec Inc. (“Hoplontec”, “Company”, “we”, “us”, or “our”).
+          This Privacy Policy explains how we collect, use, disclose, and safeguard information when you use the
+          Armur mobile application (the “App”). An account is required to access and use Armur. By using Armur,
+          you agree to the practices described in this policy.
+        </p>
+
+        <div class="toc" aria-label="Table of contents">
+          <strong>Contents</strong>
+          <ol>
+            <li><a href="#info-we-collect">Information We Collect</a></li>
+            <li><a href="#how-we-use">How We Use Your Information</a></li>
+            <li><a href="#sharing">Sharing of Information</a></li>
+            <li><a href="#payments">Payments</a></li>
+            <li><a href="#security">Data Security</a></li>
+            <li><a href="#choices">Your Choices</a></li>
+            <li><a href="#retention">Data Retention</a></li>
+            <li><a href="#children">Children’s Privacy</a></li>
+            <li><a href="#changes">Changes to This Policy</a></li>
+            <li><a href="#contact">Contact Information</a></li>
+          </ol>
+        </div>
+
+        <hr class="hr" />
+
+        <section id="info-we-collect">
+          <h2>1. Information We Collect</h2>
+          <p>Armur requires an account and uses secure cloud storage to operate the service.</p>
+
+          <h3 id="account-info">1.1 Account Information (Required)</h3>
+          <p>To use Armur, you must create an account. We collect:</p>
+          <ul>
+            <li>Email address</li>
+            <li>Encrypted password hash</li>
+            <li>Display name</li>
+            <li>Account identifiers</li>
+            <li>Subscription and billing status (if applicable)</li>
+          </ul>
+          <p>This information is required to authenticate users and provide access to the App.</p>
+
+          <h3 id="device-storage">1.2 Device Storage</h3>
+          <p>
+            Some data may be stored locally on your device to improve performance and enable offline functionality,
+            including:
+          </p>
+          <ul>
+            <li>Cached firearm records and inventory details</li>
+            <li>Notes and descriptions</li>
+            <li>Photos and media cached for faster access</li>
+            <li>Offline preferences and settings</li>
+            <li>Temporary offline data</li>
+          </ul>
+          <p>
+            If this data is deleted or the App is removed, Hoplontec may not be able to recover it.
+          </p>
+
+          <h3 id="cloud-storage">1.3 Cloud Storage</h3>
+          <p>Armur stores user data on secure servers to provide the service, including:</p>
+          <ul>
+            <li>Firearm entries and metadata</li>
+            <li>Photos and attachments</li>
+            <li>Notes and descriptions</li>
+            <li>Posts, comments, likes, and social interactions</li>
+            <li>Marketplace listings</li>
+            <li>Notifications and preferences</li>
+            <li>App configuration and settings</li>
+            <li>Maintenance and diagnostic logs</li>
+          </ul>
+
+          <h3 id="auto-collected">1.4 Automatically Collected Information</h3>
+          <p>We may automatically collect:</p>
+          <ul>
+            <li>IP address</li>
+            <li>Device identifiers</li>
+            <li>App crash logs</li>
+            <li>Performance and usage metrics</li>
+          </ul>
+          <p>This information is used solely for:</p>
+          <ul>
+            <li>Security and fraud prevention</li>
+            <li>Reliability and performance improvements</li>
+          </ul>
+
+          <h3 id="ugc-marketplace">1.5 User-Generated Content and Marketplace Listings</h3>
+          <p>
+            Armur allows users to create and share content, including marketplace listings, posts, comments,
+            profile information, and images (“User Content”).
+          </p>
+
+          <div class="note">
+            <strong>Public Visibility.</strong>
+            Marketplace listings may be visible to other users of the App. Profile display names, listing descriptions,
+            and uploaded images may be viewable by other users. Any information you voluntarily include in listings or
+            posts may be seen by others.
+          </div>
+
+          <h3>Responsibility for Content</h3>
+          <p>
+            You are responsible for the information you choose to share. We recommend that users do not include
+            sensitive personal information (such as home addresses, serial numbers, or government IDs) in public
+            listings or posts.
+          </p>
+
+          <h3>Storage of User Content</h3>
+          <p>Hoplontec stores User Content to provide:</p>
+          <ul>
+            <li>Marketplace functionality</li>
+            <li>Community/social features</li>
+            <li>Content moderation and safety</li>
+          </ul>
+
+          <h3>Content Moderation</h3>
+          <p>We may review, remove, or restrict content that:</p>
+          <ul>
+            <li>Violates our Terms of Service</li>
+            <li>Violates applicable laws</li>
+            <li>Creates safety or security risks</li>
+            <li>Is reported by users</li>
+          </ul>
+        </section>
+
+        <section id="how-we-use">
+          <h2>2. How We Use Your Information</h2>
+          <p>Hoplontec uses collected information to:</p>
+          <ul>
+            <li>Synchronize your collection across devices</li>
+            <li>Provide cloud backup and restoration</li>
+            <li>Enable social and community features</li>
+            <li>Provide marketplace and user-generated content features</li>
+            <li>Moderate and enforce community standards</li>
+            <li>Deliver notifications</li>
+            <li>Maintain and improve the App</li>
+            <li>Detect fraud, abuse, or misuse</li>
+            <li>Comply with legal obligations</li>
+            <li>Process subscriptions and manage billing through our payment provider</li>
+          </ul>
+          <p><strong style="color: rgba(255,255,255,0.88);">We do not sell personal data.</strong></p>
+        </section>
+
+        <section id="sharing">
+          <h2>3. Sharing of Information</h2>
+          <p>
+            We may share limited information with trusted service providers that help operate the App, including:
+          </p>
+          <ul>
+            <li>Cloud hosting providers</li>
+            <li>Authentication providers</li>
+            <li>Payment processors (Stripe)</li>
+            <li>Analytics providers (non-personal data only)</li>
+          </ul>
+          <p>
+            Content may be visible to other users as part of marketplace and social features. We do not share firearm
+            data, photos, or personal content with advertisers or marketers without your explicit consent.
+          </p>
+          <p>We may disclose information:</p>
+          <ul>
+            <li>To comply with legal obligations</li>
+            <li>To respond to lawful government requests</li>
+            <li>To protect the rights and safety of Hoplontec, users, or others</li>
+          </ul>
+        </section>
+
+        <section id="payments">
+          <h2>3.1 Payments</h2>
+          <p>
+            If you purchase a subscription or paid features within the App, payments are processed by Stripe, Inc.
+          </p>
+          <ul>
+            <li>Hoplontec does not collect, store, or process credit or debit card numbers.</li>
+            <li>Payment information is transmitted directly to Stripe.</li>
+            <li>We may receive limited information such as:
+              <ul>
+                <li>Payment status</li>
+                <li>Subscription status</li>
+                <li>Customer ID and billing email</li>
+                <li>Country or region for tax compliance</li>
+              </ul>
+            </li>
+          </ul>
+          <p>
+            Stripe’s Privacy Policy:
+            <a href="https://stripe.com/privacy" target="_blank" rel="noopener">https://stripe.com/privacy</a>
+          </p>
+        </section>
+
+        <section id="security">
+          <h2>4. Data Security</h2>
+          <p>Hoplontec implements industry-standard safeguards including:</p>
+          <ul>
+            <li>Encrypted data storage</li>
+            <li>Secure transmission (TLS/HTTPS)</li>
+            <li>Password hashing</li>
+            <li>Role-based access controls</li>
+            <li>Backup redundancy</li>
+          </ul>
+          <p>However, no system can guarantee absolute security.</p>
+        </section>
+
+        <section id="choices">
+          <h2>5. Your Choices</h2>
+
+          <h3>Delete Your Account</h3>
+          <p>
+            You may request account deletion at any time. All cloud-stored data will be permanently deleted, subject to
+            backup retention.
+          </p>
+
+          <h3>Export Your Data</h3>
+          <p>We provide tools to export your collection where supported.</p>
+        </section>
+
+        <section id="retention">
+          <h2>6. Data Retention</h2>
+          <ul>
+            <li>Data is retained until account deletion.</li>
+            <li>Deleted data may temporarily persist in encrypted backups before permanent removal.</li>
+          </ul>
+        </section>
+
+        <section id="children">
+          <h2>7. Children’s Privacy</h2>
+          <p>Armur is intended for adults. We do not knowingly collect data from individuals under 18.</p>
+        </section>
+
+        <section id="changes">
+          <h2>8. Changes to This Policy</h2>
+          <p>
+            Hoplontec may update this Privacy Policy periodically. Users will be notified of material changes.
+          </p>
+        </section>
+
+        <section id="contact">
+          <h2>9. Contact Information</h2>
+          <p><strong style="color: rgba(255,255,255,0.88);">Hoplontec Inc.</strong></p>
+          <ul>
+            <li>Email: <a href="mailto:support@armur.org">support@armur.org</a></li>
+            <li>Address: <span style="color: rgba(255,255,255,0.85);">[Insert company address]</span></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="fineprint">© <span id="year"></span> Hoplontec Inc. All rights reserved.</div>
+      <div class="fineprint">
+        <a href="/" aria-label="Back to Armur home">armur.org</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Keep copyright year current
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+```
+
