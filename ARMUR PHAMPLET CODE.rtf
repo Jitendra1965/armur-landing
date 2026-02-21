@@ -1,0 +1,242 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \\documentclass[11pt, a4paper]\{article\}\
+\
+% --- UNIVERSAL PREAMBLE BLOCK ---\
+\\usepackage[a4paper, landscape, top=1.2cm, bottom=1.2cm, left=1cm, right=1cm]\{geometry\}\
+\\usepackage\{fontspec\}\
+\\usepackage[english, bidi=basic, provide=*]\{babel\}\
+\\usepackage\{xcolor\}\
+\\usepackage\{tcolorbox\}\
+\\usepackage\{multicol\}\
+\\usepackage\{graphicx\}\
+\\usepackage\{enumitem\}\
+\\usepackage\{titlesec\}\
+\\usepackage\{setspace\}\
+\
+\\babelprovide[import, onchar=ids fonts]\{english\}\
+\\babelfont\{rm\}\{Noto Sans\}\
+\
+% --- REFINED DESIGN TOKENS ---\
+\\definecolor\{british-racing-green\}\{HTML\}\{004225\} % Deep, classic green\
+\\definecolor\{armur-brass\}\{HTML\}\{D4AF37\}         % Brighter Metallic Gold/Brass\
+\\definecolor\{armur-ivory\}\{HTML\}\{FFFFFF\}         % Pure White for key body text\
+\\definecolor\{gunmetal\}\{HTML\}\{2C3E50\}            % Sophisticated dark gray/blue\
+\\definecolor\{armur-slate\}\{HTML\}\{7F8C8D\}         % Muted slate for compliance text\
+\
+\\pagestyle\{empty\}\
+\\setlength\{\\columnsep\}\{1.5cm\}\
+\
+% Bullet styling\
+\\setlist[itemize]\{\
+    label=\\textcolor\{armur-brass\}\{\\scalebox\{1.2\}\{\'95\}\}, \
+    leftmargin=*, \
+    itemsep=4pt\
+\}\
+\
+% --- CUSTOM STYLES ---\
+\\newcommand\{\\brassdivider\}\{\\begin\{center\}\\textcolor\{armur-brass\}\{\\rule\{0.6\\textwidth\}\{0.8pt\}\}\\end\{center\}\}\
+\
+\\begin\{document\}\
+\\pagecolor\{british-racing-green\}\
+\\color\{armur-ivory\}\
+\\setstretch\{1.1\}\
+\
+\\begin\{multicols*\}\{3\}\
+\
+% --- PANEL 1: THE PROBLEM (Inside Left) ---\
+\\begin\{tcolorbox\}[colback=british-racing-green, colframe=armur-brass, arc=4mm, height=18.5cm, boxrule=1pt, left=15pt, right=15pt]\
+    \\vspace\{0.5cm\}\
+    \\begin\{center\}\
+        \\textcolor\{armur-brass\}\{\\small \\uppercase\{\\textbf\{The Challenge\}\}\} \\\\\
+        \\vspace\{0.4cm\}\
+        \\Large \\textbf\{Serious collections deserve serious structure.\}\
+    \\end\{center\}\
+    \
+    \\vspace\{0.8cm\}\
+    \\normalsize\
+    Your collection is a significant asset\'97both financially and historically. Yet, for most collectors, the documentation is a liability.\
+    \
+    \\vspace\{1cm\}\
+    \\textcolor\{armur-brass\}\{\\large \\textbf\{The Fragmentation Trap\}\} \\\\\
+    \\vspace\{0.3cm\}\
+    \\begin\{itemize\}\
+        \\item \\textbf\{Receipts\} buried in old email threads.\
+        \\item \\textbf\{Serial numbers\} lost in basic spreadsheets.\
+        \\item \\textbf\{Maintenance\} kept only in memory.\
+        \\item \\textbf\{Provenance\} separated from the object.\
+        \\item \\textbf\{Range logs\} on loose scraps of paper.\
+    \\end\{itemize\}\
+    \
+    \\vspace\{1.5cm\}\
+    \\brassdivider\
+    \\vspace\{0.5cm\}\
+    \
+    \\begin\{center\}\
+        \\large \\textit\{\\textbf\{Result: Fragmentation. Risk. \\\\ Lost history. Lost value.\}\}\
+    \\end\{center\}\
+\\end\{tcolorbox\}\
+\
+\\columnbreak\
+\
+% --- PANEL 2: THE VAULT (Inside Middle) ---\
+\\begin\{tcolorbox\}[colback=british-racing-green, colframe=armur-brass, arc=4mm, height=18.5cm, boxrule=1.5pt, left=15pt, right=15pt]\
+    \\vspace\{0.5cm\}\
+    \\begin\{center\}\
+        \\textcolor\{armur-brass\}\{\\small \\uppercase\{\\textbf\{The Armur Vault\}\}\} \\\\\
+        \\vspace\{0.4cm\}\
+        \\huge \\textbf\{One Structured System.\}\
+    \\end\{center\}\
+    \
+    \\vspace\{0.8cm\}\
+    \\normalsize\
+    Armur transforms scattered records into a living, structured legacy. We provide a private, high-security environment designed for the modern collector.\
+    \
+    \\vspace\{1cm\}\
+    \\begin\{itemize\}\
+        \\item \\textbf\{Centralized Profiles:\} A digital twin for every firearm in your collection.\
+        \\item \\textbf\{Provenance Tracking:\} Link certificates, invoices, and letters directly to the asset.\
+        \\item \\textbf\{Maintenance Logs:\} Automated tracking of round counts and cleaning cycles.\
+        \\item \\textbf\{Range Sessions:\} Precise data on ballistics and performance history.\
+        \\item \\textbf\{Secure Access:\} Your choice of encrypted cloud or local-only storage.\
+    \\end\{itemize\}\
+    \
+    \\vfill\
+    \\begin\{center\}\
+        \\textcolor\{armur-brass\}\{\\Large \\textit\{\\textbf\{"Chaos becomes Structure."\}\}\}\
+    \\end\{center\}\
+    \\vspace\{0.5cm\}\
+\\end\{tcolorbox\}\
+\
+\\columnbreak\
+\
+% --- PANEL 3: GALLERY & FRONT (Front Cover Logic) ---\
+\\begin\{tcolorbox\}[colback=british-racing-green, colframe=armur-brass, arc=4mm, height=18.5cm, boxrule=1pt, left=15pt, right=15pt]\
+    \\vspace\{0.5cm\}\
+    \\begin\{center\}\
+        \\textcolor\{armur-brass\}\{\\small \\uppercase\{\\textbf\{Selective Gallery\}\}\} \\\\\
+        \\vspace\{0.4cm\}\
+        \\Large \\textbf\{Showcase without compromise.\}\
+    \\end\{center\}\
+    \
+    \\vspace\{0.8cm\}\
+    Armur is not social media. It is a curated gallery where \\textbf\{you\} control the narrative.\
+    \
+    \\vspace\{0.5cm\}\
+    \\begin\{itemize\}\
+        \\item \\textbf\{Selective Visibility:\} Choose what remains private and what is shared.\
+        \\item \\textbf\{Storytelling:\} Preserve the craftsmanship and heritage of your pieces.\
+        \\item \\textbf\{Curated Discussion:\} Engage with a community that shares your standards.\
+    \\end\{itemize\}\
+    \
+    \\vfill\
+    \\brassdivider\
+    \\vspace\{0.5cm\}\
+    \\begin\{center\}\
+        \\Huge \\textbf\{ARMUR\} \\\\\
+        \\vspace\{0.4cm\}\
+        \\textcolor\{armur-brass\}\{\\large \\uppercase\{\\textbf\{The Collector's Vault\}\}\} \\\\\
+        \\vspace\{0.8cm\}\
+        \\large \\textit\{Secure. Private. Curated.\} \\\\\
+        \\vspace\{0.8cm\}\
+        \\Large \\textbf\{armur.org\}\
+    \\end\{center\}\
+    \\vspace\{0.5cm\}\
+\\end\{tcolorbox\}\
+\
+\\end\{multicols*\}\
+\
+\\newpage\
+\
+\\begin\{multicols*\}\{3\}\
+\
+% --- BACK PANEL: ECOSYSTEM (Using Gunmetal Accents) ---\
+\\begin\{tcolorbox\}[colback=british-racing-green, colframe=armur-brass, arc=4mm, height=18.5cm, boxrule=1pt, left=15pt, right=15pt]\
+    \\vspace\{0.5cm\}\
+    \\begin\{center\}\
+        \\textcolor\{armur-brass\}\{\\small \\uppercase\{\\textbf\{The Ecosystem\}\}\} \\\\\
+        \\vspace\{0.4cm\}\
+        \\Large \\textbf\{A Curated Network.\}\
+    \\end\{center\}\
+    \
+    \\vspace\{0.8cm\}\
+    \\textbf\{Curated Resources\}\
+    \\begin\{itemize\}\
+        \\item Gunsmith \\& Restoration Specialists\
+        \\item Prestigious Shooting Clubs\
+        \\item Collector Associations \\& Journals\
+        \\item Elite Auctions \\& Collector Events\
+    \\end\{itemize\}\
+    \
+    \\vspace\{1cm\}\
+    \\textbf\{Marketplace Intent\}\
+    \\begin\{itemize\}\
+        \\item Discreetly list items for sale (WTS).\
+        \\item Post specific acquisition requests (WTB).\
+        \\item Direct connection between verified collectors.\
+    \\end\{itemize\}\
+    \
+    \\vfill\
+    \\begin\{center\}\
+        \\footnotesize \\textcolor\{armur-slate\}\{Armur facilitates connections only. All transfers must comply with local and federal laws and be handled via licensed dealers.\}\
+    \\end\{center\}\
+\\end\{tcolorbox\}\
+\
+\\columnbreak\
+\
+% --- BACK PANEL: VISION/LEGACY ---\
+\\begin\{tcolorbox\}[colback=british-racing-green, colframe=armur-brass, arc=4mm, height=18.5cm, boxrule=1pt, left=15pt, right=15pt]\
+    \\vspace\{0.5cm\}\
+    \\begin\{center\}\
+        \\textcolor\{armur-brass\}\{\\small \\uppercase\{\\textbf\{The Legacy\}\}\} \\\\\
+        \\vspace\{0.4cm\}\
+        \\Large \\textbf\{Beyond Ownership.\}\
+    \\end\{center\}\
+    \
+    \\vspace\{0.8cm\}\
+    A collection is more than a series of objects; it is a repository of history and craftsmanship. \
+    \
+    \\vspace\{0.8cm\}\
+    Without documentation, the story dies with the owner. Armur ensures that the provenance, the modifications, and the unique history of every firearm is preserved for the next generation.\
+    \
+    \\vfill\
+    \\begin\{center\}\
+        \\brassdivider\
+        \\vspace\{0.5cm\}\
+        \\Large \\textbf\{Secure your legacy.\}\
+    \\end\{center\}\
+    \\vspace\{1cm\}\
+\\end\{tcolorbox\}\
+\
+\\columnbreak\
+\
+% --- FINAL CALL TO ACTION (Gunmetal text on Brass) ---\
+\\begin\{tcolorbox\}[colback=armur-brass, colframe=armur-brass, arc=4mm, height=18.5cm, boxrule=1pt, left=15pt, right=15pt]\
+    \\vspace\{3.5cm\}\
+    \\begin\{center\}\
+        \\color\{gunmetal\}\
+        \\huge \\textbf\{Join the Beta.\} \\\\\
+        \\vspace\{1cm\}\
+        \\Large \\textbf\{Create your account.\} \\\\\
+        \\vspace\{0.3cm\}\
+        \\Large \\textbf\{Secure your vault.\} \\\\\
+        \\vspace\{0.3cm\}\
+        \\Large \\textbf\{Shape the future.\}\
+        \
+        \\vspace\{2cm\}\
+        \\color\{gunmetal\}\
+        \\framebox\{\\parbox\{3.5cm\}\{\\centering \\vspace\{1.2cm\} \\Large \\textbf\{QR CODE\} \\\\ \\small armur.org \\vspace\{1.2cm\}\}\}\
+        \
+        \\vspace\{2cm\}\
+        \\huge \\textbf\{armur.org\}\
+    \\end\{center\}\
+\\end\{tcolorbox\}\
+\
+\\end\{multicols*\}\
+\
+\\end\{document\}}
