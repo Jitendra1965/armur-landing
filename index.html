@@ -1539,22 +1539,31 @@
 
     const bodyLines = [
       `Request type: ${type}`,
+      ``,
       `Organization type: ${orgType}`,
+      ``,
       `Organization name: ${orgName}`,
+      ``,
       `Official website: ${website}`,
+      ``,
       location ? `Location: ${location}` : null,
       "",
+      ``,
       "Requester",
       contactName ? `Name: ${contactName}` : null,
+      ``,
       `Email: ${contactEmail}`,
       "",
+      ``,
       "Details",
       details ? details : "(none provided)",
       "",
+      ``,
       "Notes",
       "- Please verify authority if needed (e.g., reply-to an address listed on the official website).",
       "- By default, Armur listings are factual: name, a brief description, and a link.",
       "",
+      ``,
       "Sent from armur.org landing page."
     ].filter(Boolean);
 
