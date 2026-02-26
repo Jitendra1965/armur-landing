@@ -31,7 +31,9 @@
       --max-width: 1120px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
@@ -43,10 +45,19 @@
       scroll-behavior: smooth;
     }
 
-    body { line-height: 1.5; }
+    body {
+      line-height: 1.5;
+    }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     /* Layout */
     .page {
@@ -79,7 +90,11 @@
       gap: 16px;
     }
 
-    .nav-left { display: flex; align-items: center; gap: 10px; }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     .logo-mark {
       width: 34px;
@@ -99,7 +114,10 @@
       letter-spacing: 0.1em;
     }
 
-    .logo-text { display: flex; flex-direction: column; }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
 
     .logo-title {
       font-size: 20px;
@@ -140,10 +158,19 @@
       transition: width var(--transition-fast);
     }
 
-    .nav-links a:hover { color: var(--ivory); }
-    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover {
+      color: var(--ivory);
+    }
 
-    .nav-cta { display: flex; align-items: center; gap: 10px; }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     .btn {
       border-radius: 999px;
@@ -187,7 +214,9 @@
       background: rgba(13, 38, 27, 1);
     }
 
-    .btn-icon { font-size: 15px; }
+    .btn-icon {
+      font-size: 15px;
+    }
 
     /* Mobile nav */
     .nav-toggle {
@@ -199,8 +228,15 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links, .nav-cta { display: none; }
-      .nav-toggle { display: block; }
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
       .nav--open .nav-links,
       .nav--open .nav-cta {
         display: flex;
@@ -209,11 +245,19 @@
         width: 100%;
         padding-top: 10px;
       }
-      header { background: rgba(4, 11, 8, 0.98); }
-      .nav { flex-wrap: wrap; }
+
+      header {
+        background: rgba(4, 11, 8, 0.98);
+      }
+
+      .nav {
+        flex-wrap: wrap;
+      }
     }
 
-    main { flex: 1; }
+    main {
+      flex: 1;
+    }
 
     .section {
       max-width: var(--max-width);
@@ -259,7 +303,9 @@
       letter-spacing: 0.02em;
     }
 
-    .hero-title span { color: var(--brass-gold); }
+    .hero-title span {
+      color: var(--brass-gold);
+    }
 
     .hero-subtitle {
       font-size: 15px;
@@ -290,7 +336,9 @@
       padding: 2px 10px;
     }
 
-    .hero-right { position: relative; }
+    .hero-right {
+      position: relative;
+    }
 
     .hero-card {
       background: radial-gradient(circle at top, #1c3b2a, #050b07 60%, #020403);
@@ -421,12 +469,20 @@
     }
 
     @media (max-width: 900px) {
-      .hero { grid-template-columns: minmax(0, 1fr); padding-top: 24px; }
-      .hero-right { order: -1; }
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 24px;
+      }
+
+      .hero-right {
+        order: -1;
+      }
     }
 
     @media (max-width: 600px) {
-      .hero-card-body { grid-template-columns: minmax(0, 1fr); }
+      .hero-card-body {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     /* Generic sections */
@@ -515,11 +571,15 @@
     }
 
     @media (max-width: 900px) {
-      .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 600px) {
-      .features-grid { grid-template-columns: minmax(0, 1fr); }
+      .features-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     /* How it works */
@@ -562,11 +622,15 @@
     }
 
     @media (max-width: 900px) {
-      .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 600px) {
-      .steps-grid { grid-template-columns: minmax(0, 1fr); }
+      .steps-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     /* Trust / Privacy */
@@ -636,7 +700,9 @@
     }
 
     @media (max-width: 900px) {
-      .trust-layout { grid-template-columns: minmax(0, 1fr); }
+      .trust-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
     /* CTA section */
@@ -659,7 +725,9 @@
       justify-content: space-between;
     }
 
-    .cta-inner-text { max-width: 480px; }
+    .cta-inner-text {
+      max-width: 480px;
+    }
 
     .cta-inner-text h2 {
       margin: 0 0 4px;
@@ -721,224 +789,16 @@
       gap: 12px;
     }
 
-    .footer-links a { font-size: 12px; color: var(--text-muted); }
-    .footer-links a:hover { color: var(--ivory); }
-
-    /* --- Directory Owners / Listing Tools --- */
-    .owner-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 22px;
-      align-items: start;
-    }
-
-    .owner-card {
-      background: linear-gradient(135deg, #0a1910, #050907);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 16px 16px 14px;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .owner-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.10), transparent 55%);
-      opacity: 0.8;
-      pointer-events: none;
-    }
-
-    .owner-card-inner { position: relative; }
-
-    .owner-card h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
-      color: var(--ivory);
-    }
-
-    .owner-card p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .owner-actions {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .owner-mini {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    .owner-mini a { color: var(--brass-gold); }
-
-    .owner-side {
-      background: rgba(5, 11, 8, 0.96);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 12px 14px 12px;
+    .footer-links a {
       font-size: 12px;
       color: var(--text-muted);
     }
 
-    .owner-side h4 {
-      margin: 0 0 6px;
-      font-size: 13px;
+    .footer-links a:hover {
       color: var(--ivory);
-    }
-
-    .owner-side ul {
-      margin: 8px 0 0 18px;
-      padding: 0;
-    }
-
-    .owner-side li { margin-bottom: 6px; }
-
-    @media (max-width: 900px) {
-      .owner-layout { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    /* --- Modal --- */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.72);
-      backdrop-filter: blur(10px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      z-index: 999;
-    }
-
-    .modal-backdrop.open { display: flex; }
-
-    .modal {
-      width: min(760px, 100%);
-      border-radius: 22px;
-      background: radial-gradient(circle at 0 0, rgba(199,161,90,0.12), transparent 55%),
-                linear-gradient(135deg, #08130d, #020403);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 26px 70px rgba(0,0,0,0.78);
-      overflow: hidden;
-    }
-
-    .modal-header {
-      padding: 14px 16px 12px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .modal-title {
-      margin: 0;
-      font-size: 16px;
-      color: var(--ivory);
-    }
-
-    .modal-sub {
-      margin: 4px 0 0;
-      font-size: 12px;
-      color: var(--text-muted);
-      max-width: 560px;
-    }
-
-    .modal-close {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(9, 24, 17, 0.85);
-      color: var(--ivory);
-      border-radius: 999px;
-      padding: 6px 10px;
-      cursor: pointer;
-      font-size: 13px;
-    }
-
-    .modal-body { padding: 14px 16px 16px; }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    @media (max-width: 700px) {
-      .form-grid { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    .field label {
-      display: block;
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(6, 12, 9, 0.92);
-      color: var(--ivory);
-      padding: 10px 12px;
-      font-size: 13px;
-      outline: none;
-    }
-
-    .field textarea {
-      min-height: 96px;
-      resize: vertical;
-    }
-
-    .field input::placeholder,
-    .field textarea::placeholder {
-      color: rgba(215, 224, 214, 0.45);
-    }
-
-    .form-note {
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--text-muted);
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(6, 12, 9, 0.90);
-      border-radius: 14px;
-      padding: 10px 12px;
-    }
-
-    .checkbox-row {
-      margin-top: 10px;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: var(--text-muted);
-      font-size: 12px;
-    }
-
-    .checkbox-row input { margin-top: 3px; }
-
-    .modal-actions {
-      margin-top: 12px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: flex-end;
     }
   </style>
 </head>
-
 <body>
 <div class="page">
 
@@ -946,26 +806,31 @@
   <header>
     <nav class="nav" id="mainNav">
       <div class="nav-left">
-        <div class="logo-mark"><span>A</span></div>
+        <div class="logo-mark">
+          <span>A</span>
+        </div>
         <div class="logo-text">
           <div class="logo-title">ARMUR</div>
           <div class="logo-sub">Firearm Collector Vault</div>
         </div>
       </div>
 
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">
+        ☰
+      </button>
 
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#directory">Directory</a>
-        <a href="#manage-listing">Manage Your Listing</a>
         <a href="#how-it-works">How it works</a>
         <a href="#trust">Security</a>
         <a href="#cta">Get early access</a>
       </div>
 
       <div class="nav-cta">
-        <button class="btn btn-ghost" onclick="scrollToId('cta')">Join beta</button>
+        <button class="btn btn-ghost" onclick="scrollToId('cta')">
+          Join beta
+        </button>
         <button class="btn btn-primary" onclick="scrollToId('cta')">
           <span>Download (soon)</span>
           <span class="btn-icon">➜</span>
@@ -988,7 +853,7 @@
         <p class="hero-subtitle">
           Armur helps serious collectors log firearms, provenance, range sessions,
           maintenance, and documents – with a choice between encrypted cloud sync
-          or strict local-only storage. Record Trap, Skeet, and 5-Stand scores using an
+          or strict local-only storage. Record Trap, Skeet, and 5-Stand scores using an 
           intuitive visual station layout and track performance through clear, insightful charts.
         </p>
 
@@ -1090,7 +955,7 @@
           <div class="feature-icon">🎯</div>
           <h3 class="feature-title">Range sessions</h3>
           <p class="feature-body">
-            Log when, where, and what you shot.
+            Log when, where, and what you shot. 
             Record Trap, Skeet, 5-Stand, and etc. scores using a visual,
             station-by-station layout. Track trends over time with clean performance charts.
           </p>
@@ -1122,7 +987,7 @@
           <h3 class="feature-title">Resources for collectors</h3>
           <p class="feature-body">
             Discover magazines, auctions, gunsmiths, shooting grounds, and
-            collector associations curated for enthusiasts.
+            collector associations curated for enthusiasts. 
             Browse by country, region, and city — or switch to nearby mode to sort by distance.
             Open club sites, add missing ranges, and read ratings & reviews from other collectors.
           </p>
@@ -1130,6 +995,7 @@
         </article>
       </div>
     </section>
+
 
     <!-- DIRECTORY -->
     <section class="section" id="directory">
@@ -1167,68 +1033,11 @@
           </p>
         </article>
       </div>
-
-      <div style="margin-top:14px; text-align:center; font-size:12px; color: var(--text-muted);">
-        Are you a directory owner? <a href="#manage-listing" style="color: var(--brass-gold);">Claim or manage your listing</a>.
-      </div>
     </section>
 
-    <!-- MANAGE-LISTING -->
 
-    <section class="section" id="manage-listing">
-      <div class="section-header">
-        <div class="section-eyebrow">Manage your listing</div>
-        <h2 class="section-title">Manage your listing.</h2>
-        <p class="section-description">
-          Magazines, collector associations, auction houses, ranges, and gunsmiths can request inclusion,
-          claim or update a listing, or ask to be removed.
-        </p>
-      </div>
 
-      <div class="owner-layout">
-        <article class="owner-card">
-          <div class="owner-card-inner">
-            <h3>Request inclusion, updates, or removal — in one place.</h3>
-            <p>
-              Armur’s directory is intended to be a factual, respectful reference: name, a brief descriptive line, and a link to your official website.
-              We do not republish copyrighted articles, protected imagery, or subscription content without explicit permission.
-            </p>
 
-            <div class="owner-actions">
-              <button class="btn btn-primary" onclick="openListingModal('include')">
-                Request inclusion <span class="btn-icon">➜</span>
-              </button>
-              <button class="btn btn-ghost" onclick="openListingModal('claim')">
-                Claim / update listing
-              </button>
-              <button class="btn btn-ghost" onclick="openListingModal('remove')">
-                Remove listing
-              </button>
-            </div>
-
-            <div class="owner-mini">
-              Prefer email? Write to <a href="mailto:legal@armur.org">legal@armur.org</a>.
-              We may verify authority (typically via an email address listed on your official website).
-            </div>
-          </div>
-        </article>
-
-        <aside class="owner-side">
-          <h4>What we include (by default)</h4>
-          <ul>
-            <li>Organization name</li>
-            <li>One-line factual description</li>
-            <li>Link to official website</li>
-            <li>Public contact details (if provided)</li>
-          </ul>
-
-          <div class="form-note" style="margin-top:10px;">
-            <strong style="color:var(--ivory);">Note:</strong> Logos and images are only used with explicit permission.
-            Removal requests are honored promptly once verified.
-          </div>
-        </aside>
-      </div>
-    </section>
 
     <!-- HOW IT WORKS -->
     <section class="section" id="how-it-works">
@@ -1242,10 +1051,13 @@
           <div class="step-number">1</div>
           <h3 class="step-title">Create your vault</h3>
           <p class="step-body">
-            Make an account and set your storage preferences. Pick <strong>Cloud Sync</strong> for backup across devices, or
+            Make an account and set your storage preferences. </b>Pick <strong>Cloud Sync</strong> for backup across devices, or
             choose <strong>Local-only</strong> mode if you prefer everything to
             remain on your phone or tablet. You can switch later with a guided
             migration.
+          </p>
+
+            
           </p>
         </article>
 
@@ -1264,7 +1076,7 @@
           <p class="step-body">
             Record range sessions and maintenance in seconds. Over time your
             vault becomes a history of use, care, and ownership – all in one
-            place.<br> View heatmaps of when you shot each gun, cleaning maintenance, and more.
+            place.<br> View heatmaps of when you shot each gun, cleaning maintenance, and more. 
             Armur helps you see patterns in your usage
             and get reminders for maintenance based on actual usage, not just calendar dates.
           </p>
@@ -1279,7 +1091,7 @@
         <h2 class="section-title">Armur is not another social network.</h2>
         <p class="section-description">
           Armur is built for personal record-keeping first. Just you, your collection, and the tools to manage it properly.
-          If you choose to showcase your firearm in a public gallery to tell a story, it’s on your terms.
+          If you choose to showcase you firmarm in public gallery to tell a story,it’s on your terms.
         </p>
       </div>
 
@@ -1344,6 +1156,15 @@
         </div>
 
         <div class="cta-actions">
+          <!-- Replace with your real link or GitHub repo / form -->
+          <!-- <a
+            href="https://github.com/your-username/armur-landing"
+            class="btn btn-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on GitHub
+          </a> -->
           <a
             href="mailto:jitendra.puri@armur.org?subject=Armur%20Beta%20Request"
             class="btn btn-ghost"
@@ -1369,98 +1190,6 @@
   </footer>
 </div>
 
-<!-- LISTING MODAL -->
-<div class="modal-backdrop" id="listingModal" role="dialog" aria-modal="true" aria-label="Directory listing request">
-  <div class="modal">
-    <div class="modal-header">
-      <div>
-        <h3 class="modal-title" id="modalTitle">Directory request</h3>
-        <p class="modal-sub" id="modalSub">
-          Submit a request and we’ll follow up. For safety, we may verify authority before making changes.
-        </p>
-      </div>
-      <button class="modal-close" onclick="closeListingModal()">Close</button>
-    </div>
-
-    <div class="modal-body">
-      <form id="listingForm" onsubmit="submitListingRequest(event)">
-        <input type="hidden" id="requestType" name="requestType" value="include" />
-
-        <div class="form-grid">
-          <div class="field">
-            <label for="orgType">Organization type</label>
-            <select id="orgType" required>
-              <option value="">Select…</option>
-              <option>Magazine / Publication</option>
-              <option>Collector Association</option>
-              <option>Gunsmith / Gunmaker</option>
-              <option>Range / Shooting Ground</option>
-              <option>Auction House</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="orgName">Organization name</label>
-            <input id="orgName" type="text" placeholder="e.g., The Example Gunmakers' Guild" required />
-          </div>
-
-          <div class="field">
-            <label for="website">Official website</label>
-            <input id="website" type="url" placeholder="https://example.org" required />
-          </div>
-
-          <div class="field">
-            <label for="location">Location</label>
-            <input id="location" type="text" placeholder="City, Region/State, Country" />
-          </div>
-
-          <div class="field">
-            <label for="contactName">Your name</label>
-            <input id="contactName" type="text" placeholder="Full name" />
-          </div>
-
-          <div class="field">
-            <label for="contactEmail">Your email</label>
-            <input id="contactEmail" type="email" placeholder="name@organization.org" required />
-          </div>
-        </div>
-
-        <div class="field" style="margin-top:12px;">
-          <label for="details">Details / requested changes</label>
-          <textarea id="details" placeholder="For inclusion: a short factual description you’d like us to use, or notes.&#10;For updates: what should change?&#10;For removal: any context (optional)."></textarea>
-        </div>
-
-        <div class="checkbox-row">
-          <input id="authConfirm" type="checkbox" required />
-          <label for="authConfirm">
-            I confirm I am authorized to request inclusion, updates, or removal for this organization.
-          </label>
-        </div>
-
-        <div class="checkbox-row" id="logoRow">
-          <input id="logoConfirm" type="checkbox" />
-          <label for="logoConfirm">
-            If we use a logo or imagery later, we will obtain explicit written permission first (or you may provide it separately).
-          </label>
-        </div>
-
-        <div class="form-note" id="formNote">
-          Submitting this form opens your email client to <strong style="color:var(--ivory);">legal@armur.org</strong>
-          with a pre-filled request. (No data is sent to a server from this page.)
-        </div>
-
-        <div class="modal-actions">
-          <button type="button" class="btn btn-ghost" onclick="closeListingModal()">Cancel</button>
-          <button type="submit" class="btn btn-primary">
-            Submit request <span class="btn-icon">➜</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
 <script>
   function scrollToId(id) {
     const el = document.getElementById(id);
@@ -1474,94 +1203,6 @@
   }
 
   document.getElementById("year").textContent = new Date().getFullYear();
-
-  function openListingModal(type) {
-    const modal = document.getElementById("listingModal");
-    const requestType = document.getElementById("requestType");
-    const title = document.getElementById("modalTitle");
-    const sub = document.getElementById("modalSub");
-    const details = document.getElementById("details");
-
-    requestType.value = type;
-
-    if (type === "include") {
-      title.textContent = "Request inclusion in the Armur directory";
-      sub.textContent = "Provide basic details and (optionally) approved wording. We may verify authority before publishing.";
-      details.placeholder = "Optional: Approved one-line description you’d like us to use (factual, non-promotional), plus any notes.";
-    } else if (type === "claim") {
-      title.textContent = "Claim or update an existing directory listing";
-      sub.textContent = "Tell us what should change (description, contact details, location, categories). We may verify authority first.";
-      details.placeholder = "What should be updated? (e.g., description, phone/email, address, hours, categories, website link)";
-    } else {
-      title.textContent = "Request removal from the Armur directory";
-      sub.textContent = "We’ll remove or amend the listing once we can verify you’re authorized to request the change.";
-      details.placeholder = "Optional: Reason for removal or preferred wording. (Removal is honored upon verified request.)";
-    }
-
-    document.getElementById("authConfirm").checked = false;
-
-    modal.classList.add("open");
-    setTimeout(() => document.getElementById("orgType").focus(), 60);
-  }
-
-  function closeListingModal() {
-    const modal = document.getElementById("listingModal");
-    modal.classList.remove("open");
-  }
-
-  document.getElementById("listingModal").addEventListener("click", (e) => {
-    if (e.target.id === "listingModal") closeListingModal();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeListingModal();
-  });
-
-  function submitListingRequest(e) {
-    e.preventDefault();
-
-    const type = document.getElementById("requestType").value;
-    const orgType = document.getElementById("orgType").value.trim();
-    const orgName = document.getElementById("orgName").value.trim();
-    const website = document.getElementById("website").value.trim();
-    const location = document.getElementById("location").value.trim();
-    const contactName = document.getElementById("contactName").value.trim();
-    const contactEmail = document.getElementById("contactEmail").value.trim();
-    const details = document.getElementById("details").value.trim();
-
-    let subjectAction = "Request";
-    if (type === "include") subjectAction = "Inclusion Request";
-    if (type === "claim") subjectAction = "Claim/Update Request";
-    if (type === "remove") subjectAction = "Removal Request";
-
-    const subject = `Armur Directory – ${subjectAction}: ${orgName}`;
-
-    const bodyLines = [
-      `Request type: ${type}`,
-      `Organization type: ${orgType}`,
-      `Organization name: ${orgName}`,
-      `Official website: ${website}`,
-      location ? `Location: ${location}` : null,
-      "",
-      "Requester",
-      contactName ? `Name: ${contactName}` : null,
-      `Email: ${contactEmail}`,
-      "",
-      "Details",
-      details ? details : "(none provided)",
-      "",
-      "Notes",
-      "- Please verify authority if needed (e.g., reply-to an address listed on the official website).",
-      "- By default, Armur listings are factual: name, a brief description, and a link.",
-      "",
-      "Sent from armur.org landing page."
-    ].filter(Boolean);
-
-    const mailto = `mailto:legal@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    window.location.href = mailto;
-
-    closeListingModal();
-  }
 </script>
 </body>
 </html>
