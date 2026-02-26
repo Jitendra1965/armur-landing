@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Armur – DMCA Copyright Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Armur (HoplonTec Inc.) DMCA Copyright Policy and procedures for notices and counter-notices under 17 U.S.C. § 512."
+  />
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    :root {
+      --bg: #040b08;
+      --bg-soft: #07150e;
+      --gunmetal: #11171d;
+      --british-green: #0f3b2c;
+      --british-green-soft: #164835;
+      --brass-gold: #c7a15a;
+      --brass-gold-soft: rgba(199, 161, 90, 0.18);
+      --ivory: #f5f2e7;
+      --text-main: #d7e0d6;
+      --text-muted: #9aa69a;
+      --danger: #ff4b5c;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --transition-fast: 0.2s ease-out;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10271c 0, #040b08 52%, #020505 100%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    body { line-height: 1.5; }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Layout */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 11, 8, 0.96),
+        rgba(4, 11, 8, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f8f4e8 0, #d1b87d 26%, #7f5b24 70%, #221609 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.8), 0 8px 18px rgba(0, 0, 0, 0.9);
+    }
+
+    .logo-mark span {
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a231b;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 20px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ivory);
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass-gold);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover { color: var(--ivory); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      white-space: nowrap;
+      background: none;
+      color: var(--ivory);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brass-gold), #e0c382);
+      color: #1b1508;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      background: linear-gradient(135deg, #e5c887, #f1dba1);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(9, 24, 17, 0.9);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--brass-gold);
+      background: rgba(13, 38, 27, 1);
+    }
+
+    .btn-icon { font-size: 15px; }
+
+    /* Mobile nav */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--ivory);
+      font-size: 22px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+      .nav--open .nav-links,
+      .nav--open .nav-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-top: 10px;
+      }
+      header { background: rgba(4, 11, 8, 0.98); }
+      .nav { flex-wrap: wrap; }
+    }
+
+    main { flex: 1; }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 18px;
+    }
+
+    /* Hero (legal page) */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      padding-top: 34px;
+      padding-bottom: 22px;
+    }
+
+    .hero-copy-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hero-copy-eyebrow span.badge {
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--brass-gold-soft);
+      background: rgba(16, 46, 29, 0.9);
+      color: var(--brass-gold);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 4vw, 38px);
+      margin: 0;
+      color: var(--ivory);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 820px;
+    }
+
+    /* Legal content */
+    .legal-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+      gap: 18px;
+      align-items: start;
+    }
+
+    @media (max-width: 980px) {
+      .legal-layout { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .legal-card {
+      background: linear-gradient(145deg, rgba(12, 30, 23, 0.94), #050907);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.7);
+    }
+
+    .legal-card h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--ivory);
+      letter-spacing: 0.02em;
+    }
+
+    .legal-card h3 {
+      margin: 16px 0 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
+    .legal-card p {
+      margin: 0 0 10px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .legal-card ul, .legal-card ol {
+      margin: 8px 0 12px 18px;
+      padding: 0;
+      color: var(--text-main);
+      font-size: 13px;
+    }
+
+    .legal-card li { margin-bottom: 6px; color: var(--text-main); }
+
+    .legal-note {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(6, 12, 9, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .side-card {
+      background: rgba(5, 11, 8, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 14px 14px 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .side-card h4 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      color: var(--ivory);
+    }
+
+    .side-card code {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--ivory);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+    }
+
+    .side-links {
+      margin-top: 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .side-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(7, 16, 11, 0.98);
+      color: var(--text-main);
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .side-links a:hover {
+      border-color: var(--brass-gold);
+      transform: translateY(-1px);
+      color: var(--ivory);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text-muted);
+      width: fit-content;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--brass-gold);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #020403;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a { font-size: 12px; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--ivory); }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="nav" id="mainNav">
+      <div class="nav-left">
+        <a href="/" style="display:flex;align-items:center;gap:10px;">
+          <div class="logo-mark"><span>A</span></div>
+          <div class="logo-text">
+            <div class="logo-title">ARMUR</div>
+            <div class="logo-sub">Firearm Collector Vault</div>
+          </div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+
+      <div class="nav-links">
+        <a href="#policy">DMCA Policy</a>
+        <a href="#notice">Takedown Notice</a>
+        <a href="#counter">Counter-Notice</a>
+        <a href="#repeat">Repeat Infringers</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="/privacy/index.html">Privacy</a>
+        <a class="btn btn-primary" href="/terms/index.html">
+          <span>Terms</span><span class="btn-icon">➜</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="section hero" id="top">
+      <div class="hero-copy-eyebrow">
+        <span class="badge">Legal</span>
+        <span>DMCA • 17 U.S.C. § 512 • Copyright Claims</span>
+      </div>
+      <h1 class="hero-title">DMCA Copyright Policy</h1>
+      <p class="hero-subtitle">
+        This policy explains how HoplonTec Inc. handles copyright infringement claims for the Armur mobile application and armur.org,
+        including takedown notices and counter-notifications under the Digital Millennium Copyright Act.
+      </p>
+      <div class="pill" style="margin-top:10px;"><span class="dot"></span> Last Updated: 15 February 2026</div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="section" id="policy">
+      <div class="legal-layout">
+        <article class="legal-card">
+          <h2>DMCA Copyright Policy</h2>
+          <p>
+            This Digital Millennium Copyright Act (“DMCA”) Policy applies to the Armur mobile application, the website located at
+            <strong>armur.org</strong>, and all related services (collectively, the “Service”).
+          </p>
+          <p>
+            The Service is owned and operated by <strong>HoplonTec Inc.</strong>, a Delaware corporation (“HoplonTec,” “Company,” “we,” “us,” or “our”).
+            Armur is a product marketed and distributed by HoplonTec Inc.
+          </p>
+          <p>
+            HoplonTec complies with the provisions of the Digital Millennium Copyright Act, 17 U.S.C. § 512, and has adopted this policy governing claims of
+            copyright infringement.
+          </p>
+
+          <h3 id="agent">1. Designated Copyright Agent</h3>
+          <p>
+            Pursuant to 17 U.S.C. § 512(c)(2), HoplonTec Inc. has designated the following agent to receive notifications of claimed infringement:
+          </p>
+          <p>
+            <strong>Designated DMCA Agent</strong><br />
+            HoplonTec Inc.<br />
+            <strong>[Attn: Legal Department, 1111B S Governors Ave # 87194,Dover, DE - 19904]</strong><br />
+            Email: <strong>legal@armur.org</strong>
+          </p>
+          <!-- <p class="legal-note">
+            Keep the agent details here identical to your U.S. Copyright Office DMCA agent registration, and renew the registration every three years.
+          </p> -->
+
+          <h3 id="notice">2. Filing a DMCA Takedown Notice</h3>
+          <p>
+            If you believe that material available on or through the Service infringes a copyright you own or control, you may submit a written notification containing
+            the following information (as required by 17 U.S.C. § 512(c)(3)):
+          </p>
+          <ol>
+            <li>A physical or electronic signature of the copyright owner or authorized representative</li>
+            <li>Identification of the copyrighted work claimed to have been infringed</li>
+            <li>
+              Identification of the allegedly infringing material and sufficient information to locate it
+              (including URLs, account names, listing identifiers, or screenshots)
+            </li>
+            <li>Your name, mailing address, telephone number, and email address</li>
+            <li>
+              A statement that you have a good-faith belief that the use of the material is not authorized by the copyright owner, its agent, or the law
+            </li>
+            <li>
+              A statement that the information provided is accurate and, under penalty of perjury, that you are authorized to act on behalf of the copyright owner
+            </li>
+          </ol>
+          <p>
+            Incomplete or deficient notices may not be processed.
+          </p>
+
+          <h3 id="action">3. Review and Action Upon Receipt</h3>
+          <p>
+            Upon receipt of a facially valid DMCA notice, HoplonTec may:
+          </p>
+          <ul>
+            <li>Remove or disable access to the allegedly infringing material</li>
+            <li>Notify the user who posted or stored the material</li>
+            <li>Document the claim for compliance purposes</li>
+            <li>Terminate repeat infringers where appropriate</li>
+          </ul>
+          <p>
+            HoplonTec reserves the right to remove content without prior notice where appropriate. Nothing in this policy shall be construed as an admission of liability.
+          </p>
+
+          <h3 id="counter">4. Counter-Notification Procedure</h3>
+          <p>
+            If you believe that material you posted was removed or disabled as a result of mistake or misidentification, you may submit a counter-notification containing:
+          </p>
+          <ol>
+            <li>Your physical or electronic signature</li>
+            <li>Identification of the material that was removed and its prior location</li>
+            <li>
+              A statement under penalty of perjury that you have a good-faith belief the material was removed due to mistake or misidentification
+            </li>
+            <li>Your name, address, and telephone number</li>
+            <li>
+              A statement that you consent to the jurisdiction of the Federal District Court in the State of Delaware (or, if outside the United States, any judicial district
+              in which HoplonTec Inc. may be found)
+            </li>
+          </ol>
+          <p>
+            Upon receipt of a valid counter-notification, HoplonTec may restore the removed material within 10–14 business days unless the original complainant files a court
+            action seeking to restrain the alleged infringement.
+          </p>
+
+          <h3 id="repeat">5. Repeat Infringer Policy</h3>
+          <p>
+            HoplonTec maintains a policy of terminating, in appropriate circumstances and at its sole discretion, users who are determined to be repeat infringers.
+          </p>
+          <p>
+            We may also suspend or terminate accounts involved in multiple claims, even if individual claims are not ultimately adjudicated.
+          </p>
+
+          <h3 id="misrep">6. Misrepresentations</h3>
+          <p>
+            Any person who knowingly materially misrepresents that material is infringing, or that material was removed by mistake, may be liable for damages under
+            17 U.S.C. § 512(f).
+          </p>
+
+          <h3 id="provider">7. Service Provider Status</h3>
+          <p>
+            HoplonTec Inc. operates the Service as a provider of online services within the meaning of 17 U.S.C. § 512. HoplonTec does not proactively monitor user-generated
+            content but reserves the right to do so in its sole discretion.
+          </p>
+
+          <h3 id="terms">8. Relationship to Terms of Use</h3>
+          <p>
+            This DMCA Policy is incorporated by reference into the Armur Terms of Use. All disputes arising under this Policy are subject to the arbitration provisions set
+            forth in the Terms of Use.
+          </p>
+
+          <h3 id="contact">9. Contact Information</h3>
+          <p>
+            All DMCA notices and counter-notifications must be sent to:
+          </p>
+          <p>
+            <strong>HoplonTec Inc.</strong><br />
+            Attn: DMCA Agent<br />
+            <strong>[Attn: Legal Department, 1111B S Governors Ave # 87194,Dover, DE - 19904]</strong><br />
+            Email: <strong>legal@armur.org</strong>
+          </p>
+
+          <div class="legal-note">
+            Tip: include specific URLs or in-app identifiers for faster processing. If your report concerns a listing or post, include screenshots.
+          </div>
+        </article>
+
+        <aside class="side-card">
+          <h4>Quick links</h4>
+          <div class="side-links">
+            <a href="#agent">Designated Agent <span>→</span></a>
+            <a href="#notice">Submit a Notice <span>→</span></a>
+            <a href="#counter">Counter-Notice <span>→</span></a>
+            <a href="#repeat">Repeat Infringers <span>→</span></a>
+            <a href="#contact">Contact <span>→</span></a>
+          </div>
+
+          <div style="margin-top:12px;">
+            <div class="pill"><span class="dot"></span> Email: <code>dmca@armur.org</code></div>
+            <div class="pill" style="margin-top:8px;"><span class="dot"></span> Company: <code>HoplonTec Inc.</code></div>
+          </div>
+
+          <div class="legal-note" style="margin-top:12px;">
+            This page is informational and does not constitute legal advice.
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Armur. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="mailto:legal@armur.org">DMCA Contact</a>
+        <a href="/privacy/index.html">Privacy Policy</a>
+        <a href="/terms/index.html">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  function toggleNav() {
+    const nav = document.getElementById("mainNav");
+    nav.classList.toggle("nav--open");
+  }
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

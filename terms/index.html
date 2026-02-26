@@ -1,154 +1,684 @@
+<!-- FILE: /terms/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Armur – Terms of Use</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Armur Terms of Use – governing the use of the Armur mobile application." />
+  <meta
+    name="description"
+    content="Armur Terms of Use – agreement governing access to and use of Armur and armur.org."
+  />
   <link rel="icon" href="/favicon.ico" />
 
   <style>
     :root {
-      --bg:#040b08;
-      --british-green:#0f3b2c;
-      --brass-gold:#c7a15a;
-      --ivory:#f5f2e7;
-      --text-main:#d7e0d6;
-      --text-muted:#9aa69a;
-      --border-soft:rgba(255,255,255,.08);
-      --shadow-soft:0 18px 40px rgba(0,0,0,.55);
-      --radius-lg:18px;
-      --max-width:1120px;
+      --bg: #040b08;
+      --bg-soft: #07150e;
+      --gunmetal: #11171d;
+      --british-green: #0f3b2c;
+      --british-green-soft: #164835;
+      --brass-gold: #c7a15a;
+      --brass-gold-soft: rgba(199, 161, 90, 0.18);
+      --ivory: #f5f2e7;
+      --text-main: #d7e0d6;
+      --text-muted: #9aa69a;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --transition-fast: 0.2s ease-out;
+      --max-width: 1120px;
     }
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI;
-      background:radial-gradient(circle at top,#10271c 0,#040b08 52%,#020505 100%);
-      color:var(--text-main);
-      line-height:1.55;
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10271c 0, #040b08 52%, #020505 100%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
     }
-    .section{max-width:var(--max-width);margin:auto;padding:40px 18px}
-    h1,h2,h3{color:var(--ivory)}
-    h1{font-size:34px;margin-bottom:6px}
-    h2{margin-top:30px;font-size:20px}
-    h3{margin-top:16px;font-size:15px}
-    p,li{color:var(--text-muted);font-size:14px}
-    ul{padding-left:18px}
-    header{
-      backdrop-filter:blur(16px);
-      background:rgba(4,11,8,.95);
-      border-bottom:1px solid rgba(255,255,255,.05);
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--ivory); }
+    strong { color: var(--ivory); }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(4, 11, 8, 0.96), rgba(4, 11, 8, 0.85), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
     }
-    .nav{max-width:var(--max-width);margin:auto;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
-    footer{border-top:1px solid rgba(255,255,255,.06);background:#020403}
-    .footer-inner{max-width:var(--max-width);margin:auto;padding:18px;font-size:12px;color:var(--text-muted);display:flex;justify-content:space-between}
-    .policy-card{
-      background:linear-gradient(145deg,rgba(12,30,23,.94),#050907);
-      border-radius:var(--radius-lg);
-      padding:22px;
-      border:1px solid rgba(255,255,255,.05);
-      box-shadow:var(--shadow-soft);
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
     }
+
+    .nav-left { display: flex; align-items: center; gap: 10px; }
+    .logo-mark {
+      width: 34px; height: 34px; border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f8f4e8 0, #d1b87d 26%, #7f5b24 70%, #221609 100%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.8), 0 8px 18px rgba(0, 0, 0, 0.9);
+    }
+    .logo-mark span { font-weight: 700; font-size: 18px; color: #1a231b; letter-spacing: 0.1em; }
+
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-title { font-size: 20px; letter-spacing: 0.38em; text-transform: uppercase; font-weight: 600; color: var(--ivory); }
+    .logo-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-muted); }
+
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 14px; color: var(--text-muted); }
+    .nav-links a { position: relative; padding-bottom: 2px; }
+    .nav-links a::after {
+      content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+      background: var(--brass-gold); transition: width var(--transition-fast);
+    }
+    .nav-links a:hover { color: var(--ivory); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast),
+        border-color var(--transition-fast), color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      white-space: nowrap;
+      background: none;
+      color: var(--ivory);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brass-gold), #e0c382);
+      color: #1b1508;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      background: linear-gradient(135deg, #e5c887, #f1dba1);
+    }
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(9, 24, 17, 0.9);
+    }
+    .btn-ghost:hover { border-color: var(--brass-gold); background: rgba(13, 38, 27, 1); }
+    .btn-icon { font-size: 15px; }
+
+    main { flex: 1; }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 18px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+      padding-top: 34px;
+      padding-bottom: 18px;
+    }
+
+    .hero-copy-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .hero-copy-eyebrow span.badge {
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--brass-gold-soft);
+      background: rgba(16, 46, 29, 0.9);
+      color: var(--brass-gold);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+    }
+    .hero-title { font-size: clamp(28px, 4vw, 38px); margin: 0; color: var(--ivory); }
+    .hero-subtitle { margin: 0; font-size: 14px; color: var(--text-muted); max-width: 980px; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text-muted);
+      width: fit-content;
+    }
+    .dot { width: 5px; height: 5px; border-radius: 999px; background: var(--brass-gold); }
+
+    .legal-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 980px) { .legal-layout { grid-template-columns: minmax(0, 1fr); } }
+
+    .legal-card {
+      background: linear-gradient(145deg, rgba(12, 30, 23, 0.94), #050907);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+    .legal-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.10), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+    .legal-inner { position: relative; }
+
+    .legal-inner h2 { margin: 0 0 10px; font-size: 18px; color: var(--ivory); }
+    .legal-inner h3 {
+      margin: 16px 0 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+    .legal-inner p { margin: 0 0 10px; font-size: 13px; color: var(--text-main); }
+    .legal-inner ul { margin: 8px 0 12px 18px; padding: 0; color: var(--text-main); font-size: 13px; }
+    .legal-inner li { margin-bottom: 6px; }
+
+    .legal-note {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(6, 12, 9, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .side-card {
+      background: rgba(5, 11, 8, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 12px 14px 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      box-shadow: var(--shadow-soft);
+    }
+    .side-card h4 { margin: 0 0 6px; font-size: 13px; color: var(--ivory); }
+
+    .side-links { margin-top: 10px; display: grid; gap: 8px; }
+    .side-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(7, 16, 11, 0.98);
+      color: var(--text-main);
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
+    }
+    .side-links a:hover {
+      border-color: var(--brass-gold);
+      transform: translateY(-1px);
+      color: var(--ivory);
+    }
+
+    .side-card code {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--ivory);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #020403;
+    }
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--ivory); }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="nav">
-    <strong>ARMUR</strong>
-    <div><a href="/">Home</a> • <a href="/privacy/">Privacy</a></div>
-  </div>
-</header>
+<div class="page">
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <a href="/" style="display:flex;align-items:center;gap:10px;">
+          <div class="logo-mark"><span>A</span></div>
+          <div class="logo-text">
+            <div class="logo-title">ARMUR</div>
+            <div class="logo-sub">Firearm Collector Vault</div>
+          </div>
+        </a>
+      </div>
 
-<main class="section">
-  <h1>Terms of Use</h1>
-  <p><strong>Last updated: 15 February 2026</strong></p>
+      <div class="nav-links">
+        <a href="/legal/index.html">Legal</a>
+        <a href="/privacy/index.html">Privacy</a>
+        <a href="/dmca/index.html">DMCA</a>
+      </div>
 
-  <div class="policy-card">
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="/legal/index.html">Legal</a>
+        <a class="btn btn-primary" href="/privacy/index.html">
+          <span>Privacy</span><span class="btn-icon">➜</span>
+        </a>
+      </div>
+    </nav>
+  </header>
 
-  <p>These Terms of Use (“Terms”) govern your use of the Armur mobile application (the “App”).
-  The App is owned and operated by Hoplontec Inc., a Delaware corporation (“Hoplontec”, “Company”, “we”, “us”, or “our”).</p>
+  <main>
+    <section class="section hero" id="top">
+      <div class="hero-copy-eyebrow">
+        <span class="badge">Legal</span>
+        <span>Terms • Arbitration • Liability Limits</span>
+      </div>
+      <h1 class="hero-title">Terms of Use</h1>
+      <p class="hero-subtitle">
+        These Terms govern your use of the Armur app and armur.org, including account rules, user content, marketplace features,
+        disclaimers, and dispute resolution.
+      </p>
+      <div class="pill"><span class="dot"></span> Last Updated: 15 February 2026</div>
+    </section>
 
-  <p>By creating an account or using the App, you agree to be bound by these Terms. If you do not agree, do not use the App.</p>
+    <section class="section" id="terms">
+      <div class="legal-layout">
+        <article class="legal-card">
+          <div class="legal-inner">
+            <h2>ARMUR – TERMS OF USE</h2>
 
-  <h2>1. Nature of the Service</h2>
-  <p>Armur is a digital tool for documenting personal gear collections, including firearms, accessories, and related equipment.</p>
-  <ul>
-    <li>Provide legal advice</li>
-    <li>Provide compliance guidance</li>
-    <li>Facilitate firearm sales or transfers</li>
-    <li>Perform background checks</li>
-    <li>Act as a broker, dealer, marketplace intermediary, or escrow service</li>
-  </ul>
-  <p>You are solely responsible for complying with all applicable laws.</p>
+            <p><strong>Last Updated:</strong> 15 February 2026</p>
 
-  <h2>2. Eligibility</h2>
-  <ul>
-    <li>Are at least 18 years old</li>
-    <li>Are legally permitted to possess the items you document</li>
-    <li>Will use the App only for lawful purposes</li>
-  </ul>
+            <p>
+              These Terms of Use (“<strong>Terms</strong>”) govern your access to and use of the Armur mobile application, the website located at
+              <strong>armur.org</strong>, and related services (collectively, the “<strong>Service</strong>”).
+            </p>
 
-  <h2>3. Account Requirement</h2>
-  <ul>
-    <li>Provide accurate information</li>
-    <li>Maintain credential security</li>
-    <li>Accept responsibility for activity under your account</li>
-  </ul>
+            <p>
+              The Service is owned and operated by <strong>HoplonTec Inc.</strong>, a Delaware corporation (“<strong>HoplonTec</strong>,” “<strong>Company</strong>,”
+              “we,” “us,” or “our”). “Armur” is a product marketed and distributed by HoplonTec Inc.
+            </p>
 
-  <h2>4. Device Storage</h2>
-  <p>Some data may be stored locally and may be lost if the App is removed.</p>
+            <p>
+              By creating an account, accessing, or using the Service, you agree to be bound by these Terms. If you do not agree, do not use the Service.
+            </p>
 
-  <h2>5. Cloud Storage and Processing</h2>
-  <p>You authorize Hoplontec to store and process collection data and content.</p>
+            <h3 id="s1">1. Nature of the Service</h3>
+            <p>
+              Armur is a digital tool for documenting personal gear collections, including firearms, accessories, and related equipment.
+            </p>
+            <p>Armur does not:</p>
+            <ul>
+              <li>Provide legal advice</li>
+              <li>Provide compliance guidance</li>
+              <li>Facilitate firearm sales or transfers</li>
+              <li>Perform background checks</li>
+              <li>Act as a broker, dealer, marketplace intermediary, or escrow service</li>
+            </ul>
+            <p>You are solely responsible for complying with all applicable laws.</p>
 
-  <h2>6. Payments and Subscriptions</h2>
-  <p>Payments are processed by Stripe. We do not store credit card numbers.</p>
+            <h3 id="s2">2. Eligibility</h3>
+            <p>You represent that you:</p>
+            <ul>
+              <li>Are at least 18 years old</li>
+              <li>Are legally permitted to possess the items you document</li>
+              <li>Will use the Service only for lawful purposes</li>
+            </ul>
 
-  <h2>7. User-Generated Content & Marketplace</h2>
-  <p>You retain ownership but grant Hoplontec license to store and display content.</p>
+            <h3 id="s3">3. Account Requirement; Security</h3>
+            <p>An account is required to access and use Armur.</p>
+            <p>You agree to:</p>
+            <ul>
+              <li>Provide accurate information</li>
+              <li>Maintain credential security</li>
+              <li>Accept responsibility for activity under your account</li>
+            </ul>
+            <p>HoplonTec is not responsible for losses caused by unauthorized account access.</p>
 
-  <h2>8. Prohibited Uses</h2>
-  <ul>
-    <li>No firearm sales or transfers through the App</li>
-    <li>No illegal transactions</li>
-    <li>No unlawful or infringing content</li>
-    <li>No unauthorized access attempts</li>
-  </ul>
+            <h3 id="s4">4. Device Storage</h3>
+            <p>
+              Some data may be stored locally on your device to improve performance and enable limited offline functionality, including cached records,
+              media, and settings.
+            </p>
+            <p>
+              If your device is lost, reset, or the App is removed, some locally stored data may be lost and may not be recoverable by HoplonTec.
+            </p>
 
-  <h2>9. Data Loss</h2>
-  <p>Hoplontec is not liable for data loss.</p>
+            <h3 id="s5">5. Cloud Storage and Processing</h3>
+            <p>By using the Service, you authorize HoplonTec to store and process:</p>
+            <ul>
+              <li>Collection entries and metadata</li>
+              <li>Photos and media</li>
+              <li>Posts, comments, and interactions</li>
+              <li>Marketplace listings</li>
+              <li>Notifications and settings</li>
+              <li>Profile and account data</li>
+              <li>Device identifiers for security</li>
+            </ul>
 
-  <h2>10. Third-Party Services</h2>
-  <p>The App uses hosting, analytics, and Stripe.</p>
+            <h3 id="s5-1">5.1 Service Availability</h3>
+            <p>We do not guarantee:</p>
+            <ul>
+              <li>Continuous uptime</li>
+              <li>Immediate syncing</li>
+              <li>Permanent file preservation</li>
+            </ul>
 
-  <h2>11. Termination</h2>
-  <p>Accounts may be suspended or terminated.</p>
+            <h3 id="s6">6. Payments and Subscriptions</h3>
+            <p>Paid features may be offered through in-app subscriptions or other purchase flows.</p>
+            <p>
+              Payments may be processed by third parties (including Apple, Google, or Stripe, depending on the purchase method).
+              HoplonTec does not store credit card numbers and does not process card data directly when Stripe is used.
+            </p>
 
-  <h2>12. Disclaimers</h2>
-  <p><strong>THE APP IS PROVIDED “AS IS”.</strong></p>
+            <div class="legal-note" id="store-note">
+              <strong>App Store / Google Play Notice:</strong> If you subscribe via Apple’s App Store or Google Play, billing, renewal, and refunds are handled
+              by those platforms under their rules and your platform account settings. HoplonTec cannot override platform billing decisions.
+            </div>
 
-  <h2>13. Limitation of Liability</h2>
-  <p>Total liability shall not exceed the amount paid in the previous 12 months.</p>
+            <h3 id="s7">7. User-Generated Content &amp; Marketplace Features</h3>
+            <p>
+              The Service may allow you to create or upload content, including marketplace listings, posts, comments, profile information, images, and media
+              (“<strong>User Content</strong>”).
+            </p>
+            <p>
+              You retain ownership of your User Content, but you grant HoplonTec a worldwide, non-exclusive, royalty-free, sublicensable license to host, store,
+              reproduce, display, perform, distribute (to the extent necessary to provide the Service), and process your User Content to operate, improve,
+              and secure the Service.
+            </p>
+            <p>
+              You represent and warrant that you have all rights necessary to grant the foregoing license and that your User Content does not violate law or these Terms.
+            </p>
 
-  <h2>14. Indemnification</h2>
-  <p>You agree to indemnify Hoplontec Inc.</p>
+            <h3 id="s7-1">7.1 Marketplace Disclaimer</h3>
+            <p>
+              If the Service includes marketplace-style features, you understand and agree that HoplonTec is not a party to any transaction between users,
+              does not facilitate firearm sales or transfers through the Service, does not provide escrow, does not perform background checks, and does not
+              verify the legality, ownership, authenticity, or compliance status of any item.
+            </p>
+            <p>
+              Any interactions or transactions between users occur solely at the users’ discretion and risk.
+            </p>
 
-  <h2>15. Governing Law</h2>
-  <p>Governed by the laws of the State of Delaware, USA.</p>
+            <h3 id="s8">8. Prohibited Uses</h3>
+            <p>You may not use Armur to:</p>
+            <ul>
+              <li>Conduct firearm sales, transfers, or background checks through the Service</li>
+              <li>Facilitate illegal transactions</li>
+              <li>Upload unlawful, threatening, defamatory, obscene, or infringing content</li>
+              <li>Attempt unauthorized access or interfere with the Service</li>
+              <li>Misrepresent identity or ownership of items</li>
+              <li>Upload malware or attempt to bypass security features</li>
+            </ul>
 
-  </div>
-</main>
+            <h3 id="s9">9. Intellectual Property</h3>
+            <p>
+              The Service, including its software, design, text, graphics, logos, and other content (excluding User Content), is owned by HoplonTec or its licensors
+              and is protected by intellectual property laws.
+            </p>
+            <p>
+              Subject to your compliance with these Terms, HoplonTec grants you a limited, revocable, non-exclusive, non-transferable license to use the Service
+              for your personal, non-commercial use (unless HoplonTec expressly authorizes otherwise).
+            </p>
 
-<footer>
-  <div class="footer-inner">
-    © <span id="year"></span> Armur · <a href="/privacy/">Privacy Policy</a>
-  </div>
-</footer>
+            <h3 id="s10">10. DMCA Copyright Policy</h3>
+            <p>
+              HoplonTec respects copyright law. Copyright claims and counter-notices are handled under our DMCA Copyright Policy available at
+              <a href="/dmca/index.html">armur.org/dmca</a>.
+            </p>
+
+            <h3 id="s11">11. Third-Party Services and Third-Party Content</h3>
+            <p>
+              The Service may use third-party providers (e.g., hosting, analytics, payments). Your use of those services may be subject to their own terms and policies.
+            </p>
+            <p>
+              The Service may display links or directories of third-party resources. Third-party content displayed via in-app browsers remains the property of the
+              respective owners. HoplonTec does not claim ownership of or responsibility for third-party content.
+            </p>
+
+            <h3 id="s12">12. Termination</h3>
+            <p>
+              We may suspend or terminate your account, restrict access, or remove content at any time if we believe you have violated these Terms, pose a risk,
+              or if required by law.
+            </p>
+            <p>
+              You may delete your account at any time. Cloud data will be deleted subject to backup retention and legal obligations.
+            </p>
+
+            <h3 id="s13">13. Disclaimers</h3>
+            <p><strong>THE SERVICE IS PROVIDED “AS IS” AND “AS AVAILABLE.”</strong></p>
+            <p>
+              HoplonTec disclaims all warranties to the maximum extent permitted by law, including merchantability, fitness for a particular purpose, non-infringement,
+              and any warranties arising from course of dealing or usage of trade.
+            </p>
+            <p>
+              Armur is not a substitute for legal compliance, insurance, professional valuation, or gunsmithing services.
+            </p>
+
+            <h3 id="s14">14. Limitation of Liability</h3>
+            <p>
+              To the maximum extent permitted by law, HoplonTec shall not be liable for any indirect, incidental, special, consequential, or punitive damages,
+              or any loss of profits, revenue, data, or goodwill, arising out of or related to the Service.
+            </p>
+            <p>
+              HoplonTec’s total liability for any claim shall not exceed the amount you paid to HoplonTec (if any) in the twelve (12) months preceding the event
+              giving rise to the claim.
+            </p>
+
+            <h3 id="s15">15. Indemnification</h3>
+            <p>
+              You agree to indemnify, defend, and hold harmless HoplonTec Inc. and its officers, directors, employees, contractors, and agents from any claims,
+              liabilities, damages, losses, and expenses (including reasonable attorneys’ fees) arising from:
+            </p>
+            <ul>
+              <li>Your use of the Service</li>
+              <li>Your User Content</li>
+              <li>Your violation of these Terms or applicable law</li>
+            </ul>
+
+            <h3 id="s16">16. Governing Law and Venue</h3>
+            <p>
+              These Terms are governed by the laws of the <strong>State of Delaware, USA</strong>, without regard to conflict-of-law principles.
+            </p>
+            <p>
+              Subject to Section 17 (Arbitration), any disputes shall be resolved exclusively in the state or federal courts located in <strong>Delaware</strong>.
+            </p>
+
+            <h3 id="s17">17. Arbitration; Class Action Waiver</h3>
+            <p>
+              Except where prohibited by law, any dispute, claim, or controversy arising out of or relating to these Terms or the Service shall be resolved by
+              binding arbitration on an individual basis and not in a class, consolidated, or representative action.
+            </p>
+            <p>
+              You and HoplonTec each waive the right to a trial by jury and the right to participate in a class action.
+              The arbitrator may award relief only in favor of the individual party seeking relief and only to the extent necessary to provide relief warranted by that party’s claim.
+            </p>
+            <p>
+              This arbitration provision shall survive termination of these Terms.
+            </p>
+
+            <h3 id="s18">18. Changes to the Service or Terms</h3>
+            <p>
+              We may modify the Service or these Terms from time to time. Material changes will be posted within the Service or on armur.org.
+              Continued use after changes become effective constitutes acceptance.
+            </p>
+
+            <h3 id="s19">19. Export Controls</h3>
+            <p>
+              You may not use or export the Service in violation of U.S. export laws and regulations. You represent that you are not located in a country subject
+              to U.S. sanctions and are not on any U.S. restricted party list.
+            </p>
+
+            <h3 id="s20">20. Force Majeure</h3>
+            <p>
+              HoplonTec shall not be liable for delays or failures due to causes beyond its reasonable control, including acts of God, labor disputes,
+              internet or hosting failures, war, terrorism, civil unrest, or governmental actions.
+            </p>
+
+            <h3 id="s21">21. Severability; Entire Agreement; Assignment</h3>
+            <p>
+              If any provision of these Terms is held unenforceable, the remaining provisions will remain in effect.
+              These Terms, together with policies incorporated by reference (including Privacy Policy and DMCA Policy), constitute the entire agreement.
+            </p>
+            <p>
+              You may not assign these Terms without HoplonTec’s prior written consent. HoplonTec may assign these Terms in connection with a merger, acquisition,
+              reorganization, or sale of assets.
+            </p>
+
+            <h3 id="s22">22. California Consumer Compliance Rider</h3>
+            <p>This section applies solely to residents of the State of California.</p>
+            <p>
+              If you are a California resident, you may have certain rights under the California Consumer Privacy Act, as amended by the California Privacy Rights Act
+              (collectively, “CCPA”).
+            </p>
+            <p>Subject to applicable exceptions, you may have the right to:</p>
+            <ul>
+              <li>Request disclosure of categories and specific pieces of personal information collected</li>
+              <li>Request deletion of personal information</li>
+              <li>Request correction of inaccurate personal information</li>
+              <li>Request information regarding categories of third parties with whom personal information is shared</li>
+              <li>Limit the use of sensitive personal information (if applicable)</li>
+            </ul>
+            <p>Requests may be submitted via the contact information listed in our Privacy Policy.</p>
+            <p>We will not discriminate against you for exercising rights afforded under applicable California law.</p>
+            <p>
+              HoplonTec does not sell personal information as defined under the CCPA. To the extent certain processing may be deemed “sharing,” it is conducted
+              for business purposes and subject to contractual safeguards.
+            </p>
+            <p>
+              The arbitration provisions in Section 17 apply to California residents except where prohibited by applicable law. Nothing in this section limits any
+              non-waivable rights under California law.
+            </p>
+
+            <h3 id="s23">23. European Union / UK GDPR Addendum</h3>
+            <p>This section applies only to individuals located in the EEA, UK, or Switzerland to the extent applicable law requires.</p>
+            <p>
+              The Service is operated from the United States. HoplonTec does not intentionally market the Service to residents of the EEA or UK. However, if GDPR
+              applies to your use of the Service, this section governs.
+            </p>
+
+            <h3 id="s23-1">23.1 Lawful Basis for Processing</h3>
+            <p>Where GDPR applies, we process personal data under one or more of the following lawful bases:</p>
+            <ul>
+              <li>Performance of a contract (account creation and service delivery)</li>
+              <li>Legitimate interests (security, fraud prevention, service improvement)</li>
+              <li>Consent (where required)</li>
+              <li>Compliance with legal obligations</li>
+            </ul>
+
+            <h3 id="s23-2">23.2 Data Subject Rights</h3>
+            <p>Subject to applicable limitations, you may have the right to access, rectify, erase, restrict processing, port data, or object to processing.</p>
+            <p>Requests may be submitted via the contact information in our Privacy Policy. We may verify identity before fulfilling requests.</p>
+
+            <h3 id="s23-3">23.3 International Transfers</h3>
+            <p>
+              Personal data may be transferred to and processed in the United States. Where required, transfers are conducted pursuant to appropriate safeguards,
+              including Standard Contractual Clauses or other lawful mechanisms.
+            </p>
+
+            <h3 id="s23-4">23.4 Supervisory Authority</h3>
+            <p>If you are located in the EEA, you may lodge a complaint with your local supervisory authority.</p>
+            <p>Nothing in this section shall be construed as establishing HoplonTec Inc. as having an establishment within the European Union.</p>
+         
+            <h3 id="s24">24. Contact</h3>
+            <p><strong>Email:</strong> <a href="mailto:legal@armur.org">legal@armur.org</a></p>
+            <p><strong>Mailing Address:</strong><br />
+              HoplonTec Inc.<br />
+              Attn: Legal Department<br />
+              1111B S Governors Ave # 87194<br />
+              Dover, DE - 19904
+            </p>
+         
+         
+          </div>
+
+          
+        </article>
+
+        <aside class="side-card">
+          <h4>Quick links</h4>
+          <div class="side-links">
+            <a href="#s1">1. Service <span>→</span></a>
+            <a href="#s7">7. User Content <span>→</span></a>
+            <a href="#s10">10. DMCA <span>→</span></a>
+            <a href="#s14">14. Liability <span>→</span></a>
+            <a href="#s17">17. Arbitration <span>→</span></a>
+            <a href="#s23">23. California <span>→</span></a>
+            <a href="#s24">24. GDPR <span>→</span></a>
+            <a href="#s22">Contact <span>→</span></a>
+          </div>
+
+          <div class="legal-note" style="margin-top:12px;">
+            Prefer a single hub? Visit <a href="/legal/index.html" style="color:var(--brass-gold);">/legal/</a>.
+          </div>
+
+          <div class="legal-note" style="margin-top:12px;">
+            <strong>Contact:</strong> <code>legal@armur.org</code><br />
+            <strong>Mail:</strong> <code>Dover, DE</code>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Armur. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/legal/index.html">Legal</a>
+        <a href="/privacy/index.html">Privacy</a>
+        <a href="/dmca/index.html">DMCA</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
+</div>
 
 <script>
-document.getElementById("year").textContent=new Date().getFullYear();
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-

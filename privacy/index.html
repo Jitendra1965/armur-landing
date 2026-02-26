@@ -1,4 +1,4 @@
-```html
+<!-- FILE: /privacy/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Armur Privacy Policy – how Hoplontec Inc. collects, uses, and protects information when you use the Armur mobile app."
+    content="Armur Privacy Policy – how HoplonTec Inc. collects, uses, discloses, and safeguards information."
   />
   <link rel="icon" href="/favicon.ico" />
 
@@ -23,7 +23,6 @@
       --ivory: #f5f2e7;
       --text-main: #d7e0d6;
       --text-muted: #9aa69a;
-      --danger: #ff4b5c;
       --border-soft: rgba(255, 255, 255, 0.08);
       --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
       --radius-lg: 18px;
@@ -33,40 +32,23 @@
     }
 
     * { box-sizing: border-box; }
-
     html, body {
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
+      margin: 0; padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #10271c 0, #040b08 52%, #020505 100%);
       color: var(--text-main);
       scroll-behavior: smooth;
     }
-
-    body { line-height: 1.5; }
-
     a { color: inherit; text-decoration: none; }
-    a:hover { color: var(--ivory); }
+    strong { color: var(--ivory); }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
+      position: sticky; top: 0; z-index: 20;
       backdrop-filter: blur(16px);
-      background: linear-gradient(
-        to bottom,
-        rgba(4, 11, 8, 0.96),
-        rgba(4, 11, 8, 0.85),
-        transparent
-      );
-      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      background: linear-gradient(to bottom, rgba(4, 11, 8, 0.96), rgba(4, 11, 8, 0.85), transparent);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
     }
 
     .nav {
@@ -80,100 +62,27 @@
       flex-wrap: wrap;
     }
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
+    .nav-left { display: flex; align-items: center; gap: 10px; }
     .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
+      width: 34px; height: 34px; border-radius: 999px;
       background: radial-gradient(circle at 30% 20%, #f8f4e8 0, #d1b87d 26%, #7f5b24 70%, #221609 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.8), 0 8px 18px rgba(0, 0, 0, 0.9);
-      flex: 0 0 auto;
     }
+    .logo-mark span { font-weight: 700; font-size: 18px; color: #1a231b; letter-spacing: 0.1em; }
 
-    .logo-mark span {
-      font-weight: 700;
-      font-size: 18px;
-      color: #1a231b;
-      letter-spacing: 0.1em;
-    }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-title { font-size: 20px; letter-spacing: 0.38em; text-transform: uppercase; font-weight: 600; color: var(--ivory); }
+    .logo-sub { font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-muted); }
 
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-    }
-
-    .logo-title {
-      font-size: 20px;
-      letter-spacing: 0.38em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--ivory);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .logo-sub {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      font-size: 14px;
-      color: var(--text-muted);
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 2px;
-    }
-
+    .nav-links { display: flex; align-items: center; gap: 18px; font-size: 14px; color: var(--text-muted); }
+    .nav-links a { position: relative; padding-bottom: 2px; }
     .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: var(--brass-gold);
-      transition: width var(--transition-fast);
+      content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+      background: var(--brass-gold); transition: width var(--transition-fast);
     }
-
     .nav-links a:hover { color: var(--ivory); }
     .nav-links a:hover::after { width: 100%; }
-
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--ivory);
-      font-size: 22px;
-      margin-left: auto;
-    }
-
-    .nav-cta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
 
     .btn {
       border-radius: 999px;
@@ -181,11 +90,8 @@
       font-size: 13px;
       border: 1px solid transparent;
       cursor: pointer;
-      transition: transform var(--transition-fast),
-        box-shadow var(--transition-fast),
-        background var(--transition-fast),
-        border-color var(--transition-fast),
-        color var(--transition-fast);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast),
+        border-color var(--transition-fast), color var(--transition-fast);
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -194,55 +100,37 @@
       background: none;
       color: var(--ivory);
     }
-
     .btn-primary {
       background: linear-gradient(135deg, var(--brass-gold), #e0c382);
       color: #1b1508;
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
     }
-
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 20px 40px rgba(0,  0, 0, 0.9);
       background: linear-gradient(135deg, #e5c887, #f1dba1);
     }
-
     .btn-ghost {
       border-color: rgba(255, 255, 255, 0.16);
       background: rgba(9, 24, 17, 0.9);
     }
-
-    .btn-ghost:hover {
-      border-color: var(--brass-gold);
-      background: rgba(13, 38, 27, 1);
-    }
-
-    @media (max-width: 768px) {
-      .nav-links, .nav-cta { display: none; }
-      .nav-toggle { display: block; }
-      .nav--open .nav-links,
-      .nav--open .nav-cta {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 10px;
-        gap: 12px;
-      }
-      header { background: rgba(4, 11, 8, 0.98); }
-    }
+    .btn-ghost:hover { border-color: var(--brass-gold); background: rgba(13, 38, 27, 1); }
+    .btn-icon { font-size: 15px; }
 
     main { flex: 1; }
 
     .section {
       max-width: var(--max-width);
       margin: 0 auto;
-      padding: 38px 18px;
+      padding: 40px 18px;
     }
 
     .hero {
-      padding-top: 26px;
-      padding-bottom: 14px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+      padding-top: 34px;
+      padding-bottom: 18px;
     }
 
     .hero-copy-eyebrow {
@@ -255,7 +143,6 @@
       gap: 8px;
       flex-wrap: wrap;
     }
-
     .hero-copy-eyebrow span.badge {
       padding: 2px 10px;
       border-radius: 999px;
@@ -265,138 +152,122 @@
       font-size: 10px;
       letter-spacing: 0.16em;
     }
+    .hero-title { font-size: clamp(28px, 4vw, 38px); margin: 0; color: var(--ivory); }
+    .hero-subtitle { margin: 0; font-size: 14px; color: var(--text-muted); max-width: 920px; }
 
-    .hero-title {
-      font-size: clamp(28px, 4vw, 38px);
-      margin-top: 14px;
-      margin-bottom: 10px;
-      color: var(--ivory);
-      letter-spacing: 0.02em;
-    }
-
-    .hero-title span { color: var(--brass-gold); }
-
-    .hero-subtitle {
-      font-size: 15px;
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
       color: var(--text-muted);
-      max-width: 780px;
+      width: fit-content;
     }
+    .dot { width: 5px; height: 5px; border-radius: 999px; background: var(--brass-gold); }
 
-    .policy {
-      margin-top: 18px;
+    .legal-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 980px) { .legal-layout { grid-template-columns: minmax(0, 1fr); } }
+
+    .legal-card {
       background: linear-gradient(145deg, rgba(12, 30, 23, 0.94), #050907);
       border-radius: var(--radius-lg);
       padding: 18px 18px 16px;
       border: 1px solid rgba(255, 255, 255, 0.05);
       box-shadow: 0 16px 28px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+    .legal-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.10), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
     }
 
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
+    .legal-inner { position: relative; }
 
-    .meta-pill {
-      border-radius: 999px;
-      border: 1px dashed rgba(255, 255, 255, 0.24);
-      padding: 2px 10px;
-    }
-
-    .toc {
-      margin-top: 14px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      background: rgba(7, 15, 10, 0.96);
-      padding: 14px 14px 12px;
-    }
-
-    .toc-title {
-      margin: 0 0 8px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-muted);
-    }
-
-    .toc-list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--text-muted);
-      font-size: 13px;
-      display: grid;
-      gap: 6px;
-    }
-
-    .toc-list a {
-      color: var(--text-muted);
-    }
-    .toc-list a:hover { color: var(--ivory); }
-
-    .rule {
-      height: 1px;
-      background: rgba(255, 255, 255, 0.07);
-      border: 0;
-      margin: 16px 0 0;
-    }
-
-    h2 {
-      margin: 18px 0 6px;
+    .legal-inner h2 {
+      margin: 0 0 10px;
       font-size: 18px;
-      color: var(--ivory);
-    }
-
-    h3 {
-      margin: 12px 0 6px;
-      font-size: 14px;
       color: var(--ivory);
       letter-spacing: 0.02em;
     }
-
-    p { margin: 8px 0; color: var(--text-muted); }
-
-    ul {
-      margin: 8px 0 10px;
-      padding-left: 18px;
+    .legal-inner h3 {
+      margin: 16px 0 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
       color: var(--text-muted);
-      font-size: 13px;
     }
+    .legal-inner p { margin: 0 0 10px; font-size: 13px; color: var(--text-main); }
+    .legal-inner ul { margin: 8px 0 12px 18px; padding: 0; color: var(--text-main); font-size: 13px; }
+    .legal-inner li { margin-bottom: 6px; }
 
-    li { margin: 6px 0; }
-
-    .note {
-      margin-top: 12px;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--brass-gold-soft);
-      background: rgba(16, 46, 29, 0.75);
-      padding: 12px 12px 10px;
-      color: var(--text-main);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
-    }
-
-    .note strong {
-      color: var(--ivory);
-    }
-
-    code.inline {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    .legal-note {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(6, 12, 9, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
       font-size: 12px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(0,0,0,0.35);
+    }
+
+    .side-card {
+      background: rgba(5, 11, 8, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 12px 14px 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      box-shadow: var(--shadow-soft);
+    }
+    .side-card h4 { margin: 0 0 6px; font-size: 13px; color: var(--ivory); }
+
+    .side-links { margin-top: 10px; display: grid; gap: 8px; }
+    .side-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(7, 16, 11, 0.98);
+      color: var(--text-main);
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
+    }
+    .side-links a:hover {
+      border-color: var(--brass-gold);
+      transform: translateY(-1px);
       color: var(--ivory);
+    }
+
+    .side-card code {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--ivory);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 12px;
     }
 
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       background: #020403;
     }
-
     .footer-inner {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -409,32 +280,18 @@
       gap: 10px;
       align-items: center;
     }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-links a {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .footer-links a:hover {
-      color: var(--ivory);
-    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 12px; }
+    .footer-links a { font-size: 12px; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--ivory); }
   </style>
 </head>
 
 <body>
 <div class="page">
-
-  <!-- NAVBAR -->
   <header>
     <nav class="nav" id="mainNav">
       <div class="nav-left">
-        <a href="/" class="nav-left" aria-label="Armur home">
+        <a href="/" style="display:flex;align-items:center;gap:10px;">
           <div class="logo-mark"><span>A</span></div>
           <div class="logo-text">
             <div class="logo-title">ARMUR</div>
@@ -443,22 +300,17 @@
         </a>
       </div>
 
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
-
       <div class="nav-links">
-        <a href="/#features">Features</a>
-        <a href="/#how-it-works">How it works</a>
-        <a href="/#trust">Security</a>
-        <a href="/#cta">Get early access</a>
-        <a href="/privacy/index.html" aria-current="page">Privacy</a>
+        <a href="/legal/index.html">Legal</a>
+        <a href="/terms/index.html">Terms</a>
+        <a href="/dmca/index.html">DMCA</a>
       </div>
 
       <div class="nav-cta">
-        <button class="btn btn-ghost" onclick="window.location.href='/#cta'">Join beta</button>
-        <button class="btn btn-primary" onclick="window.location.href='/#cta'">
-          <span>Download (soon)</span>
-          <span style="font-size:15px;">➜</span>
-        </button>
+        <a class="btn btn-ghost" href="/legal/index.html">Legal</a>
+        <a class="btn btn-primary" href="/terms/index.html">
+          <span>Terms</span><span class="btn-icon">➜</span>
+        </a>
       </div>
     </nav>
   </header>
@@ -466,251 +318,295 @@
   <main>
     <section class="section hero" id="top">
       <div class="hero-copy-eyebrow">
-        <span class="badge">Policy</span>
-        <span>Clear, collector-first privacy</span>
+        <span class="badge">Legal</span>
+        <span>Privacy • CPRA • GDPR</span>
       </div>
-
-      <h1 class="hero-title">ARMUR <span>Privacy Policy</span></h1>
-
+      <h1 class="hero-title">Privacy Policy</h1>
       <p class="hero-subtitle">
-        Armur is operated and distributed by Hoplontec Inc. (“Hoplontec”, “Company”, “we”, “us”, or “our”).
-        This Privacy Policy explains how we collect, use, disclose, and safeguard information when you use the Armur
-        mobile application (the “App”). An account is required to access and use Armur. By using Armur, you agree to
-        the practices described in this policy.
+        This policy explains how HoplonTec Inc. collects, uses, discloses, and safeguards information when you use Armur.
       </p>
+      <div class="pill"><span class="dot"></span> Last Updated: 15 February 2026</div>
+    </section>
 
-      <div class="meta-row" aria-label="Policy metadata">
-        <span class="meta-pill">Last updated: <strong style="color:var(--ivory);">15 February 2026</strong></span>
-        <span class="meta-pill">Contact: <a href="mailto:support@armur.org" style="color:var(--ivory);">support@armur.org</a></span>
-        <span class="meta-pill">Company: <span style="color:var(--ivory);">Hoplontec Inc.</span></span>
-      </div>
+    <section class="section" id="policy">
+      <div class="legal-layout">
+        <article class="legal-card">
+          <div class="legal-inner">
+            <h2>ARMUR – PRIVACY POLICY</h2>
 
-      <div class="toc" aria-label="Table of contents">
-        <div class="toc-title">Contents</div>
-        <ol class="toc-list">
-          <li><a href="#info-we-collect">Information We Collect</a></li>
-          <li><a href="#how-we-use">How We Use Your Information</a></li>
-          <li><a href="#sharing">Sharing of Information</a></li>
-          <li><a href="#payments">Payments</a></li>
-          <li><a href="#security">Data Security</a></li>
-          <li><a href="#choices">Your Choices</a></li>
-          <li><a href="#retention">Data Retention</a></li>
-          <li><a href="#children">Children’s Privacy</a></li>
-          <li><a href="#changes">Changes to This Policy</a></li>
-          <li><a href="#contact">Contact Information</a></li>
-        </ol>
-        <hr class="rule" />
-      </div>
+            <p><strong>Last Updated:</strong> 15 February 2026</p>
 
-      <div class="policy" aria-label="Privacy policy content">
-        <section id="info-we-collect">
-          <h2>1. Information We Collect</h2>
-          <p>Armur requires an account and uses secure cloud storage to operate the service.</p>
+            <p>
+              Armur is owned and operated by HoplonTec Inc., a Delaware corporation (“HoplonTec,” “Company,” “we,” “us,” or “our”).
+            </p>
+            <p>
+              This Privacy Policy explains how we collect, use, disclose, and safeguard information when you access or use the Armur mobile application,
+              the website located at armur.org, and related services (collectively, the “Service”).
+            </p>
+            <p>
+              An account is required to access the Service.<br />
+              By using the Service, you consent to the practices described in this Policy.
+            </p>
+            <p>This Policy is incorporated into and governed by our Terms of Use.</p>
 
-          <h3>1.1 Account Information (Required)</h3>
-          <p>To use Armur, you must create an account. We collect:</p>
-          <ul>
-            <li>Email address</li>
-            <li>Encrypted password hash</li>
-            <li>Display name</li>
-            <li>Account identifiers</li>
-            <li>Subscription and billing status (if applicable)</li>
-          </ul>
-          <p>This information is required to authenticate users and provide access to the App.</p>
+            <h3 id="s1">1. Information We Collect</h3>
+            <p>We collect information necessary to operate, secure, and improve the Service.</p>
 
-          <h3>1.2 Device Storage</h3>
-          <p>Some data may be stored locally on your device to improve performance and enable offline functionality, including:</p>
-          <ul>
-            <li>Cached firearm records and inventory details</li>
-            <li>Notes and descriptions</li>
-            <li>Photos and media cached for faster access</li>
-            <li>Offline preferences and settings</li>
-            <li>Temporary offline data</li>
-          </ul>
-          <p>If this data is deleted or the App is removed, Hoplontec may not be able to recover it.</p>
+            <h3 id="s1-1">1.1 Account Information (Required)</h3>
+            <p>To create an account, we collect:</p>
+            <ul>
+              <li>Email address</li>
+              <li>Encrypted password hash</li>
+              <li>Display name</li>
+              <li>Account identifiers</li>
+              <li>Subscription and billing status</li>
+            </ul>
+            <p>This information is required for authentication and service delivery.</p>
 
-          <h3>1.3 Cloud Storage</h3>
-          <p>Armur stores user data on secure servers to provide the service, including:</p>
-          <ul>
-            <li>Firearm entries and metadata</li>
-            <li>Photos and attachments</li>
-            <li>Notes and descriptions</li>
-            <li>Posts, comments, likes, and social interactions</li>
-            <li>Marketplace listings</li>
-            <li>Notifications and preferences</li>
-            <li>App configuration and settings</li>
-            <li>Maintenance and diagnostic logs</li>
-          </ul>
+            <h3 id="s1-2">1.2 Collection &amp; User Content Data</h3>
+            <p>We store user-submitted content necessary to operate the Service, including:</p>
+            <ul>
+              <li>Firearm entries and metadata</li>
+              <li>Photos and attachments</li>
+              <li>Notes and descriptions</li>
+              <li>Marketplace listings</li>
+              <li>Posts, comments, and interactions</li>
+              <li>Notifications and preferences</li>
+              <li>App configuration settings</li>
+            </ul>
+            <p>You control what information you upload.</p>
+            <p>
+              <strong>Important:</strong> We recommend that users do not include sensitive personal information
+              (e.g., government ID numbers, home addresses, or serial numbers) in publicly visible listings or posts.
+            </p>
 
-          <h3>1.4 Automatically Collected Information</h3>
-          <p>We may automatically collect:</p>
-          <ul>
-            <li>IP address</li>
-            <li>Device identifiers</li>
-            <li>App crash logs</li>
-            <li>Performance and usage metrics</li>
-          </ul>
-          <p>This information is used solely for:</p>
-          <ul>
-            <li>Security and fraud prevention</li>
-            <li>Reliability and performance improvements</li>
-          </ul>
+            <h3 id="s1-3">1.3 Device Storage</h3>
+            <p>Certain data may be stored locally on your device for performance and limited offline functionality, including:</p>
+            <ul>
+              <li>Cached records</li>
+              <li>Photos</li>
+              <li>Preferences</li>
+              <li>Temporary offline data</li>
+            </ul>
+            <p>Locally stored data may not be recoverable if the App is removed or the device is reset.</p>
 
-          <h3>1.5 User-Generated Content and Marketplace Listings</h3>
-          <p>
-            Armur allows users to create and share content, including marketplace listings, posts, comments, profile information,
-            and images (“User Content”).
-          </p>
+            <h3 id="s1-4">1.4 Automatically Collected Information</h3>
+            <p>We may automatically collect:</p>
+            <ul>
+              <li>IP address</li>
+              <li>Device identifiers</li>
+              <li>App version</li>
+              <li>Crash logs</li>
+              <li>Usage metrics</li>
+              <li>Security event logs</li>
+            </ul>
+            <p>This information is used for:</p>
+            <ul>
+              <li>Security and fraud prevention</li>
+              <li>Performance monitoring</li>
+              <li>System reliability</li>
+              <li>Abuse detection</li>
+            </ul>
+            <p>We do not use this data for behavioral advertising.</p>
 
-          <div class="note">
-            <strong>Public Visibility.</strong>
-            Marketplace listings may be visible to other users of the App.
-            Profile display names, listing descriptions, and uploaded images may be viewable by other users.
-            Any information you voluntarily include in listings or posts may be seen by others.
+            <h3 id="s2">2. How We Use Information</h3>
+            <p>We use collected information to:</p>
+            <ul>
+              <li>Provide account authentication</li>
+              <li>Synchronize data across devices</li>
+              <li>Enable marketplace and social features</li>
+              <li>Moderate content and enforce policies</li>
+              <li>Process subscriptions</li>
+              <li>Provide customer support</li>
+              <li>Detect fraud or misuse</li>
+              <li>Improve system performance</li>
+              <li>Comply with legal obligations</li>
+            </ul>
+            <p>We do not sell personal information.</p>
+
+            <h3 id="s3">3. Sharing of Information</h3>
+            <p>We may share limited information with service providers who assist in operating the Service, including:</p>
+            <ul>
+              <li>Cloud hosting providers</li>
+              <li>Authentication providers</li>
+              <li>Payment processors (Stripe)</li>
+              <li>Analytics providers (aggregated, non-marketing use)</li>
+            </ul>
+            <p>All service providers are contractually required to safeguard data.</p>
+
+            <h3 id="s3-1">3.1 Public Visibility</h3>
+            <p>Marketplace listings and social features may make certain content visible to other users.</p>
+            <p>You are responsible for the content you choose to share publicly.</p>
+
+            <h3 id="s3-2">3.2 Legal Disclosures</h3>
+            <p>We may disclose information:</p>
+            <ul>
+              <li>To comply with legal obligations</li>
+              <li>In response to lawful subpoenas or court orders</li>
+              <li>To protect rights, safety, or property</li>
+              <li>In connection with corporate restructuring, merger, or acquisition</li>
+            </ul>
+            <p>We do not voluntarily share firearm records or personal collection data with advertisers.</p>
+
+            <h3 id="s4">4. Payment Processing</h3>
+            <p>Payments are processed by Stripe, Inc.</p>
+            <p>HoplonTec:</p>
+            <ul>
+              <li>Does not store full payment card numbers</li>
+              <li>Does not directly process credit card data</li>
+            </ul>
+            <p>We may receive limited metadata such as:</p>
+            <ul>
+              <li>Payment status</li>
+              <li>Subscription tier</li>
+              <li>Billing email</li>
+              <li>Country/region for tax compliance</li>
+            </ul>
+            <p>Stripe Privacy Policy: <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">https://stripe.com/privacy</a></p>
+
+            <h3 id="s5">5. Data Security</h3>
+            <p>We implement industry-standard safeguards including:</p>
+            <ul>
+              <li>Encrypted transmission (TLS)</li>
+              <li>Encrypted storage</li>
+              <li>Password hashing</li>
+              <li>Role-based access controls</li>
+              <li>Audit logging</li>
+              <li>Backup redundancy</li>
+            </ul>
+            <p>No system is immune from risk. Users are responsible for maintaining credential security.</p>
+
+            <h3 id="s6">6. Data Retention</h3>
+            <p>We retain personal data:</p>
+            <ul>
+              <li>While your account remains active</li>
+              <li>As necessary to provide services</li>
+              <li>To comply with legal obligations</li>
+              <li>To resolve disputes</li>
+              <li>To enforce agreements</li>
+            </ul>
+            <p>Deleted data may temporarily persist in encrypted backups before permanent removal.</p>
+
+            <h3 id="s7">7. Account Deletion &amp; Data Requests</h3>
+            <p>You may request account deletion at any time.</p>
+            <p>Upon deletion:</p>
+            <ul>
+              <li>Active cloud data will be removed</li>
+              <li>Backup copies may persist temporarily</li>
+              <li>Legal retention requirements may apply</li>
+            </ul>
+            <p>Where supported, users may export their collection data.</p>
+
+            <h3 id="s8">8. Children’s Privacy</h3>
+            <p>The Service is intended for adults.</p>
+            <p>We do not knowingly collect data from individuals under 18. If we learn that a minor has provided data, we will delete it.</p>
+
+            <h3 id="s9">9. California Privacy Rights (CCPA/CPRA)</h3>
+            <p>
+              If you are a California resident, you may have rights under the California Consumer Privacy Act (as amended),
+              including the right to:
+            </p>
+            <ul>
+              <li>Request access to personal information</li>
+              <li>Request deletion</li>
+              <li>Request correction</li>
+              <li>Request disclosure of categories of data collected</li>
+              <li>Request disclosure of categories of third parties receiving data</li>
+            </ul>
+            <p>We do not sell personal information.</p>
+            <p>Requests may be submitted through the contact information below.</p>
+            <p>We will not discriminate against you for exercising lawful privacy rights.</p>
+
+            <h3 id="s10">10. European Union / UK GDPR Notice</h3>
+            <p>The Service is operated from the United States.</p>
+            <p>
+              If you are located in the European Economic Area (EEA), United Kingdom, or Switzerland, and applicable law applies,
+              the following provisions govern:
+            </p>
+
+            <h3 id="s10-1">10.1 Lawful Bases for Processing</h3>
+            <p>We process personal data under:</p>
+            <ul>
+              <li>Contractual necessity (account and service delivery)</li>
+              <li>Legitimate interests (security, fraud prevention, system improvement)</li>
+              <li>Legal compliance</li>
+              <li>Consent (where required)</li>
+            </ul>
+
+            <h3 id="s10-2">10.2 Data Subject Rights</h3>
+            <p>Subject to applicable limitations, you may request:</p>
+            <ul>
+              <li>Access to personal data</li>
+              <li>Correction</li>
+              <li>Deletion</li>
+              <li>Restriction of processing</li>
+              <li>Data portability</li>
+              <li>Objection to processing</li>
+            </ul>
+            <p>We may verify identity before fulfilling requests.</p>
+
+            <h3 id="s10-3">10.3 International Transfers</h3>
+            <p>Personal data may be transferred to and processed in the United States.</p>
+            <p>
+              Where required, we rely on appropriate safeguards, including Standard Contractual Clauses.
+            </p>
+
+            <h3 id="s10-4">10.4 Supervisory Authority</h3>
+            <p>
+              If you are located in the EEA, you may lodge a complaint with your local supervisory authority.
+            </p>
+            <p>
+              Nothing in this section establishes HoplonTec Inc. as having an establishment in the European Union.
+            </p>
+
+            <h3 id="s11">11. Arbitration &amp; Dispute Resolution</h3>
+            <p>Privacy-related disputes are governed by the arbitration provisions set forth in our Terms of Use.</p>
+            <p>California residents retain any non-waivable rights under applicable law.</p>
+
+            <h3 id="s12">12. DMCA &amp; Content Removal</h3>
+            <p>Content removal and copyright claims are governed by our DMCA Copyright Policy available at armur.org/dmca.</p>
+
+            <h3 id="s13">13. Changes to This Policy</h3>
+            <p>We may update this Privacy Policy periodically.</p>
+            <p>Material changes will be posted within the Service. Continued use constitutes acceptance.</p>
+
+            <h3 id="s14">14. Contact Information</h3>
+            <p><strong>Email:</strong> <a href="mailto:legal@armur.org">legal@armur.org</a></p>
+            <p><strong>Mailing Address:</strong><br />
+              HoplonTec Inc.<br />
+              Attn: Legal Department<br />
+              1111B S Governors Ave # 87194<br />
+              Dover, DE - 19904
+            </p>
+
+            <div class="legal-note" id="store-note">
+              <strong>App Store / Google Play Notice:</strong> When you install or use Armur through Apple’s App Store or Google Play,
+              those platforms may collect and process information under their own policies. Payments for in-app subscriptions are handled
+              by your app store account or our payment processor (as applicable), and any refund requests are subject to platform rules.
+            </div>
+          </div>
+        </article>
+
+        <aside class="side-card">
+          <h4>Quick links</h4>
+          <div class="side-links">
+            <a href="#s1">1. Information We Collect <span>→</span></a>
+            <a href="#s3">3. Sharing <span>→</span></a>
+            <a href="#s9">9. California (CPRA) <span>→</span></a>
+            <a href="#s10">10. GDPR <span>→</span></a>
+            <a href="#s14">14. Contact <span>→</span></a>
           </div>
 
-          <h3>Responsibility for Content</h3>
-          <p>
-            You are responsible for the information you choose to share.
-            We recommend that users do not include sensitive personal information (such as home addresses, serial numbers,
-            or government IDs) in public listings or posts.
-          </p>
+          <div class="legal-note" style="margin-top:12px;">
+            <strong>Contact:</strong> <code>legal@armur.org</code><br />
+            <strong>DMCA:</strong> <code>/dmca/</code><br />
+            <strong>Terms:</strong> <code>/terms/</code>
+          </div>
 
-          <h3>Storage of User Content</h3>
-          <p>Hoplontec stores User Content to provide:</p>
-          <ul>
-            <li>Marketplace functionality</li>
-            <li>Community/social features</li>
-            <li>Content moderation and safety</li>
-          </ul>
-
-          <h3>Content Moderation</h3>
-          <p>We may review, remove, or restrict content that:</p>
-          <ul>
-            <li>Violates our Terms of Service</li>
-            <li>Violates applicable laws</li>
-            <li>Creates safety or security risks</li>
-            <li>Is reported by users</li>
-          </ul>
-        </section>
-
-        <section id="how-we-use">
-          <h2>2. How We Use Your Information</h2>
-          <p>Hoplontec uses collected information to:</p>
-          <ul>
-            <li>Synchronize your collection across devices</li>
-            <li>Provide cloud backup and restoration</li>
-            <li>Enable social and community features</li>
-            <li>Provide marketplace and user-generated content features</li>
-            <li>Moderate and enforce community standards</li>
-            <li>Deliver notifications</li>
-            <li>Maintain and improve the App</li>
-            <li>Detect fraud, abuse, or misuse</li>
-            <li>Comply with legal obligations</li>
-            <li>Process subscriptions and manage billing through our payment provider</li>
-          </ul>
-          <p><strong style="color:var(--ivory);">We do not sell personal data.</strong></p>
-        </section>
-
-        <section id="sharing">
-          <h2>3. Sharing of Information</h2>
-          <p>We may share limited information with trusted service providers that help operate the App, including:</p>
-          <ul>
-            <li>Cloud hosting providers</li>
-            <li>Authentication providers</li>
-            <li>Payment processors (Stripe)</li>
-            <li>Analytics providers (non-personal data only)</li>
-          </ul>
-          <p>
-            Content may be visible to other users as part of marketplace and social features.
-            We do not share firearm data, photos, or personal content with advertisers or marketers without your explicit consent.
-          </p>
-          <p>We may disclose information:</p>
-          <ul>
-            <li>To comply with legal obligations</li>
-            <li>To respond to lawful government requests</li>
-            <li>To protect the rights and safety of Hoplontec, users, or others</li>
-          </ul>
-        </section>
-
-        <section id="payments">
-          <h2>3.1 Payments</h2>
-          <p>If you purchase a subscription or paid features within the App, payments are processed by Stripe, Inc.</p>
-          <ul>
-            <li>Hoplontec does not collect, store, or process credit or debit card numbers.</li>
-            <li>Payment information is transmitted directly to Stripe.</li>
-            <li>We may receive limited information such as:
-              <ul>
-                <li>Payment status</li>
-                <li>Subscription status</li>
-                <li>Customer ID and billing email</li>
-                <li>Country or region for tax compliance</li>
-              </ul>
-            </li>
-          </ul>
-          <p>
-            Stripe’s Privacy Policy:
-            <a href="https://stripe.com/privacy" target="_blank" rel="noopener" style="color:var(--ivory);">
-              https://stripe.com/privacy
-            </a>
-          </p>
-        </section>
-
-        <section id="security">
-          <h2>4. Data Security</h2>
-          <p>Hoplontec implements industry-standard safeguards including:</p>
-          <ul>
-            <li>Encrypted data storage</li>
-            <li>Secure transmission (TLS/HTTPS)</li>
-            <li>Password hashing</li>
-            <li>Role-based access controls</li>
-            <li>Backup redundancy</li>
-          </ul>
-          <p>However, no system can guarantee absolute security.</p>
-        </section>
-
-        <section id="choices">
-          <h2>5. Your Choices</h2>
-
-          <h3>Delete Your Account</h3>
-          <p>
-            You may request account deletion at any time.
-            All cloud-stored data will be permanently deleted, subject to backup retention.
-          </p>
-
-          <h3>Export Your Data</h3>
-          <p>We provide tools to export your collection where supported.</p>
-        </section>
-
-        <section id="retention">
-          <h2>6. Data Retention</h2>
-          <ul>
-            <li>Data is retained until account deletion.</li>
-            <li>Deleted data may temporarily persist in encrypted backups before permanent removal.</li>
-          </ul>
-        </section>
-
-        <section id="children">
-          <h2>7. Children’s Privacy</h2>
-          <p>Armur is intended for adults. We do not knowingly collect data from individuals under 18.</p>
-        </section>
-
-        <section id="changes">
-          <h2>8. Changes to This Policy</h2>
-          <p>Hoplontec may update this Privacy Policy periodically. Users will be notified of material changes.</p>
-        </section>
-
-        <section id="contact">
-          <h2>9. Contact Information</h2>
-          <p><strong style="color:var(--ivory);">Hoplontec Inc.</strong></p>
-          <ul>
-            <li>Email: <a href="mailto:support@armur.org" style="color:var(--ivory);">support@armur.org</a></li>
-            <li>Address: <span style="color:var(--text-main);">[Insert company address]</span></li>
-          </ul>
-        </section>
-
-        <!-- Optional: deployment marker to help confirm updates -->
-        <!-- BUILD_ID: PRIVACY_2026-02-18 -->
+          <div class="legal-note" style="margin-top:12px;">
+            Tip: for public posts/listings, avoid sharing sensitive personal data (addresses, government IDs, serial numbers).
+          </div>
+        </aside>
       </div>
     </section>
   </main>
@@ -719,23 +615,17 @@
     <div class="footer-inner">
       <div>© <span id="year"></span> Armur. All rights reserved.</div>
       <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/terms/index.html">Terms of Use</a>
-        <a href="/privacy/index.html">Privacy Policy</a>
-        <a href="mailto:support@armur.org">Contact</a>
+        <a href="/legal/index.html">Legal</a>
+        <a href="/terms/index.html">Terms</a>
+        <a href="/dmca/index.html">DMCA</a>
+        <a href="#top">Back to top</a>
       </div>
     </div>
   </footer>
 </div>
 
 <script>
-  function toggleNav() {
-    const nav = document.getElementById("mainNav");
-    nav.classList.toggle("nav--open");
-  }
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-```
-
