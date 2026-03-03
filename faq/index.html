@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Armur – FAQ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Frequently Asked Questions about Armur — the Collector’s Firearm Vault. Privacy-first documentation, provenance, maintenance logs, public gallery, and curated resources."
+  />
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    :root {
+      --bg: #040b08;
+      --bg-soft: #07150e;
+      --gunmetal: #11171d;
+      --british-green: #0f3b2c;
+      --british-green-soft: #164835;
+      --brass-gold: #c7a15a;
+      --brass-gold-soft: rgba(199, 161, 90, 0.18);
+      --ivory: #f5f2e7;
+      --text-main: #d7e0d6;
+      --text-muted: #9aa69a;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --transition-fast: 0.2s ease-out;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10271c 0, #040b08 52%, #020505 100%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+    body { line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 11, 8, 0.96),
+        rgba(4, 11, 8, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 240px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f8f4e8 0, #d1b87d 26%, #7f5b24 70%, #221609 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.8), 0 8px 18px rgba(0, 0, 0, 0.9);
+    }
+
+    .logo-mark span {
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a231b;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-title {
+      font-size: 20px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1;
+    }
+    .logo-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+      flex: 1;
+      justify-content: center;
+      min-width: 240px;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass-gold);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover { color: var(--ivory); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta { display: flex; align-items: center; gap: 10px; min-width: 240px; justify-content: flex-end; }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      white-space: nowrap;
+      background: none;
+      color: var(--ivory);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brass-gold), #e0c382);
+      color: #1b1508;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      background: linear-gradient(135deg, #e5c887, #f1dba1);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(9, 24, 17, 0.9);
+    }
+    .btn-ghost:hover {
+      border-color: var(--brass-gold);
+      background: rgba(13, 38, 27, 1);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--ivory);
+      font-size: 22px;
+      margin-left: auto;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+      .nav--open .nav-links,
+      .nav--open .nav-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-top: 10px;
+        justify-content: flex-start;
+      }
+      .nav { gap: 10px; }
+      header { background: rgba(4, 11, 8, 0.98); }
+    }
+
+    main { flex: 1; }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 46px 18px;
+    }
+
+    /* Hero */
+    .faq-hero {
+      padding-top: 42px;
+      padding-bottom: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--brass-gold-soft);
+      background: rgba(16, 46, 29, 0.9);
+      color: var(--brass-gold);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 4vw, 42px);
+      margin: 12px 0 10px;
+      color: var(--ivory);
+      letter-spacing: 0.02em;
+    }
+    .hero-title span { color: var(--brass-gold); }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #1c3b2a, #050b07 60%, #020403);
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.12), transparent 55%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .hero-card h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: var(--text-main);
+      font-size: 13px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card .pill-row {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 3px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(6, 12, 9, 0.95);
+      color: var(--text-muted);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .faq-hero { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    /* Search + layout */
+    .faq-controls {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .search {
+      background: rgba(7, 15, 10, 0.96);
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      padding: 10px 14px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--ivory);
+      font-size: 14px;
+    }
+    .search input::placeholder { color: rgba(154, 166, 154, 0.85); }
+
+    .filter-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    @media (max-width: 900px) {
+      .faq-controls { grid-template-columns: minmax(0, 1fr); }
+      .filter-note { text-align: left; }
+    }
+
+    /* FAQ list */
+    .faq-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: linear-gradient(145deg, rgba(12, 30, 23, 0.94), #050907);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.65);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .faq-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.10), transparent 58%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      padding: 16px 16px;
+      background: transparent;
+      border: none;
+      color: var(--ivory);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-q h3 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .chev {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(7, 16, 11, 0.98);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: transform var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+      flex: 0 0 auto;
+    }
+
+    .faq-item[aria-expanded="true"] .chev {
+      transform: rotate(180deg);
+      border-color: rgba(199, 161, 90, 0.55);
+      color: var(--brass-gold);
+    }
+
+    .faq-a {
+      padding: 0 16px 16px;
+      color: var(--text-muted);
+      font-size: 13px;
+      display: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-item[aria-expanded="true"] .faq-a { display: block; }
+
+    .faq-a p { margin: 0 0 10px; }
+    .faq-a ul { margin: 0; padding-left: 18px; }
+    .faq-a li { margin: 6px 0; }
+
+    /* Callout */
+    .callout {
+      margin-top: 20px;
+      border-radius: 22px;
+      padding: 18px 18px 16px;
+      background: radial-gradient(circle at 0 0, rgba(199,161,90,0.18), transparent 55%),
+                  linear-gradient(135deg, #08130d, #020403);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .callout h2 {
+      margin: 0 0 4px;
+      font-size: 20px;
+      color: var(--ivory);
+    }
+    .callout p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 680px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #020403;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-links a { font-size: 12px; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--ivory); }
+
+    /* Small utility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header>
+      <nav class="nav" id="mainNav">
+        <div class="nav-left">
+          <a href="/" class="nav-left" aria-label="Armur home">
+            <div class="logo-mark"><span>A</span></div>
+            <div class="logo-text">
+              <div class="logo-title">ARMUR</div>
+              <div class="logo-sub">Firearm Collector Vault</div>
+            </div>
+          </a>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+
+        <div class="nav-links">
+          <a href="/#features">Features</a>
+          <a href="/#how-it-works">How it works</a>
+          <a href="/#trust">Security</a>
+          <a href="/#cta">Get early access</a>
+        </div>
+
+        <div class="nav-cta">
+          <button class="btn btn-ghost" onclick="goTo('/#cta')">Join beta</button>
+          <button class="btn btn-primary" onclick="goTo('/#cta')">
+            <span>Download (soon)</span>
+            <span aria-hidden="true">➜</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="section faq-hero" id="top">
+        <div>
+          <div class="hero-eyebrow">
+            <span class="badge">Private by design</span>
+            <span>FAQ • Armur App</span>
+          </div>
+          <h1 class="hero-title">
+            Answers for a <span>serious</span> collection.
+          </h1>
+          <p class="hero-subtitle">
+            Armur is a secure collector’s vault for documenting firearms, provenance, maintenance, and range sessions —
+            with optional encrypted cloud sync, local-only storage, and a selective public gallery.
+          </p>
+
+          <div class="faq-controls" aria-label="FAQ controls">
+            <div class="search" role="search">
+              <span aria-hidden="true">⌕</span>
+              <label class="sr-only" for="faqSearch">Search FAQs</label>
+              <input id="faqSearch" type="search" placeholder="Search questions (e.g., cloud sync, gallery, export)..." />
+            </div>
+            <div class="filter-note">
+              Tip: press <strong>/</strong> to jump to search
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Quick facts">
+          <h3>Quick facts</h3>
+          <p>
+            Your vault is private by default. You choose what (if anything) to share publicly.
+            An account is required to secure access and enable optional sync.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Account required</span>
+            <span class="pill">Cloud sync (encrypted)</span>
+            <span class="pill">Local-only mode</span>
+            <span class="pill">Selective public gallery</span>
+          </div>
+        </aside>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq">
+        <div class="faq-grid" id="faqGrid">
+
+          <!-- 1 -->
+          <article class="faq-item" aria-expanded="false" data-tags="what is armur vault documentation collectors">
+            <button class="faq-q" type="button" aria-controls="a1" onclick="toggleFaq(this)">
+              <h3>What is Armur?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a1">
+              <p>
+                Armur is a secure digital vault designed for firearm collectors. It helps you document your collection,
+                preserve provenance, track maintenance and range sessions, and optionally share selected pieces publicly —
+                while keeping you in control of your data.
+              </p>
+              <p>
+                It is not social media. It is not a marketplace operator. It is a structured companion to the modern gunroom.
+              </p>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="faq-item" aria-expanded="false" data-tags="how does it work add firearms documents maintenance range sessions">
+            <button class="faq-q" type="button" aria-controls="a2" onclick="toggleFaq(this)">
+              <h3>How does Armur work?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a2">
+              <p>
+                You create an account, choose your storage mode (cloud sync or local-only), and begin adding firearms to your vault.
+                For each firearm, you can record:
+              </p>
+              <ul>
+                <li>Manufacturer, model, and configuration</li>
+                <li>Photos and attachments</li>
+                <li>Provenance documents and invoices</li>
+                <li>Maintenance and service history</li>
+                <li>Round counts</li>
+                <li>Range sessions and performance notes</li>
+              </ul>
+              <p>
+                Over time, your vault becomes a structured, living record of your collection.
+              </p>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="faq-item" aria-expanded="false" data-tags="account required why login security authentication">
+            <button class="faq-q" type="button" aria-controls="a3" onclick="toggleFaq(this)">
+              <h3>Is an account required?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a3">
+              <p>
+                Yes. An account is required to access Armur.
+              </p>
+              <p>
+                Your account secures your vault and enables authentication, optional encrypted cloud sync, and device access management.
+                Even in local-only mode, an account is required to protect and structure your records.
+              </p>
+            </div>
+          </article>
+
+          <!-- 4 -->
+          <article class="faq-item" aria-expanded="false" data-tags="cloud sync local mode local-only difference offline">
+            <button class="faq-q" type="button" aria-controls="a4" onclick="toggleFaq(this)">
+              <h3>What’s the difference between Cloud Sync and Local Mode?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a4">
+              <p><strong>Cloud Sync Mode</strong><br />
+                Your encrypted data is securely stored and synced across devices. This provides backup and access from multiple devices.
+              </p>
+              <p><strong>Local Mode</strong><br />
+                Your data remains stored only on your device. Nothing is synced to the cloud.
+              </p>
+              <p>
+                You may switch modes later through guided migration in Settings.
+              </p>
+            </div>
+          </article>
+
+          <!-- 5 -->
+          <article class="faq-item" aria-expanded="false" data-tags="security privacy encrypted trackers ads data selling">
+            <button class="faq-q" type="button" aria-controls="a5" onclick="toggleFaq(this)">
+              <h3>Is my data secure?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a5">
+              <p>Armur is designed with privacy in mind:</p>
+              <ul>
+                <li>No public profiles by default</li>
+                <li>No third-party ad networks</li>
+                <li>No selling of user data</li>
+                <li>Clear separation between private vault and optional public gallery</li>
+                <li>Encrypted cloud infrastructure (when Cloud Sync is enabled)</li>
+              </ul>
+              <p>Armur is built to be discreet and uninteresting to anyone but you.</p>
+            </div>
+          </article>
+
+          <!-- 6 -->
+          <article class="faq-item" aria-expanded="false" data-tags="legal compliance advice laws record keeping">
+            <button class="faq-q" type="button" aria-controls="a6" onclick="toggleFaq(this)">
+              <h3>Does Armur replace legal record-keeping requirements?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a6">
+              <p>
+                No. Armur is a personal documentation and organizational tool. It does not replace your legal obligations for
+                firearm ownership, transfer, storage, or compliance.
+              </p>
+              <p>
+                You are responsible for following all applicable laws in your jurisdiction.
+              </p>
+            </div>
+          </article>
+
+          <!-- 7 -->
+          <article class="faq-item" aria-expanded="false" data-tags="sales transfers marketplace background checks escrow payments">
+            <button class="faq-q" type="button" aria-controls="a7" onclick="toggleFaq(this)">
+              <h3>Does Armur facilitate firearm sales or transfers?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a7">
+              <p>No.</p>
+              <p>Armur does not:</p>
+              <ul>
+                <li>Act as a dealer</li>
+                <li>Process payments</li>
+                <li>Conduct background checks</li>
+                <li>Operate as an escrow service</li>
+              </ul>
+              <p>
+                Users may list items they wish to sell or are seeking, but all transfers must comply with applicable laws and occur independently of the app.
+              </p>
+            </div>
+          </article>
+
+          <!-- 8 -->
+          <article class="faq-item" aria-expanded="false" data-tags="public gallery showcase share story discussion">
+            <button class="faq-q" type="button" aria-controls="a8" onclick="toggleFaq(this)">
+              <h3>What is the Public Gallery?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a8">
+              <p>
+                Armur allows you to selectively showcase chosen firearms. You decide what to display, what details remain private,
+                and whether a firearm is visible publicly at all.
+              </p>
+              <p>
+                The Public Gallery is intended for storytelling and discussion — not exposure of sensitive data.
+              </p>
+            </div>
+          </article>
+
+          <!-- 9 -->
+          <article class="faq-item" aria-expanded="false" data-tags="control visibility private public serial numbers sensitive info">
+            <button class="faq-q" type="button" aria-controls="a9" onclick="toggleFaq(this)">
+              <h3>Can I control what information is public?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a9">
+              <p>
+                Yes. Your entire vault is private by default. You must explicitly choose which firearms, photos, or notes appear in the Public Gallery.
+              </p>
+              <p>
+                Sensitive information such as serial numbers should never be displayed publicly.
+              </p>
+            </div>
+          </article>
+
+          <!-- 10 -->
+          <article class="faq-item" aria-expanded="false" data-tags="documents provenance invoices permits catalogs letters">
+            <button class="faq-q" type="button" aria-controls="a10" onclick="toggleFaq(this)">
+              <h3>Can I attach documents and provenance?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a10">
+              <p>
+                Yes. You may upload invoices, letters, auction catalogs, export permits, maker correspondence, and other documentation directly to each firearm entry.
+              </p>
+              <p>
+                Your documents stay associated with the firearm inside your vault.
+              </p>
+            </div>
+          </article>
+
+          <!-- 11 -->
+          <article class="faq-item" aria-expanded="false" data-tags="maintenance round counts cleanings repairs upgrades range logs">
+            <button class="faq-q" type="button" aria-controls="a11" onclick="toggleFaq(this)">
+              <h3>Can I track maintenance and round counts?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a11">
+              <p>
+                Yes. Armur allows you to log cleanings, record gunsmith work, track round counts, maintain service history,
+                and add notes for specific range sessions.
+              </p>
+              <p>
+                This creates a structured care history over time.
+              </p>
+            </div>
+          </article>
+
+          <!-- 12 -->
+          <article class="faq-item" aria-expanded="false" data-tags="shotguns rifles pistols accessories collection types">
+            <button class="faq-q" type="button" aria-controls="a12" onclick="toggleFaq(this)">
+              <h3>Does Armur work for shotguns only?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a12">
+              <p>
+                No. Armur is designed for firearm collectors broadly, including side-by-side shotguns, over-and-unders, rifles, pistols,
+                accessories, and related equipment.
+              </p>
+            </div>
+          </article>
+
+          <!-- 13 -->
+          <article class="faq-item" aria-expanded="false" data-tags="insurance documentation records claims">
+            <button class="faq-q" type="button" aria-controls="a13" onclick="toggleFaq(this)">
+              <h3>Can I use Armur for insurance documentation?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a13">
+              <p>
+                Many users find Armur helpful for organizing records relevant to insurance documentation. However, Armur does not act as an insurer
+                or provide insurance advice. Always confirm requirements with your insurance provider.
+              </p>
+            </div>
+          </article>
+
+          <!-- 14 -->
+          <article class="faq-item" aria-expanded="false" data-tags="delete app data loss local mode cloud sync recover">
+            <button class="faq-q" type="button" aria-controls="a14" onclick="toggleFaq(this)">
+              <h3>What happens if I delete the app?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a14">
+              <p>
+                In Local Mode, locally stored data may be permanently lost if the app is removed or the device is reset.
+              </p>
+              <p>
+                In Cloud Sync Mode, your data remains available via your account unless you delete your account.
+              </p>
+            </div>
+          </article>
+
+          <!-- 15 -->
+          <article class="faq-item" aria-expanded="false" data-tags="export data portability backup">
+            <button class="faq-q" type="button" aria-controls="a15" onclick="toggleFaq(this)">
+              <h3>Can I export my data?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a15">
+              <p>
+                Data portability and export options are planned features and will be expanded over time.
+              </p>
+            </div>
+          </article>
+
+          <!-- 16 -->
+          <article class="faq-item" aria-expanded="false" data-tags="who is it for collectors enthusiasts heritage fine guns">
+            <button class="faq-q" type="button" aria-controls="a16" onclick="toggleFaq(this)">
+              <h3>Who is Armur for?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a16">
+              <p>
+                Armur is built for fine gun collectors, sporting enthusiasts, and heritage firearm owners who value documentation,
+                provenance, and privacy. If you believe craftsmanship deserves continuity, Armur is for you.
+              </p>
+            </div>
+          </article>
+
+          <!-- 17 -->
+          <article class="faq-item" aria-expanded="false" data-tags="how do i join beta download">
+            <button class="faq-q" type="button" aria-controls="a17" onclick="toggleFaq(this)">
+              <h3>How do I join?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a17">
+              <p>
+                Create an account at armur.org or request early access via the landing page. Early beta users may receive expanded access and features.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="callout" id="cta">
+          <div>
+            <h2>Still have questions?</h2>
+            <p>
+              We’re happy to help. Reach out and tell us what kind of collection you’re building — and what you wish existed today.
+            </p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-ghost" href="mailto:jitendra.puri@armur.org?subject=Armur%20FAQ%20Question">Contact</a>
+            <a class="btn btn-primary" href="/#cta">Request early access ➜</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Armur. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#top">Back to top</a>
+          <a href="/privacy/index.html">Privacy Policy</a>
+          <a href="/terms/index.html">Terms of Use</a>
+          <a href="mailto:jitendra.puri@armur.org">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function goTo(path) {
+      window.location.href = path;
+    }
+
+    function toggleNav() {
+      const nav = document.getElementById("mainNav");
+      nav.classList.toggle("nav--open");
+    }
+
+    function toggleFaq(btn) {
+      const item = btn.closest(".faq-item");
+      const expanded = item.getAttribute("aria-expanded") === "true";
+      item.setAttribute("aria-expanded", expanded ? "false" : "true");
+    }
+
+    // Search / filter
+    const searchInput = document.getElementById("faqSearch");
+    const faqItems = Array.from(document.querySelectorAll(".faq-item"));
+
+    function normalize(s) {
+      return (s || "").toLowerCase().trim();
+    }
+
+    function applyFilter() {
+      const q = normalize(searchInput.value);
+      let shown = 0;
+
+      faqItems.forEach((item) => {
+        const text = normalize(item.innerText);
+        const tags = normalize(item.getAttribute("data-tags"));
+        const match = !q || text.includes(q) || tags.includes(q);
+        item.style.display = match ? "" : "none";
+        if (match) shown++;
+      });
+
+      // If nothing matches, gently expand nothing and keep layout calm (no popups).
+    }
+
+    searchInput.addEventListener("input", applyFilter);
+
+    // Keyboard shortcut: "/" focuses search (like many docs sites)
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "/" && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      }
+      // Escape collapses all and clears search
+      if (e.key === "Escape") {
+        searchInput.value = "";
+        applyFilter();
+        faqItems.forEach((item) => item.setAttribute("aria-expanded", "false"));
+        searchInput.blur();
+      }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
