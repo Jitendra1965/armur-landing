@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Armur is a secure fine guns collection vault for serious collectors – track provenance, maintenance, range sessions, and more. Cloud sync or local-only privacy."
+    content="Armur is a secure firearm collection vault for serious collectors – track provenance, maintenance, range sessions, and more. Available now on iPhone and iPad. Android coming soon."
   />
   <link rel="icon" href="favicon.ico" />
 
@@ -48,7 +48,6 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    /* Layout */
     .page {
       min-height: 100vh;
       display: flex;
@@ -151,7 +150,8 @@
       font-size: 13px;
       border: 1px solid transparent;
       cursor: pointer;
-      transition: transform var(--transition-fast),
+      transition:
+        transform var(--transition-fast),
         box-shadow var(--transition-fast),
         background var(--transition-fast),
         border-color var(--transition-fast),
@@ -189,7 +189,6 @@
 
     .btn-icon { font-size: 15px; }
 
-    /* Mobile nav */
     .nav-toggle {
       display: none;
       background: none;
@@ -221,7 +220,6 @@
       padding: 40px 18px;
     }
 
-    /* Hero */
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -239,6 +237,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      flex-wrap: wrap;
     }
 
     .hero-copy-eyebrow span.badge {
@@ -264,7 +263,7 @@
     .hero-subtitle {
       font-size: 15px;
       color: var(--text-muted);
-      max-width: 480px;
+      max-width: 520px;
     }
 
     .hero-cta {
@@ -409,6 +408,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
       font-size: 11px;
       color: var(--text-muted);
     }
@@ -429,7 +430,6 @@
       .hero-card-body { grid-template-columns: minmax(0, 1fr); }
     }
 
-    /* Generic sections */
     .section-header {
       text-align: center;
       margin-bottom: 26px;
@@ -457,7 +457,6 @@
       margin-right: auto;
     }
 
-    /* Features */
     .features-grid {
       display: grid;
       gap: 16px;
@@ -522,7 +521,6 @@
       .features-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
-    /* How it works */
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -569,7 +567,6 @@
       .steps-grid { grid-template-columns: minmax(0, 1fr); }
     }
 
-    /* Trust / Privacy */
     .trust-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -639,92 +636,6 @@
       .trust-layout { grid-template-columns: minmax(0, 1fr); }
     }
 
-    /* CTA section */
-    .cta-section {
-      margin-top: 8px;
-      margin-bottom: 40px;
-    }
-
-    .cta-inner {
-      border-radius: 22px;
-      padding: 20px 18px 16px;
-      background: radial-gradient(circle at 0 0, rgba(199,161,90,0.18), transparent 55%),
-                  linear-gradient(135deg, #08130d, #020403);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .cta-inner-text { max-width: 480px; }
-
-    .cta-inner-text h2 {
-      margin: 0 0 4px;
-      font-size: 20px;
-      color: var(--ivory);
-    }
-
-    .cta-inner-text p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .cta-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .tag-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      color: var(--text-muted);
-    }
-
-    .dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 999px;
-      background: var(--brass-gold);
-    }
-
-    footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      background: #020403;
-    }
-
-    .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 18px;
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-links a { font-size: 12px; color: var(--text-muted); }
-    .footer-links a:hover { color: var(--ivory); }
-
-    /* --- Directory Owners / Listing Tools --- */
     .owner-layout {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -807,7 +718,91 @@
       .owner-layout { grid-template-columns: minmax(0, 1fr); }
     }
 
-    /* --- Modal --- */
+    .cta-section {
+      margin-top: 8px;
+      margin-bottom: 40px;
+    }
+
+    .cta-inner {
+      border-radius: 22px;
+      padding: 20px 18px 16px;
+      background:
+        radial-gradient(circle at 0 0, rgba(199,161,90,0.18), transparent 55%),
+        linear-gradient(135deg, #08130d, #020403);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cta-inner-text { max-width: 560px; }
+
+    .cta-inner-text h2 {
+      margin: 0 0 4px;
+      font-size: 20px;
+      color: var(--ivory);
+    }
+
+    .cta-inner-text p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text-muted);
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--brass-gold);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #020403;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a { font-size: 12px; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--ivory); }
+
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -825,8 +820,9 @@
     .modal {
       width: min(760px, 100%);
       border-radius: 22px;
-      background: radial-gradient(circle at 0 0, rgba(199,161,90,0.12), transparent 55%),
-                linear-gradient(135deg, #08130d, #020403);
+      background:
+        radial-gradient(circle at 0 0, rgba(199,161,90,0.12), transparent 55%),
+        linear-gradient(135deg, #08130d, #020403);
       border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 26px 70px rgba(0,0,0,0.78);
       overflow: hidden;
@@ -936,13 +932,31 @@
       gap: 10px;
       justify-content: flex-end;
     }
+
+    .inline-status {
+      margin-top: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(6, 12, 9, 0.90);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .inline-status.show {
+      display: block;
+    }
+
+    .inline-status strong {
+      color: var(--ivory);
+    }
   </style>
 </head>
 
 <body>
 <div class="page">
 
-  <!-- NAVBAR -->
   <header>
     <nav class="nav" id="mainNav">
       <div class="nav-left">
@@ -962,12 +976,11 @@
         <a href="#how-it-works">How it works</a>
         <a href="/faq/index.html">FAQ</a>
         <a href="#manage-listing">Manage Your Listing</a>
-        <a href="/app/index.html">Get early access</a>
+        <a href="/app/index.html">Download</a>
       </div>
 
-
       <div class="nav-cta">
-        <a class="btn btn-primary" href="/app/index.html"">
+        <a class="btn btn-primary" href="/app/index.html">
           <span>Download</span>
           <span class="btn-icon">➜</span>
         </a>
@@ -976,37 +989,38 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="section hero" id="top">
       <div>
         <div class="hero-copy-eyebrow">
-          <span class="badge">Private by design</span>
-          <span>Cloud sync • Local-only • Cross-platform</span>
+          <span class="badge">Now available on App Store</span>
+          <span>Cloud sync • Local-only • Android coming soon</span>
         </div>
+
         <h1 class="hero-title">
           Your <span>firearm collection</span>, curated like a vault.
         </h1>
+
         <p class="hero-subtitle">
           Armur helps serious collectors log firearms, provenance, range sessions,
-          maintenance, and documents – with a choice between encrypted cloud sync
+          maintenance, and documents — with a choice between encrypted cloud sync
           or strict local-only storage. Record Trap, Skeet, and 5-Stand scores using an
           intuitive visual station layout and track performance through clear, insightful charts.
         </p>
 
         <div class="hero-cta">
-          <button class="btn btn-primary" onclick="scrollToId('cta')">
-            Get early access
+          <a class="btn btn-primary" href="/app/index.html">
+            Download on the App Store
             <span class="btn-icon">→</span>
-          </button>
+          </a>
           <button class="btn btn-ghost" onclick="scrollToId('features')">
             Explore features
           </button>
         </div>
 
         <div class="hero-meta">
-          <span class="hero-meta-pill">• Firearm collectors & enthusiasts</span>
-          <span>• Logs, notes, photos & documents & view activity heatmap</span>
-          <span>• iOS / Android (beta)</span>
+          <span class="hero-meta-pill">• No subscription required to get started</span>
+          <span>• Logs, notes, photos, documents & activity heatmaps</span>
+          <span>• iPhone & iPad available now • Android coming soon</span>
         </div>
       </div>
 
@@ -1049,20 +1063,19 @@
 
           <div class="hero-card-footer">
             <span>Track maintenance, round count & usage across your collection.</span>
-            <span class="badge-soft">No public sharing • You stay in control</span>
+            <span class="badge-soft">Private by default • You stay in control</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FEATURES -->
     <section class="section" id="features">
       <div class="section-header">
         <div class="section-eyebrow">Features</div>
         <h2 class="section-title">Built for collectors, not social media.</h2>
         <p class="section-description">
           Armur stays out of your way. It quietly becomes the one place that truly
-          knows your collection – better than any spreadsheet or notebook ever did.
+          knows your collection — better than any spreadsheet or notebook ever did.
         </p>
       </div>
 
@@ -1092,7 +1105,7 @@
           <h3 class="feature-title">Range sessions</h3>
           <p class="feature-body">
             Log when, where, and what you shot.
-            Record Trap, Skeet, 5-Stand, and etc. scores using a visual,
+            Record Trap, Skeet, 5-Stand, and more using a visual,
             station-by-station layout. Track trends over time with clean performance charts.
           </p>
           <div class="feature-tag">Know what actually works for you.</div>
@@ -1102,7 +1115,7 @@
           <div class="feature-icon">☁️</div>
           <h3 class="feature-title">Cloud or local-only</h3>
           <p class="feature-body">
-            Choose encrypted cloud sync across devices – or local-only mode where
+            Choose encrypted cloud sync across devices — or local-only mode where
             everything lives on your device and never leaves it.
           </p>
           <div class="feature-tag">You control where your data lives.</div>
@@ -1127,12 +1140,11 @@
             Browse by country, region, and city — or switch to nearby mode to sort by distance.
             Open club sites, add missing ranges, and read ratings & reviews from other collectors.
           </p>
-          <div class="feature-tag">Optional – you decide what you use.</div>
+          <div class="feature-tag">Optional — you decide what you use.</div>
         </article>
       </div>
     </section>
 
-    <!-- DIRECTORY -->
     <section class="section" id="directory">
       <div class="section-header">
         <div class="section-eyebrow">Directory</div>
@@ -1174,8 +1186,6 @@
       </div>
     </section>
 
-
-    <!-- HOW IT WORKS -->
     <section class="section" id="how-it-works">
       <div class="section-header">
         <div class="section-eyebrow">How it works</div>
@@ -1199,7 +1209,7 @@
           <h3 class="step-title">Add your first firearms</h3>
           <p class="step-body">
             Add key details, photos, and documents. Armur gives you sensible
-            fields for collectors – not a generic “notes” box and nothing else.
+            fields for collectors — not a generic “notes” box and nothing else.
           </p>
         </article>
 
@@ -1208,8 +1218,8 @@
           <h3 class="step-title">Log real activity</h3>
           <p class="step-body">
             Record range sessions and maintenance in seconds. Over time your
-            vault becomes a history of use, care, and ownership – all in one
-            place.<br> View heatmaps of when you shot each gun, cleaning maintenance, and more.
+            vault becomes a history of use, care, and ownership — all in one
+            place. View heatmaps of when you shot each gun, cleaning maintenance, and more.
             Armur helps you see patterns in your usage
             and get reminders for maintenance based on actual usage, not just calendar dates.
           </p>
@@ -1217,7 +1227,6 @@
       </div>
     </section>
 
-    <!-- TRUST / PRIVACY -->
     <section class="section" id="trust">
       <div class="section-header">
         <div class="section-eyebrow">Security & privacy</div>
@@ -1238,7 +1247,7 @@
           <ul class="trust-list">
             <li>Private by default: your collection stays yours.</li>
             <li>No third-party ad networks or trackers inside the app.</li>
-            <li>Role of cloud is backup & sync – not “monetize your data.”</li>
+            <li>Role of cloud is backup & sync — not “monetize your data.”</li>
             <li>Local-only mode keeps everything on your device.</li>
             <li>Share reviews and scores without exposing your personal inventory details.</li>
             <li>Ratings & reviews help you choose ranges and gunsmiths — without exposing your personal inventory.</li>
@@ -1247,7 +1256,7 @@
           <div class="trust-chip-row">
             <span class="trust-chip">End-to-end mindset, even in UI copy</span>
             <span class="trust-chip">Clear storage-mode explanations</span>
-            <span class="trust-chip">Export & backup options (planned)</span>
+            <span class="trust-chip">Export & backup options</span>
           </div>
         </article>
 
@@ -1259,14 +1268,12 @@
             laws for safe storage, transfer, and record keeping.
           </p>
           <p style="margin-top:6px;">
-            We’re building Armur to be a helpful companion – not a source of
+            We’re building Armur to be a helpful companion — not a source of
             legal advice.
           </p>
         </article>
       </div>
     </section>
-
-    <!-- MANAGE-LISTING -->
 
     <section class="section" id="manage-listing">
       <div class="section-header">
@@ -1301,7 +1308,7 @@
 
             <div class="owner-mini">
               Prefer email? Write to <a href="mailto:legal@armur.org">legal@armur.org</a>.
-              We may verify authority (typically via an email address listed on your official website).
+              We may verify authority via an email address listed on your official website.
             </div>
           </div>
         </article>
@@ -1323,35 +1330,43 @@
       </div>
     </section>
 
-    <!-- CTA -->
     <section class="section cta-section" id="cta">
       <div class="cta-inner">
         <div class="cta-inner-text">
-          <h2>Join the private beta.</h2>
+          <h2>Download Armur on iPhone & iPad.</h2>
           <p>
-            We’re currently onboarding a small group of collectors to refine the
-            app before public release. If you’re serious about your firearms,
-            we’d love to hear how you manage them today.
+            Armur is now available on the Apple App Store. Android support is coming soon.
+            If you’re on Android, you can request a notification when it becomes available.
           </p>
           <div style="margin-top:8px;">
             <span class="tag-pill">
               <span class="dot"></span>
-              iOS & Android beta builds
+              iPhone & iPad available now
             </span>
             <span class="tag-pill">
               <span class="dot"></span>
-              Free during early access
+              Android release updates by email
             </span>
           </div>
+
+          <div id="androidStatus" class="inline-status" aria-live="polite"></div>
         </div>
 
         <div class="cta-actions">
           <a
-            href="mailto:jitendra.puri@armur.org?subject=Armur%20Beta%20Request"
-            class="btn btn-ghost"
+            href="/app/index.html"
+            class="btn btn-primary"
           >
-            Request beta invite
+            Download
           </a>
+
+          <button
+            type="button"
+            class="btn btn-ghost"
+            onclick="handleAndroidNotify()"
+          >
+            Notify me for Android
+          </button>
         </div>
       </div>
     </section>
@@ -1372,7 +1387,6 @@
   </footer>
 </div>
 
-<!-- LISTING MODAL -->
 <div class="modal-backdrop" id="listingModal" role="dialog" aria-modal="true" aria-label="Directory listing request">
   <div class="modal">
     <div class="modal-header">
@@ -1431,7 +1445,7 @@
 
         <div class="field" style="margin-top:12px;">
           <label for="details">Details / requested changes</label>
-          <textarea id="details" placeholder="For inclusion: a short factual description you’d like us to use, or notes.&#10;For updates: what should change?&#10;For removal: any context (optional)."></textarea>
+          <textarea id="details" placeholder="For inclusion: a short factual description you’d like us to use, or notes. For updates: what should change? For removal: any context (optional)."></textarea>
         </div>
 
         <div class="checkbox-row">
@@ -1444,13 +1458,13 @@
         <div class="checkbox-row" id="logoRow">
           <input id="logoConfirm" type="checkbox" />
           <label for="logoConfirm">
-            If we use a logo or imagery later, we will obtain explicit written permission first (or you may provide it separately).
+            If we use a logo or imagery later, we will obtain explicit written permission first.
           </label>
         </div>
 
-        <div class="form-note" id="formNote">
+        <div class="form-note">
           Submitting this form opens your email client to <strong style="color:var(--ivory);">legal@armur.org</strong>
-          with a pre-filled request. (No data is sent to a server from this page.)
+          with a pre-filled request. No data is sent to a server from this page.
         </div>
 
         <div class="modal-actions">
@@ -1465,6 +1479,8 @@
 </div>
 
 <script>
+  const APP_STORE_URL = "https://apps.apple.com/us/app/armur/id6758026045";
+
   function scrollToId(id) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -1478,6 +1494,27 @@
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  function handleAndroidNotify() {
+    const subject = "Armur – Notify me when Android is available";
+    const body = [
+      "Hello Armur team,",
+      "",
+      "Please notify me when the Android version of Armur is available.",
+      "",
+      "Thank you,"
+    ].join("\n");
+
+    const mailto = `mailto:jitendra.puri@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+
+    const status = document.getElementById("androidStatus");
+    status.innerHTML = `
+      <strong>Almost done.</strong><br>
+      Your email draft has been opened. Please send it to complete your Android notification request.
+    `;
+    status.classList.add("show");
+  }
+
   function openListingModal(type) {
     const modal = document.getElementById("listingModal");
     const requestType = document.getElementById("requestType");
@@ -1489,27 +1526,26 @@
 
     if (type === "include") {
       title.textContent = "Request inclusion in the Armur directory";
-      sub.textContent = "Provide basic details and (optionally) approved wording. We may verify authority before publishing.";
-      details.placeholder = "Optional: Approved one-line description you’d like us to use (factual, non-promotional), plus any notes.";
+      sub.textContent = "Provide basic details and optionally approved wording. We may verify authority before publishing.";
+      details.placeholder = "Optional: Approved one-line description you’d like us to use, plus any notes.";
     } else if (type === "claim") {
       title.textContent = "Claim or update an existing directory listing";
-      sub.textContent = "Tell us what should change (description, contact details, location, categories). We may verify authority first.";
-      details.placeholder = "What should be updated? (e.g., description, phone/email, address, hours, categories, website link)";
+      sub.textContent = "Tell us what should change. We may verify authority first.";
+      details.placeholder = "What should be updated? Description, phone/email, address, hours, categories, or website link.";
     } else {
       title.textContent = "Request removal from the Armur directory";
-      sub.textContent = "We’ll remove or amend the listing once we can verify you’re authorized to request the change.";
-      details.placeholder = "Optional: Reason for removal or preferred wording. (Removal is honored upon verified request.)";
+      sub.textContent = "We’ll remove or amend the listing once we verify you’re authorized to request the change.";
+      details.placeholder = "Optional: Reason for removal or preferred wording.";
     }
 
     document.getElementById("authConfirm").checked = false;
-
     modal.classList.add("open");
+
     setTimeout(() => document.getElementById("orgType").focus(), 60);
   }
 
   function closeListingModal() {
-    const modal = document.getElementById("listingModal");
-    modal.classList.remove("open");
+    document.getElementById("listingModal").classList.remove("open");
   }
 
   document.getElementById("listingModal").addEventListener("click", (e) => {
@@ -1541,38 +1577,42 @@
 
     const bodyLines = [
       `Request type: ${type}`,
-      ``,
+      "",
       `Organization type: ${orgType}`,
-      ``,
+      "",
       `Organization name: ${orgName}`,
-      ``,
+      "",
       `Official website: ${website}`,
-      ``,
+      "",
       location ? `Location: ${location}` : null,
       "",
-      ``,
       "Requester",
       contactName ? `Name: ${contactName}` : null,
-      ``,
       `Email: ${contactEmail}`,
       "",
-      ``,
       "Details",
       details ? details : "(none provided)",
       "",
-      ``,
       "Notes",
-      "- Please verify authority if needed (e.g., reply-to an address listed on the official website).",
+      "- Please verify authority if needed.",
       "- By default, Armur listings are factual: name, a brief description, and a link.",
       "",
-      ``,
-      "Sent from armur.org landing page."
+      "Sent from armur.org."
     ].filter(Boolean);
 
     const mailto = `mailto:legal@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
     window.location.href = mailto;
 
     closeListingModal();
+
+    const status = document.getElementById("androidStatus");
+    status.innerHTML = `
+      <strong>Email draft opened.</strong><br>
+      Please send the draft to complete your directory request.
+    `;
+    status.classList.add("show");
+
+    scrollToId("cta");
   }
 </script>
 </body>

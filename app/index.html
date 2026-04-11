@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Get Armur on iPhone and iPad. We’re finalising App Store review — request the link the moment it goes live."
+    content="Download Armur on iPhone and iPad. Android is coming soon."
   />
   <link rel="icon" href="/favicon.ico" />
 
@@ -32,6 +32,7 @@
     }
 
     * { box-sizing: border-box; }
+
     html, body {
       margin: 0;
       padding: 0;
@@ -40,9 +41,15 @@
       color: var(--text-main);
       scroll-behavior: smooth;
     }
+
     body { line-height: 1.5; }
     a { color: inherit; text-decoration: none; }
-    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
     header {
       position: sticky;
@@ -69,40 +76,89 @@
       flex-wrap: wrap;
     }
 
-    .nav-left { display: flex; align-items: center; gap: 10px; }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .logo-mark {
-      width: 34px; height: 34px; border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
       background: radial-gradient(circle at 30% 20%, #f8f4e8 0, #d1b87d 26%, #7f5b24 70%, #221609 100%);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.8), 0 8px 18px rgba(0, 0, 0, 0.9);
     }
+
     .logo-mark span {
-      font-weight: 700; font-size: 18px; color: #1a231b; letter-spacing: 0.1em;
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a231b;
+      letter-spacing: 0.1em;
     }
-    .logo-text { display: flex; flex-direction: column; }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
     .logo-title {
-      font-size: 20px; letter-spacing: 0.38em; text-transform: uppercase;
-      font-weight: 600; color: var(--ivory); line-height: 1;
+      font-size: 20px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1;
     }
+
     .logo-sub {
-      font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
-      color: var(--text-muted); margin-top: 2px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-top: 2px;
     }
 
     .nav-links {
-      display: flex; align-items: center; gap: 18px;
-      font-size: 14px; color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
     }
-    .nav-links a { position: relative; padding-bottom: 2px; }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
     .nav-links a::after {
-      content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
       background: var(--brass-gold);
       transition: width var(--transition-fast);
     }
-    .nav-links a:hover { color: var(--ivory); }
-    .nav-links a:hover::after { width: 100%; }
 
-    .nav-cta { display: flex; align-items: center; gap: 10px; }
+    .nav-links a:hover {
+      color: var(--ivory);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     .btn {
       border-radius: 999px;
@@ -110,7 +166,8 @@
       font-size: 13px;
       border: 1px solid transparent;
       cursor: pointer;
-      transition: transform var(--transition-fast),
+      transition:
+        transform var(--transition-fast),
         box-shadow var(--transition-fast),
         background var(--transition-fast),
         border-color var(--transition-fast),
@@ -129,6 +186,7 @@
       color: #1b1508;
       box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
     }
+
     .btn-primary:hover {
       transform: translateY(-1px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
@@ -139,6 +197,7 @@
       border-color: rgba(255, 255, 255, 0.16);
       background: rgba(9, 24, 17, 0.9);
     }
+
     .btn-ghost:hover {
       border-color: var(--brass-gold);
       background: rgba(13, 38, 27, 1);
@@ -158,6 +217,7 @@
     @media (max-width: 768px) {
       .nav-links, .nav-cta { display: none; }
       .nav-toggle { display: block; }
+
       .nav--open .nav-links,
       .nav--open .nav-cta {
         display: flex;
@@ -166,14 +226,19 @@
         width: 100%;
         padding-top: 10px;
       }
+
       header { background: rgba(4, 11, 8, 0.98); }
       .nav { flex-wrap: wrap; }
     }
 
     main { flex: 1; }
-    .section { max-width: var(--max-width); margin: 0 auto; padding: 48px 18px; }
 
-    /* Download hero */
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 48px 18px;
+    }
+
     .download-hero {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
@@ -195,6 +260,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .badge {
@@ -213,6 +279,7 @@
       color: var(--ivory);
       letter-spacing: 0.02em;
     }
+
     .hero-title span { color: var(--brass-gold); }
 
     .hero-subtitle {
@@ -246,7 +313,6 @@
       padding: 2px 10px;
     }
 
-    /* Card */
     .card {
       background: radial-gradient(circle at top, #1c3b2a, #050b07 60%, #020403);
       border-radius: var(--radius-lg);
@@ -267,6 +333,7 @@
     }
 
     .card-inner { position: relative; }
+
     .card-title {
       font-size: 14px;
       text-transform: uppercase;
@@ -274,10 +341,25 @@
       color: var(--text-muted);
       margin: 0 0 8px;
     }
-    .card p { margin: 0 0 10px; font-size: 13px; color: var(--text-main); }
-    .card small { color: var(--text-muted); font-size: 12px; }
 
-    .pill-row { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .card p {
+      margin: 0 0 10px;
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .card small {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .pill-row {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
     .pill {
       border-radius: 999px;
       padding: 3px 10px;
@@ -288,7 +370,6 @@
       white-space: nowrap;
     }
 
-    /* Notify form */
     .notify {
       margin-top: 14px;
       padding-top: 12px;
@@ -318,7 +399,9 @@
       outline: none;
     }
 
-    .field input::placeholder { color: rgba(215, 224, 214, 0.45); }
+    .field input::placeholder {
+      color: rgba(215, 224, 214, 0.45);
+    }
 
     .note {
       font-size: 12px;
@@ -329,12 +412,11 @@
       padding: 10px 12px;
     }
 
-    /* QR block */
     .qr-box {
       margin-top: 12px;
       display: grid;
-      grid-template-columns: 120px minmax(0, 1fr);
-      gap: 12px;
+      grid-template-columns: 140px minmax(0, 1fr);
+      gap: 14px;
       align-items: center;
       padding: 12px;
       border-radius: 16px;
@@ -342,30 +424,47 @@
       background: rgba(6, 12, 9, 0.90);
     }
 
+    @media (max-width: 640px) {
+      .qr-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .qr {
-      width: 120px;
-      height: 120px;
+      width: 140px;
+      height: 140px;
       border-radius: 14px;
-      background:
-        radial-gradient(circle at 30% 20%, rgba(199,161,90,0.18), transparent 55%),
-        linear-gradient(135deg, #08130d, #020403);
+      background: #ffffff;
       border: 1px solid rgba(255,255,255,0.10);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-muted);
-      font-size: 12px;
-      text-align: center;
-      padding: 10px;
+      overflow: hidden;
+    }
+
+    .qr img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .qr-text strong { color: var(--ivory); }
-    .qr-text { font-size: 12px; color: var(--text-muted); line-height: 1.45; }
+    .qr-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .status-live {
+      color: #b7e7ba;
+    }
 
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       background: #020403;
     }
+
     .footer-inner {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -378,11 +477,20 @@
       gap: 10px;
       align-items: center;
     }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 12px; }
-    .footer-links a { font-size: 12px; color: var(--text-muted); }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
     .footer-links a:hover { color: var(--ivory); }
 
-    /* Accessibility helper */
     .sr-only {
       position: absolute;
       width: 1px;
@@ -399,8 +507,6 @@
 
 <body>
   <div class="page">
-
-    <!-- NAVBAR -->
     <header>
       <nav class="nav" id="mainNav">
         <a class="nav-left" href="/" aria-label="Armur home">
@@ -421,7 +527,6 @@
         </div>
 
         <div class="nav-cta">
-          
           <a class="btn btn-primary" href="/app/index.html">
             <span>Download</span>
             <span class="btn-icon">➜</span>
@@ -434,82 +539,96 @@
       <section class="section download-hero" id="top">
         <div>
           <div class="hero-eyebrow">
-            <span class="badge">App Store review</span>
-            <span>Get Armur on iPhone & iPad</span>
+            <span class="badge">Now available</span>
+            <span>iPhone & iPad</span>
           </div>
 
           <h1 class="hero-title">
-            Your vault is ready. <span>The App Store link is next.</span>
+            Your vault is ready. <span>Download Armur today.</span>
           </h1>
 
           <p class="hero-subtitle">
-            Armur is currently completing Apple’s App Store review. The moment it clears,
-            this page will send you straight to the App Store to install.
+            Armur is now available on the Apple App Store. Log firearms, document provenance,
+            track maintenance and range sessions, and keep your collection organized in one private vault.
           </p>
 
           <div class="hero-actions">
             <button class="btn btn-primary" id="downloadBtn" onclick="handleDownload()">
-              Download on the App Store <span class="btn-icon">➜</span>
+              Download Armur on the App Store <span class="btn-icon">➜</span>
             </button>
             <a class="btn btn-ghost" href="/faq/index.html">Read the FAQ</a>
           </div>
 
           <div class="microcopy">
-            <span class="micro-pill">No ads • No trackers</span>
+            <span class="micro-pill">No subscription required to get started</span>
             <span class="micro-pill">Private by default</span>
             <span class="micro-pill">Cloud sync or local-only</span>
           </div>
+
+          <p style="margin-top:10px; font-size:12px; color:var(--text-muted);">
+            Available now on iPhone & iPad • Android coming soon
+          </p>
         </div>
 
-        <aside class="card" aria-label="Status and notifications">
+        <aside class="card" aria-label="Download status and Android notifications">
           <div class="card-inner">
             <h3 class="card-title">Status</h3>
+            <p class="status-live">
+              Armur is live on the Apple App Store.
+            </p>
             <p>
-              App Store review is in progress. If you’d like, leave your email and we’ll send the direct download link the moment it’s live.
+              If you are on iPhone or iPad, download now. If you are on Android, leave your email and we’ll notify you when the Android version is ready.
             </p>
 
             <div class="pill-row">
-              <span class="pill">iPhone & iPad</span>
-              <span class="pill">Account required</span>
+              <span class="pill">iPhone & iPad live</span>
+              <span class="pill">Android coming soon</span>
               <span class="pill">Secure vault</span>
               <span class="pill">Optional public gallery</span>
             </div>
 
-            <div class="notify" aria-label="Notify me form">
+            <div class="notify" id="androidNotifySection" aria-label="Android notify form">
               <div class="field">
-                <label for="email">Email for the App Store link</label>
+                <label for="email">Email for Android release updates</label>
                 <input id="email" type="email" placeholder="you@example.com" autocomplete="email" />
               </div>
 
               <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <button class="btn btn-primary" onclick="requestLink()">
-                  Notify me <span class="btn-icon">➜</span>
+                <button class="btn btn-primary" onclick="requestAndroidNotice()">
+                  Notify me when Android is available
                 </button>
-                <a class="btn btn-ghost" href="mailto:jitendra.puri@armur.org?subject=Armur%20App%20Store%20Link%20Request">
+                <a class="btn btn-ghost" href="mailto:jitendra.puri@armur.org?subject=Armur%20Android%20release%20notification">
                   Email us instead
                 </a>
               </div>
 
               <div class="note">
                 This button opens your email client to <strong style="color:var(--ivory);">jitendra.puri@armur.org</strong>
-                with a pre-filled request. (No data is submitted from this page.)
+                with a pre-filled request for the Android release notification.
               </div>
-
-              <div class="qr-box" aria-label="QR placeholder">
-                <div class="qr">
-                  QR code<br/>placeholder
-                </div>
-                <div class="qr-text">
-                  <strong>Tip for desktop visitors:</strong><br/>
-                  Once your App Store link is live, we’ll replace this box with a QR code that opens the App Store directly on iPhone.
-                  For now, you can bookmark <span style="color:var(--ivory);">armur.org/app</span>.
-                </div>
-              </div>
-
-              <small>
-                Prefer reading first? See <a href="/faq/index.html" style="color: var(--brass-gold);">FAQ</a> or visit the <a href="/" style="color: var(--brass-gold);">main page</a>.
-              </small>
             </div>
+
+            <div class="qr-box" id="qrSection" aria-label="App Store QR code">
+              <div class="qr">
+                <img
+                  id="qrImage"
+                  alt="QR code for Armur on the App Store"
+                  src=""
+                />
+              </div>
+              <div class="qr-text">
+                <strong>On desktop?</strong><br />
+                Scan this QR code with your iPhone camera to open Armur directly in the App Store.
+                You can also bookmark <span style="color:var(--ivory);">armur.org/app</span> and return later on your phone.
+              </div>
+            </div>
+
+            <small>
+              Prefer reading first? See
+              <a href="/faq/index.html" style="color: var(--brass-gold);">FAQ</a>
+              or visit the
+              <a href="/" style="color: var(--brass-gold);">main page</a>.
+            </small>
           </div>
         </aside>
       </section>
@@ -537,74 +656,68 @@
       nav.classList.toggle("nav--open");
     }
 
-// -------- CONFIGURATION --------
+    // -------- CONFIGURATION --------
+    const IOS_APP_LIVE = true;
+    const ANDROID_APP_LIVE = false;
 
-// Set to true when the App Store is approved
-const IOS_APP_LIVE = false;
+    const APP_STORE_URL = "https://apps.apple.com/us/app/armur/id6758026045";
+    const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE";
 
-// Set to true when Google Play is live
-const ANDROID_APP_LIVE = false;
+    // Public QR generator endpoint
+    const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(APP_STORE_URL)}`;
 
-// Paste your real store URLs here later
-const APP_STORE_URL = "https://apps.apple.com/app/idYOUR_APP_ID";
-const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE";
-
-
-// -------- PLATFORM DETECTION --------
-
-function isIOS() {
-  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-}
-
-function isAndroid() {
-  return /Android/.test(navigator.userAgent);
-}
-
-
-// -------- DOWNLOAD HANDLER --------
-
-function handleDownload() {
-
-  if (isIOS()) {
-
-    if (IOS_APP_LIVE) {
-      window.location.href = APP_STORE_URL;
-      return;
+    // -------- PLATFORM DETECTION --------
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     }
 
-    notifyUser("The iPhone version of Armur is currently completing App Store review.");
-    requestLink();
-    return;
-  }
-
-  if (isAndroid()) {
-
-    if (ANDROID_APP_LIVE) {
-      window.location.href = PLAY_STORE_URL;
-      return;
+    function isAndroid() {
+      return /Android/.test(navigator.userAgent);
     }
 
-    notifyUser("The Android version of Armur will be released shortly after the iPhone version.");
-    requestLink();
-    return;
-  }
+    function isDesktop() {
+      return !isIOS() && !isAndroid();
+    }
 
-  // Desktop
-  notifyUser("Open this page on your iPhone or Android device to install Armur once it is available.");
-}
+    function notifyUser(message) {
+      alert(message);
+    }
 
-function notifyUser(message) {
-  alert(message);
-}
+    // -------- DOWNLOAD HANDLER --------
+    function handleDownload() {
+      if (isIOS()) {
+        if (IOS_APP_LIVE) {
+          window.location.href = APP_STORE_URL;
+          return;
+        }
 
-    function requestLink() {
+        notifyUser("The iPhone version of Armur is not yet available.");
+        return;
+      }
+
+      if (isAndroid()) {
+        if (ANDROID_APP_LIVE) {
+          window.location.href = PLAY_STORE_URL;
+          return;
+        }
+
+        document.getElementById("androidNotifySection")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        notifyUser("Android is coming soon. You can leave your email on this page to be notified.");
+        return;
+      }
+
+      document.getElementById("qrSection")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      notifyUser("Scan the QR code to open Armur directly in the App Store on your iPhone.");
+    }
+
+    function requestAndroidNotice() {
       const email = (document.getElementById("email").value || "").trim();
 
-      const subject = "Armur – Send me the App Store download link";
+      const subject = "Armur – Notify me when Android is available";
       const body = [
         "Hello Armur team,",
         "",
-        "Please send me the Armur App Store download link when it is available.",
+        "Please notify me when the Android version of Armur is available.",
         "",
         email ? `Email: ${email}` : null,
         "",
@@ -612,9 +725,40 @@ function notifyUser(message) {
         ""
       ].filter(Boolean).join("\n");
 
-      const mailto = `mailto:jitendra.puri@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const mailto =
+        `mailto:jitendra.puri@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
       window.location.href = mailto;
     }
+
+    function setupPageForPlatform() {
+      const qrImage = document.getElementById("qrImage");
+      const qrSection = document.getElementById("qrSection");
+      const androidNotifySection = document.getElementById("androidNotifySection");
+      const downloadBtn = document.getElementById("downloadBtn");
+
+      if (qrImage) {
+        qrImage.src = QR_URL;
+      }
+
+      if (isIOS()) {
+        if (qrSection) {
+          qrSection.style.display = "none";
+        }
+      }
+
+      if (isDesktop()) {
+        if (androidNotifySection) {
+          androidNotifySection.style.display = "grid";
+        }
+      }
+
+      if (isAndroid() && downloadBtn) {
+        downloadBtn.innerHTML = 'Get notified for Android <span class="btn-icon">➜</span>';
+      }
+    }
+
+    setupPageForPlatform();
   </script>
 </body>
 </html>
