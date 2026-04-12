@@ -919,7 +919,6 @@
         <a href="/social/index.html">Social</a>
         <a href="/resources/index.html">Resources</a>
         <a href="/classifieds/index.html">Classifieds</a>
-        <a href="/app/index.html">Download</a>
       </div>
 
       <div class="nav-cta">
@@ -1151,13 +1150,196 @@
   </footer>
 </div>
 
+<div class="modal-backdrop" id="listingModal" role="dialog" aria-modal="true" aria-label="Directory listing request">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h3 class="modal-title" id="modalTitle">Directory request</h3>
+        <p class="modal-sub" id="modalSub">
+          Submit a request and we’ll follow up. For safety, we may verify authority before making changes.
+        </p>
+      </div>
+      <button class="modal-close" type="button" onclick="closeListingModal()">Close</button>
+    </div>
+
+    <div class="modal-body">
+      <form id="listingForm" onsubmit="submitListingRequest(event)">
+        <input type="hidden" id="requestType" name="requestType" value="include" />
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="orgType">Organization type</label>
+            <select id="orgType" required>
+              <option value="">Select…</option>
+              <option>Magazine / Publication</option>
+              <option>Collector Association</option>
+              <option>Gunsmith / Gunmaker</option>
+              <option>Range / Shooting Ground</option>
+              <option>Auction House</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="orgName">Organization name</label>
+            <input id="orgName" type="text" placeholder="e.g., The Example Gunmakers' Guild" required />
+          </div>
+
+          <div class="field">
+            <label for="website">Official website</label>
+            <input id="website" type="url" placeholder="https://example.org" required />
+          </div>
+
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" type="text" placeholder="City, Region/State, Country" />
+          </div>
+
+          <div class="field">
+            <label for="contactName">Your name</label>
+            <input id="contactName" type="text" placeholder="Full name" />
+          </div>
+
+          <div class="field">
+            <label for="contactEmail">Your email</label>
+            <input id="contactEmail" type="email" placeholder="name@organization.org" required />
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:12px;">
+          <label for="details">Details / requested changes</label>
+          <textarea id="details" placeholder="For inclusion: a short factual description you’d like us to use, or notes. For updates: what should change? For removal: any context (optional)."></textarea>
+        </div>
+
+        <div class="checkbox-row">
+          <input id="authConfirm" type="checkbox" required />
+          <label for="authConfirm">
+            I confirm I am authorized to request inclusion, updates, or removal for this organization.
+          </label>
+        </div>
+
+        <div class="checkbox-row">
+          <input id="logoConfirm" type="checkbox" />
+          <label for="logoConfirm">
+            If we use a logo or imagery later, we will obtain explicit written permission first.
+          </label>
+        </div>
+
+        <div class="form-note">
+          Submitting this form opens your email client to <strong style="color:var(--ivory);">legal@armur.org</strong>
+          with a pre-filled request. No data is sent to a server from this page.
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" onclick="closeListingModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">
+            Submit request <span class="btn-icon">➜</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <script>
+
   function toggleNav() {
     const nav = document.getElementById("mainNav");
     nav.classList.toggle("nav--open");
   }
 
   document.getElementById("year").textContent = new Date().getFullYear();
+
+
+  function openListingModal(type) {
+    const modal = document.getElementById("listingModal");
+    const requestType = document.getElementById("requestType");
+    const title = document.getElementById("modalTitle");
+    const sub = document.getElementById("modalSub");
+    const details = document.getElementById("details");
+
+    requestType.value = type;
+
+    if (type === "include") {
+      title.textContent = "Request inclusion in the Armur directory";
+      sub.textContent = "Provide basic details and optionally approved wording. We may verify authority before publishing.";
+      details.placeholder = "Optional: Approved one-line description you’d like us to use, plus any notes.";
+    } else if (type === "claim") {
+      title.textContent = "Claim or update an existing directory listing";
+      sub.textContent = "Tell us what should change. We may verify authority first.";
+      details.placeholder = "What should be updated? Description, phone/email, address, hours, categories, or website link.";
+    } else {
+      title.textContent = "Request removal from the Armur directory";
+      sub.textContent = "We’ll remove or amend the listing once we verify you’re authorized to request the change.";
+      details.placeholder = "Optional: Reason for removal or preferred wording.";
+    }
+
+    document.getElementById("authConfirm").checked = false;
+    modal.classList.add("open");
+    setTimeout(() => document.getElementById("orgType").focus(), 60);
+  }
+
+  function closeListingModal() {
+    document.getElementById("listingModal").classList.remove("open");
+  }
+
+  document.getElementById("listingModal").addEventListener("click", (e) => {
+    if (e.target.id === "listingModal") closeListingModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeListingModal();
+  });
+
+  function submitListingRequest(e) {
+    e.preventDefault();
+
+    const type = document.getElementById("requestType").value;
+    const orgType = document.getElementById("orgType").value.trim();
+    const orgName = document.getElementById("orgName").value.trim();
+    const website = document.getElementById("website").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const contactName = document.getElementById("contactName").value.trim();
+    const contactEmail = document.getElementById("contactEmail").value.trim();
+    const details = document.getElementById("details").value.trim();
+
+    let subjectAction = "Request";
+    if (type === "include") subjectAction = "Inclusion Request";
+    if (type === "claim") subjectAction = "Claim/Update Request";
+    if (type === "remove") subjectAction = "Removal Request";
+
+    const subject = `Armur Directory – ${subjectAction}: ${orgName}`;
+
+    const bodyLines = [
+      `Request type: ${type}`,
+      "",
+      `Organization type: ${orgType}`,
+      "",
+      `Organization name: ${orgName}`,
+      "",
+      `Official website: ${website}`,
+      "",
+      location ? `Location: ${location}` : null,
+      "",
+      "Requester",
+      contactName ? `Name: ${contactName}` : null,
+      `Email: ${contactEmail}`,
+      "",
+      "Details",
+      details ? details : "(none provided)",
+      "",
+      "Notes",
+      "- Please verify authority if needed.",
+      "- By default, Armur listings are factual: name, a brief description, and a link.",
+      "",
+      "Sent from armur.org."
+    ].filter(Boolean);
+
+    const mailto = `mailto:legal@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = mailto;
+    closeListingModal();
+  }
 </script>
+
 </body>
 </html>
