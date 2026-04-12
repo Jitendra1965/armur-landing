@@ -2,14 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Armur – The Collector’s Firearm Vault</title>
+  <title>Armur Gallery</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Armur is a private firearm record vault for serious collectors. Track provenance, maintenance, range sessions, and documents with local-only storage or encrypted cloud sync. Available now on iPhone and iPad."
-  />
+  <meta name="description" content="Explore the Armur gallery experience for collectors and enthusiasts." />
   <link rel="icon" href="favicon.ico" />
-
   <style>
     :root {
       --bg: #040b08;
@@ -148,91 +144,6 @@
 
     .nav-links a:hover { color: var(--ivory); }
     .nav-links a:hover::after { width: 100%; }
-
-    .nav-item-dropdown {
-      position: relative;
-    }
-
-    .dropdown-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-    }
-
-    .dropdown-toggle .caret {
-      font-size: 10px;
-      transform: translateY(1px);
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      top: calc(100% + 12px);
-      left: 0;
-      min-width: 250px;
-      background: rgba(4, 11, 8, 0.98);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 14px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
-      padding: 10px;
-      display: none;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .dropdown-menu a {
-      padding: 10px 12px;
-      border-radius: 10px;
-      color: var(--text-main);
-      font-size: 13px;
-    }
-
-    .dropdown-menu a::after {
-      display: none;
-    }
-
-    .dropdown-menu a:hover {
-      background: rgba(15, 59, 44, 0.45);
-      color: var(--ivory);
-    }
-
-    .nav-item-dropdown:hover .dropdown-menu,
-    .nav-item-dropdown:focus-within .dropdown-menu {
-      display: flex;
-    }
-
-    .explore-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    @media (max-width: 900px) {
-      .explore-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 600px) {
-      .explore-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      .nav-item-dropdown {
-        width: 100%;
-      }
-
-      .dropdown-menu {
-        position: static;
-        display: flex;
-        width: 100%;
-        margin-top: 8px;
-        background: rgba(6, 12, 9, 0.92);
-      }
-    }
-
 
     .nav-cta {
       display: flex;
@@ -991,7 +902,7 @@
   <header>
     <nav class="nav" id="mainNav">
       <div class="nav-left">
-        <a href="/" class="nav-left" aria-label="Armur home">
+        <a href="/index.html" class="nav-left" aria-label="Armur home">
           <div class="logo-mark"><span>A</span></div>
           <div class="logo-text">
             <div class="logo-title">ARMUR</div>
@@ -1003,19 +914,11 @@
       <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
 
       <div class="nav-links">
-        <a href="#trust">Trust &amp; Control</a>
-        <a href="#features">Core Vault Features</a>
-        <div class="nav-item-dropdown">
-          <a href="#explore" class="dropdown-toggle">Explore More in Armur <span class="caret">▾</span></a>
-          <div class="dropdown-menu">
-            <a href="/gallery/index.html">Gallery</a>
-            <a href="/social/index.html">Social</a>
-            <a href="/resources/index.html">Resources</a>
-            <a href="/classifieds/index.html">Classifieds</a>
-          </div>
-        </div>
-        <a href="#how-it-works">How it works</a>
-        <a href="/faq/index.html">FAQ</a>
+        <a href="/index.html">Home</a>
+        <a href="/gallery/index.html">Gallery</a>
+        <a href="/social/index.html">Social</a>
+        <a href="/resources/index.html">Resources</a>
+        <a href="/classifieds/index.html">Classifieds</a>
         <a href="/app/index.html">Download</a>
       </div>
 
@@ -1032,308 +935,141 @@
     <section class="section hero" id="top">
       <div>
         <div class="hero-copy-eyebrow">
-          <span class="badge">Now on the App Store</span>
-          <span>iPhone & iPad live • Android coming soon</span>
+          <span class="badge">Gallery</span>
+          <span>Part of the Armur ecosystem</span>
         </div>
 
-        <h1 class="hero-title">
-          Your <span>firearm records</span>. Your control.
-        </h1>
+        <h1 class="hero-title">A more visual way to <span>explore collections</span>.</h1>
 
         <p class="hero-subtitle">
-          Armur is a private firearm record vault for serious collectors. Document provenance,
-          maintenance, range sessions, and supporting records in one place — with local-only
-          storage or encrypted sync across devices.
+          The gallery is where presentation, craftsmanship, rarity, and collector taste can be surfaced in a more editorial, image-led format.
         </p>
 
         <div class="hero-cta">
           <a class="btn btn-primary" href="/app/index.html">
-            Download on the App Store
+            Download Armur
             <span class="btn-icon">→</span>
           </a>
-          <button class="btn btn-ghost" onclick="scrollToId('trust')">
-            Trust, privacy & ownership
-          </button>
+          <a class="btn btn-ghost" href="/index.html">Back to homepage</a>
         </div>
 
         <div class="hero-meta">
-          <span class="hero-meta-pill">No subscription required to get started</span>
-          <span>Local-only or encrypted cloud sync</span>
-          <span>Exportable records • Ownership-focused</span>
+          <span class="hero-meta-pill">Collector-first design</span>
+          <span>Premium presentation</span>
+          <span>Connected to the broader Armur experience</span>
         </div>
       </div>
 
       <div class="hero-right">
         <div class="hero-card">
           <div class="hero-card-header">
-            <div class="hero-card-title">Sample Vault Entry</div>
+            <div class="hero-card-title">Armur Gallery</div>
             <div class="hero-card-chip">Armur Preview</div>
           </div>
 
           <div class="hero-card-body">
             <div class="hero-card-main">
-              <h3>Holland & Holland Royal</h3>
+              <h3>Armur Gallery</h3>
               <p>
-                12 bore sidelock ejector, cased. Provenance notes, photos,
-                correspondence, service history, and recent range activity.
+                Explore the Armur gallery experience for collectors and enthusiasts.
               </p>
               <div class="hero-card-main-meta">
-                <span>Last cleaned: 42 rounds ago</span>
-                <span>Invoice scanned</span>
+                <span>Collector focused</span>
+                <span>Premium tone</span>
               </div>
             </div>
 
             <div class="hero-card-side">
               <div class="hero-card-side-block">
-                <strong>Storage Mode</strong>
-                <span>Local-only or encrypted sync</span>
+                <strong>Designed for</strong>
+                <span>Serious collectors</span>
               </div>
               <div class="hero-card-side-block">
-                <strong>Recent Activity</strong>
-                <span>Range log • Added provenance letter</span>
+                <strong>Connected to</strong>
+                <span>The wider Armur ecosystem</span>
               </div>
               <div class="hero-card-side-block">
-                <strong>Data Ownership</strong>
-                <span>Export anytime</span>
+                <strong>Primary role</strong>
+                <span>Curated exploration</span>
               </div>
             </div>
           </div>
 
           <div class="hero-card-footer">
-            <span>Built to preserve records over time, not trap them in a system.</span>
+            <span>Built to complement the vault without changing the tone of the brand.</span>
             <span class="badge-soft">Private by default</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="trust">
+    <section class="section">
       <div class="section-header">
-        <div class="section-eyebrow">Trust & control</div>
-        <h2 class="section-title">Built for control, not exposure.</h2>
+        <div class="section-eyebrow">Gallery</div>
+        <h2 class="section-title">Armur Gallery</h2>
         <p class="section-description">
-          Collectors invest years into documentation. Your records should not depend on
-          a social feed, a subscription wall, or blind trust in someone else’s system.
-        </p>
-      </div>
-
-      <div class="trust-grid">
-        <article class="trust-card">
-          <div class="trust-icon">🔒</div>
-          <h3 class="trust-title">Local-first option</h3>
-          <p class="trust-body">
-            Keep your records entirely on your own device. No cloud required.
-          </p>
-        </article>
-
-        <article class="trust-card">
-          <div class="trust-icon">☁️</div>
-          <h3 class="trust-title">Encrypted sync</h3>
-          <p class="trust-body">
-            Use cloud sync only if you want secure access across devices.
-          </p>
-        </article>
-
-        <article class="trust-card">
-          <div class="trust-icon">📤</div>
-          <h3 class="trust-title">Export & ownership</h3>
-          <p class="trust-body">
-            Keep portable records under your control with exportability built into the philosophy.
-          </p>
-        </article>
-      </div>
-
-      <div class="split-layout" style="margin-top: 18px;">
-        <article class="feature-card">
-          <div class="feature-icon">🛡️</div>
-          <h3 class="feature-title">Your data should outlast any app.</h3>
-          <p class="feature-body">
-            Armur is built around a simple idea: if you spend years documenting provenance,
-            maintenance, and ownership history, you should remain in control of that record.
-          </p>
-          <p class="feature-body" style="margin-top: 10px;">
-            <strong style="color: var(--ivory);">Even if Armur disappears tomorrow, your records shouldn’t.</strong>
-          </p>
-        </article>
-
-        <aside class="side-card">
-          <h4>What Armur does not do</h4>
-          <ul>
-            <li>No ad networks</li>
-            <li>No data selling</li>
-            <li>No public sharing by default</li>
-            <li>No requirement to use cloud storage</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="features">
-      <div class="section-header">
-        <div class="section-eyebrow">Core vault features</div>
-        <h2 class="section-title">The vault stays at the center.</h2>
-        <p class="section-description">
-          Document firearms, provenance, maintenance, and range history in one structured record that remains useful over time.
+          Explore the Armur gallery experience for collectors and enthusiasts.
         </p>
       </div>
 
       <div class="features-grid">
+
         <article class="feature-card">
-          <div class="feature-icon">📒</div>
-          <h3 class="feature-title">Firearm records</h3>
-          <p class="feature-body">
-            Log model, maker, serials, configuration, purchase information, photos, and notes.
-          </p>
-          <div class="feature-tag">Structured, searchable, and easy to maintain.</div>
+          <div class="feature-icon">🖼️</div>
+          <h3 class="feature-title">Featured collections</h3>
+          <p class="feature-body">Highlight exceptional groupings, themes, and curated sets that deserve a presentation-focused layout.</p>
+          <div class="feature-tag">Editorial presentation</div>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon">🪪</div>
-          <h3 class="feature-title">Provenance & documents</h3>
-          <p class="feature-body">
-            Attach invoices, letters, auction catalogs, permits, and correspondence directly to the relevant firearm.
-          </p>
-          <div class="feature-tag">Keep the record with the object it belongs to.</div>
+          <div class="feature-icon">🔍</div>
+          <h3 class="feature-title">Detail views</h3>
+          <p class="feature-body">Show engravings, wood, mechanics, case details, and other close-up features that matter to collectors.</p>
+          <div class="feature-tag">Craft-focused</div>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon">🧼</div>
-          <h3 class="feature-title">Maintenance history</h3>
-          <p class="feature-body">
-            Track cleanings, gunsmith work, repairs, upgrades, and service notes over time.
-          </p>
-          <div class="feature-tag">A clearer care history for every firearm.</div>
+          <div class="feature-icon">🏛️</div>
+          <h3 class="feature-title">Heritage context</h3>
+          <p class="feature-body">Pair visual presentation with light historical or provenance context where appropriate.</p>
+          <div class="feature-tag">History with restraint</div>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3 class="feature-title">Range sessions</h3>
-          <p class="feature-body">
-            Log when, where, and what you shot, plus notes, targets, and performance observations.
-          </p>
-          <div class="feature-tag">Useful history, not just raw data.</div>
+          <div class="feature-icon">⭐</div>
+          <h3 class="feature-title">Collector highlights</h3>
+          <p class="feature-body">Surface notable pieces without turning the core vault into a public showcase.</p>
+          <div class="feature-tag">Showcase outside the vault</div>
         </article>
 
         <article class="feature-card">
-          <div class="feature-icon">🔢</div>
-          <h3 class="feature-title">Round counts</h3>
-          <p class="feature-body">
-            Track usage over time and tie reminders to actual use instead of guesswork.
-          </p>
-          <div class="feature-tag">Know what’s being shot and what needs attention.</div>
+          <div class="feature-icon">📷</div>
+          <h3 class="feature-title">Submission-ready format</h3>
+          <p class="feature-body">Create a premium environment for future contributor or partner galleries.</p>
+          <div class="feature-tag">Brand-consistent display</div>
         </article>
 
         <article class="feature-card">
           <div class="feature-icon">🧭</div>
-          <h3 class="feature-title">Collector resources</h3>
-          <p class="feature-body">
-            Discover magazines, auctions, gunsmiths, clubs, and shooting grounds curated for enthusiasts.
-          </p>
-          <div class="feature-tag">Reference material, not noise.</div>
+          <h3 class="feature-title">Discovery without clutter</h3>
+          <p class="feature-body">Keep the experience visual and curated, not noisy or feed-driven.</p>
+          <div class="feature-tag">Curated discovery</div>
         </article>
       </div>
     </section>
 
-
-    <section class="section" id="explore">
-      <div class="section-header">
-        <div class="section-eyebrow">Explore more in Armur</div>
-        <h2 class="section-title">Beyond the vault, without losing focus.</h2>
-        <p class="section-description">
-          Armur keeps the collector vault as the primary experience, while making it easier to explore
-          community, discovery, and reference tools across the broader ecosystem.
-        </p>
-      </div>
-
-      <div class="explore-grid">
-        <article class="feature-card">
-          <div class="feature-icon">🖼️</div>
-          <h3 class="feature-title">Gallery</h3>
-          <p class="feature-body">
-            Browse exceptional firearms, collections, details, and presentation-worthy imagery in a dedicated space.
-          </p>
-          <div class="feature-tag"><a href="/gallery/index.html" style="color: var(--brass-gold);">Open Gallery →</a></div>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon">💬</div>
-          <h3 class="feature-title">Social</h3>
-          <p class="feature-body">
-            Follow conversations, collector updates, and shared insights without turning the vault itself into a feed.
-          </p>
-          <div class="feature-tag"><a href="/social/index.html" style="color: var(--brass-gold);">Open Social →</a></div>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon">📚</div>
-          <h3 class="feature-title">Resources</h3>
-          <p class="feature-body">
-            Discover directories, ranges, curated magazines, collector associations, auction houses, and gunsmiths.
-          </p>
-          <div class="feature-tag"><a href="/resources/index.html" style="color: var(--brass-gold);">Open Resources →</a></div>
-        </article>
-
-        <article class="feature-card">
-          <div class="feature-icon">🏷️</div>
-          <h3 class="feature-title">Classifieds</h3>
-          <p class="feature-body">
-            See how private listings and marketplace-style discovery can fit into the Armur ecosystem.
-          </p>
-          <div class="feature-tag"><a href="/classifieds/index.html" style="color: var(--brass-gold);">Explore Classifieds →</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="how-it-works">
-      <div class="section-header">
-        <div class="section-eyebrow">How it works</div>
-        <h2 class="section-title">From scattered records to a real vault.</h2>
-      </div>
-
-      <div class="steps-grid">
-        <article class="step-card">
-          <div class="step-number">1</div>
-          <h3 class="step-title">Create your account</h3>
-          <p class="step-body">
-            Sign in, choose local-only or encrypted sync, and set the level of control you want from the start.
-          </p>
-        </article>
-
-        <article class="step-card">
-          <div class="step-number">2</div>
-          <h3 class="step-title">Add your firearms</h3>
-          <p class="step-body">
-            Record the essential details, attach documents, and keep related notes together in one structured entry.
-          </p>
-        </article>
-
-        <article class="step-card">
-          <div class="step-number">3</div>
-          <h3 class="step-title">Maintain the record</h3>
-          <p class="step-body">
-            Log use, cleaning, repairs, and range history so the record becomes more useful over time, not less.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section cta-section" id="cta">
+    <section class="section cta-section">
       <div class="cta-inner">
         <div class="cta-inner-text">
-          <h2>Download Armur on iPhone & iPad.</h2>
+          <h2>Keep the vault at the center.</h2>
           <p>
-            Armur is live now on the Apple App Store. Android support is coming soon.
-            Start with the free core experience and decide how you want your records stored.
+            Armur can expand into discovery and community while preserving the original premium, private-first look and feel.
           </p>
-          <div>
-            <span class="tag-pill"><span class="dot"></span> No subscription required to get started</span>
-            <span class="tag-pill"><span class="dot"></span> Local-only or encrypted sync</span>
-          </div>
         </div>
 
         <div class="cta-actions">
+          <a href="/index.html" class="btn btn-ghost">Back to home</a>
           <a href="/app/index.html" class="btn btn-primary">Download</a>
-          <a href="/faq/index.html" class="btn btn-ghost">Read the FAQ</a>
         </div>
       </div>
     </section>
@@ -1343,7 +1079,7 @@
     <div class="footer-inner">
       <div>© <span id="year"></span> Armur. All rights reserved.</div>
       <div class="footer-links">
-        <a href="#top">Back to top</a>
+        <a href="/index.html">Home</a>
         <a href="/faq/index.html">FAQ</a>
         <a href="/privacy/index.html">Privacy Policy</a>
         <a href="/terms/index.html">Terms of Service</a>
@@ -1353,199 +1089,13 @@
   </footer>
 </div>
 
-<div class="modal-backdrop" id="listingModal" role="dialog" aria-modal="true" aria-label="Directory listing request">
-  <div class="modal">
-    <div class="modal-header">
-      <div>
-        <h3 class="modal-title" id="modalTitle">Directory request</h3>
-        <p class="modal-sub" id="modalSub">
-          Submit a request and we’ll follow up. For safety, we may verify authority before making changes.
-        </p>
-      </div>
-      <button class="modal-close" onclick="closeListingModal()">Close</button>
-    </div>
-
-    <div class="modal-body">
-      <form id="listingForm" onsubmit="submitListingRequest(event)">
-        <input type="hidden" id="requestType" name="requestType" value="include" />
-
-        <div class="form-grid">
-          <div class="field">
-            <label for="orgType">Organization type</label>
-            <select id="orgType" required>
-              <option value="">Select…</option>
-              <option>Magazine / Publication</option>
-              <option>Collector Association</option>
-              <option>Gunsmith / Gunmaker</option>
-              <option>Range / Shooting Ground</option>
-              <option>Auction House</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="orgName">Organization name</label>
-            <input id="orgName" type="text" placeholder="e.g., The Example Gunmakers' Guild" required />
-          </div>
-
-          <div class="field">
-            <label for="website">Official website</label>
-            <input id="website" type="url" placeholder="https://example.org" required />
-          </div>
-
-          <div class="field">
-            <label for="location">Location</label>
-            <input id="location" type="text" placeholder="City, Region/State, Country" />
-          </div>
-
-          <div class="field">
-            <label for="contactName">Your name</label>
-            <input id="contactName" type="text" placeholder="Full name" />
-          </div>
-
-          <div class="field">
-            <label for="contactEmail">Your email</label>
-            <input id="contactEmail" type="email" placeholder="name@organization.org" required />
-          </div>
-        </div>
-
-        <div class="field" style="margin-top:12px;">
-          <label for="details">Details / requested changes</label>
-          <textarea id="details" placeholder="For inclusion: a short factual description you’d like us to use, or notes. For updates: what should change? For removal: any context (optional)."></textarea>
-        </div>
-
-        <div class="checkbox-row">
-          <input id="authConfirm" type="checkbox" required />
-          <label for="authConfirm">
-            I confirm I am authorized to request inclusion, updates, or removal for this organization.
-          </label>
-        </div>
-
-        <div class="checkbox-row">
-          <input id="logoConfirm" type="checkbox" />
-          <label for="logoConfirm">
-            If we use a logo or imagery later, we will obtain explicit written permission first.
-          </label>
-        </div>
-
-        <div class="form-note">
-          Submitting this form opens your email client to <strong style="color:var(--ivory);">legal@armur.org</strong>
-          with a pre-filled request. No data is sent to a server from this page.
-        </div>
-
-        <div class="modal-actions">
-          <button type="button" class="btn btn-ghost" onclick="closeListingModal()">Cancel</button>
-          <button type="submit" class="btn btn-primary">
-            Submit request <span class="btn-icon">➜</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
 <script>
-  function scrollToId(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
   function toggleNav() {
     const nav = document.getElementById("mainNav");
     nav.classList.toggle("nav--open");
   }
 
   document.getElementById("year").textContent = new Date().getFullYear();
-
-  function openListingModal(type) {
-    const modal = document.getElementById("listingModal");
-    const requestType = document.getElementById("requestType");
-    const title = document.getElementById("modalTitle");
-    const sub = document.getElementById("modalSub");
-    const details = document.getElementById("details");
-
-    requestType.value = type;
-
-    if (type === "include") {
-      title.textContent = "Request inclusion in the Armur directory";
-      sub.textContent = "Provide basic details and optionally approved wording. We may verify authority before publishing.";
-      details.placeholder = "Optional: Approved one-line description you’d like us to use, plus any notes.";
-    } else if (type === "claim") {
-      title.textContent = "Claim or update an existing directory listing";
-      sub.textContent = "Tell us what should change. We may verify authority first.";
-      details.placeholder = "What should be updated? Description, phone/email, address, hours, categories, or website link.";
-    } else {
-      title.textContent = "Request removal from the Armur directory";
-      sub.textContent = "We’ll remove or amend the listing once we verify you’re authorized to request the change.";
-      details.placeholder = "Optional: Reason for removal or preferred wording.";
-    }
-
-    document.getElementById("authConfirm").checked = false;
-    modal.classList.add("open");
-    setTimeout(() => document.getElementById("orgType").focus(), 60);
-  }
-
-  function closeListingModal() {
-    document.getElementById("listingModal").classList.remove("open");
-  }
-
-  document.getElementById("listingModal").addEventListener("click", (e) => {
-    if (e.target.id === "listingModal") closeListingModal();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeListingModal();
-  });
-
-  function submitListingRequest(e) {
-    e.preventDefault();
-
-    const type = document.getElementById("requestType").value;
-    const orgType = document.getElementById("orgType").value.trim();
-    const orgName = document.getElementById("orgName").value.trim();
-    const website = document.getElementById("website").value.trim();
-    const location = document.getElementById("location").value.trim();
-    const contactName = document.getElementById("contactName").value.trim();
-    const contactEmail = document.getElementById("contactEmail").value.trim();
-    const details = document.getElementById("details").value.trim();
-
-    let subjectAction = "Request";
-    if (type === "include") subjectAction = "Inclusion Request";
-    if (type === "claim") subjectAction = "Claim/Update Request";
-    if (type === "remove") subjectAction = "Removal Request";
-
-    const subject = `Armur Directory – ${subjectAction}: ${orgName}`;
-
-    const bodyLines = [
-      `Request type: ${type}`,
-      "",
-      `Organization type: ${orgType}`,
-      "",
-      `Organization name: ${orgName}`,
-      "",
-      `Official website: ${website}`,
-      "",
-      location ? `Location: ${location}` : null,
-      "",
-      "Requester",
-      contactName ? `Name: ${contactName}` : null,
-      `Email: ${contactEmail}`,
-      "",
-      "Details",
-      details ? details : "(none provided)",
-      "",
-      "Notes",
-      "- Please verify authority if needed.",
-      "- By default, Armur listings are factual: name, a brief description, and a link.",
-      "",
-      "Sent from armur.org."
-    ].filter(Boolean);
-
-    const mailto = `mailto:legal@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    window.location.href = mailto;
-    closeListingModal();
-  }
 </script>
 </body>
 </html>

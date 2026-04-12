@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Armur Social</title>
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif;background:radial-gradient(circle at top,#10271c 0,#040b08 52%,#020505 100%);color:#d7e0d6;line-height:1.5}
+    a{text-decoration:none;color:inherit} .wrap{max-width:1120px;margin:0 auto;padding:24px 18px 56px}
+    .top{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}.brand{font-size:24px;letter-spacing:.3em;color:#f5f2e7}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:rgba(9,24,17,.9);color:#f5f2e7}
+    .hero,.card,.split{background:linear-gradient(145deg,rgba(12,30,23,.94),#050907);border:1px solid rgba(255,255,255,.06);border-radius:18px;box-shadow:0 16px 28px rgba(0,0,0,.68)}
+    .hero{padding:28px;margin-top:24px}.eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#9aa69a}.hero h1{margin:10px 0 10px;color:#f5f2e7;font-size:40px;line-height:1.1}
+    .hero h1 span{color:#c7a15a}.hero p{max-width:740px;color:#9aa69a}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+    .card,.split{padding:16px}.card h3,.split h3{margin:0 0 6px;color:#f5f2e7}.card p,.split p{margin:0;color:#9aa69a;font-size:14px}.splitwrap{display:grid;grid-template-columns:1.2fr 1fr;gap:16px;margin-top:16px}.tag{margin-top:10px;font-size:12px;color:#c7a15a}
+    ul{margin:10px 0 0 18px;padding:0;color:#9aa69a} li{margin-bottom:6px}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.splitwrap{grid-template-columns:1fr}} @media(max-width:640px){.grid{grid-template-columns:1fr}.hero h1{font-size:32px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">ARMUR</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn" href="/">← Back to Home</a>
+        <a class="btn" href="/gallery/index.html">Gallery</a>
+        <a class="btn" href="/resources/index.html">Resources</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">Social</div>
+      <h1>A more <span>trustworthy social layer</span> for collectors.</h1>
+      <p>Armur Social can support clubs, collector circles, event participation, and discussion without turning the core product into a noisy feed. The idea is controlled connection, not engagement bait.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card"><h3>Collector circles</h3><p>Create trusted spaces for people with similar interests, disciplines, or collecting focus.</p><div class="tag">Smaller, higher-signal groups</div></article>
+      <article class="card"><h3>Club and association ties</h3><p>Help users discover and connect with recognized collector associations, clubs, and institutions.</p><div class="tag">Built on relevance</div></article>
+      <article class="card"><h3>Event-aware participation</h3><p>Link range days, collector shows, or exhibitions to people and communities that care about them.</p><div class="tag">Community with context</div></article>
+    </section>
+
+    <div class="splitwrap">
+      <section class="split">
+        <h3>What makes this different</h3>
+        <p>Unlike generic social platforms, this layer would be grounded in serious collecting: provenance, shared interests, institutions, expertise, and real-world participation.</p>
+        <ul>
+          <li>Private or invite-based community structures</li>
+          <li>Collector and institution credibility signals</li>
+          <li>Conversation tied to objects, events, and expertise</li>
+          <li>Designed to support the vault, not overwhelm it</li>
+        </ul>
+      </section>
+      <section class="split">
+        <h3>Why it fits Armur</h3>
+        <p>The social layer makes sense only after trust is established. That is why it belongs under “Explore More in Armur” rather than competing with the vault message on the homepage.</p>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

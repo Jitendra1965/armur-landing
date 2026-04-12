@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Armur – Social</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Armur Social is a private, unindexed discussion space for serious collectors to discuss history, provenance, restoration, and craft without public exposure."
+  />
+
+  <style>
+    :root {
+      --bg: #040b08;
+      --bg-soft: #07150e;
+      --gunmetal: #11171d;
+      --british-green: #0f3b2c;
+      --british-green-soft: #164835;
+      --brass-gold: #c7a15a;
+      --brass-gold-soft: rgba(199, 161, 90, 0.18);
+      --ivory: #f5f2e7;
+      --text-main: #d7e0d6;
+      --text-muted: #9aa69a;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --transition-fast: 0.2s ease-out;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10271c 0, #040b08 52%, #020505 100%);
+      color: var(--text-main);
+    }
+
+    body { line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 11, 8, 0.96),
+        rgba(4, 11, 8, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f8f4e8 0, #d1b87d 26%, #7f5b24 70%, #221609 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.8), 0 8px 18px rgba(0, 0, 0, 0.9);
+    }
+
+    .logo-mark span {
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a231b;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 20px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass-gold);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover { color: var(--ivory); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      white-space: nowrap;
+      background: none;
+      color: var(--ivory);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brass-gold), #e0c382);
+      color: #1b1508;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      background: linear-gradient(135deg, #e5c887, #f1dba1);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(9, 24, 17, 0.9);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--brass-gold);
+      background: rgba(13, 38, 27, 1);
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 18px;
+    }
+
+    .hero-social {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 28px;
+      align-items: center;
+      padding-top: 34px;
+      padding-bottom: 30px;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hero-eyebrow .badge {
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--brass-gold-soft);
+      background: rgba(16, 46, 29, 0.9);
+      color: var(--brass-gold);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4vw, 44px);
+      margin-top: 14px;
+      margin-bottom: 12px;
+      color: var(--ivory);
+      letter-spacing: 0.02em;
+      line-height: 1.08;
+    }
+
+    .hero-title span { color: var(--brass-gold); }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .hero-meta {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-meta-pill {
+      border-radius: 999px;
+      border: 1px dashed rgba(255, 255, 255, 0.24);
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .salon-card,
+    .panel,
+    .quote-card,
+    .lockout-card,
+    .feed-card {
+      background: linear-gradient(145deg, rgba(12, 30, 23, 0.94), #050907);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.68);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .salon-card::after,
+    .panel::after,
+    .quote-card::after,
+    .lockout-card::after,
+    .feed-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.10), transparent 58%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .salon-card > *,
+    .panel > *,
+    .quote-card > *,
+    .lockout-card > *,
+    .feed-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .salon-card {
+      padding: 18px;
+    }
+
+    .salon-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .salon-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .salon-chip {
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--brass-gold-soft);
+      color: var(--brass-gold);
+      font-size: 11px;
+    }
+
+    .salon-thread {
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .salon-thread:first-of-type { border-top: none; padding-top: 0; }
+
+    .salon-label {
+      font-size: 11px;
+      color: var(--brass-gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .salon-thread strong {
+      display: block;
+      color: var(--ivory);
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .salon-thread p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .panel {
+      padding: 18px;
+    }
+
+    .panel h3 {
+      margin: 0 0 14px;
+      font-size: 15px;
+      color: var(--ivory);
+    }
+
+    .manifesto-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .manifesto-item {
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .manifesto-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .manifesto-item h4 {
+      margin: 0 0 4px;
+      font-size: 14px;
+      color: var(--ivory);
+    }
+
+    .manifesto-item p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .quote-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .quote-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .quote-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--ivory);
+      line-height: 1.2;
+    }
+
+    .quote-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .protocol-box {
+      margin-top: 16px;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.28);
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      display: grid;
+      gap: 6px;
+    }
+
+    .protocol-box code {
+      color: var(--brass-gold);
+      font-size: 11px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .feed-card {
+      margin-top: 18px;
+      padding: 18px;
+    }
+
+    .feed-card h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      color: var(--ivory);
+    }
+
+    .feed-row {
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .feed-row:first-of-type { border-top: none; padding-top: 0; }
+
+    .feed-row small {
+      color: var(--brass-gold);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+
+    .feed-row strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--ivory);
+      font-size: 14px;
+    }
+
+    .feed-row p {
+      margin: 4px 0 0;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .lockout-card {
+      margin-top: 22px;
+      padding: 24px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 0 0, rgba(199,161,90,0.12), transparent 55%),
+        linear-gradient(135deg, #08130d, #020403);
+    }
+
+    .lockout-icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .lockout-card h2 {
+      color: var(--ivory);
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .lockout-card p {
+      margin: 0 auto;
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 760px;
+    }
+
+    .lockout-tags {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text-muted);
+      background: rgba(6, 12, 9, 0.7);
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--brass-gold);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #020403;
+      margin-top: 34px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--ivory); }
+
+    @media (max-width: 900px) {
+      .hero-social,
+      .grid-two {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="nav-left">
+        <a href="/index.html" class="nav-left" aria-label="Armur home">
+          <div class="logo-mark"><span>A</span></div>
+          <div class="logo-text">
+            <div class="logo-title">ARMUR</div>
+            <div class="logo-sub">Firearm Collector Vault</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="nav-links">
+        <a href="/index.html#trust">Trust</a>
+        <a href="/index.html#features">Features</a>
+        <a href="/gallery/index.html">Gallery</a>
+        <a href="/resources/index.html">Resources</a>
+        <a href="/classifieds/index.html">Classifieds</a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/app/index.html">Download</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="section">
+    <section class="hero-social">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="badge">Private discussion space</span>
+          <span>The Walled Garden</span>
+        </div>
+
+        <h1 class="hero-title">
+          Expertise Shared <span>Without Exposure.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Armur isn’t a social media platform. It is a private member’s club for the heritage collector —
+          a place to discuss history, provenance, restoration, and craftsmanship behind a secure, unindexed wall.
+        </p>
+
+        <div class="hero-meta">
+          <span class="hero-meta-pill">Authenticated access only</span>
+          <span class="hero-meta-pill">Unindexed by design</span>
+          <span class="hero-meta-pill">Vault remains separate</span>
+        </div>
+      </div>
+
+      <div class="salon-card">
+        <div class="salon-head">
+          <div class="salon-title">Inside the salon</div>
+          <div class="salon-chip">Preview</div>
+        </div>
+
+        <div class="salon-thread">
+          <div class="salon-label">Restoration • 2h ago</div>
+          <strong>Comparing Damascus Steel Patterns on 19th Century Sidelocks</strong>
+          <p>Notes from collectors comparing pattern density, contrast, and period-correct refinishing approaches.</p>
+        </div>
+
+        <div class="salon-thread">
+          <div class="salon-label">Provenance • 5h ago</div>
+          <strong>Identifying Workshop Marks: The Webley Scott Tradition</strong>
+          <p>A private discussion on stamps, period workshop practices, and supporting documentary references.</p>
+        </div>
+
+        <div class="salon-thread">
+          <div class="salon-label">Gunsmiths • 1d ago</div>
+          <strong>When should a restoration stop being a restoration?</strong>
+          <p>A thoughtful exchange on originality, sympathetic repair, and where preservation becomes alteration.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-two">
+      <div class="panel">
+        <h3>Why Armur Social feels different</h3>
+
+        <div class="manifesto-list">
+          <div class="manifesto-item">
+            <h4>Internal Visibility</h4>
+            <p>
+              Unlike public forums, Armur Social exists entirely behind a secure authentication layer.
+              Data stays within the garden and is never published to the open web.
+            </p>
+          </div>
+
+          <div class="manifesto-item">
+            <h4>Zero Web Indexing</h4>
+            <p>
+              Because your content is unindexed, it does not exist as a searchable public URL.
+              Search engines and scraping bots cannot casually catalog your private discussions.
+            </p>
+          </div>
+
+          <div class="manifesto-item">
+            <h4>Privacy by Design</h4>
+            <p>
+              Your Private Vault and Social Feed are separate silos. You can discuss provenance,
+              makers, and gunsmiths without exposing the details of your personal digital ledger.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="quote-card">
+          <div class="quote-kicker">The Anti-Social Network</div>
+          <h3>“Armur provides the connection of a community with the isolation of a safe.”</h3>
+          <p>
+            The goal is not virality. It is thoughtful exchange among collectors who value discretion as much as expertise.
+          </p>
+
+          <div class="protocol-box">
+            <code>Status: Unindexed</code>
+            <code>Protocol: Encrypted</code>
+            <code>Access: Authenticated members only</code>
+          </div>
+        </div>
+
+        <div class="feed-card">
+          <h3>What belongs here</h3>
+
+          <div class="feed-row">
+            <small>DISCUSSION TYPE</small>
+            <strong>History, identification, and provenance</strong>
+            <p>Workshop marks, period-correct details, maker timelines, and supporting references.</p>
+          </div>
+
+          <div class="feed-row">
+            <small>DISCUSSION TYPE</small>
+            <strong>Craft and restoration</strong>
+            <p>Finishing, engraving, stock work, sympathetic repair, and what should be left untouched.</p>
+          </div>
+
+          <div class="feed-row">
+            <small>DISCUSSION TYPE</small>
+            <strong>Collector-to-collector exchange</strong>
+            <p>Knowledge shared in a more restrained setting, without the incentives of public platforms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lockout-card">
+      <div class="lockout-icon">🛡️</div>
+      <h2>Member-only community.</h2>
+      <p>
+        To protect member privacy, the Social feed is restricted to authenticated app users only.
+        Your digital footprint remains invisible to the public, while your private vault remains separate from community discussion.
+      </p>
+
+      <div class="lockout-tags">
+        <span class="tag-pill"><span class="dot"></span> Not publicly searchable</span>
+        <span class="tag-pill"><span class="dot"></span> Separate from your vault</span>
+        <span class="tag-pill"><span class="dot"></span> Built for discretion</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Armur. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/index.html">Home</a>
+        <a href="/resources/index.html">Resources</a>
+        <a href="/privacy/index.html">Privacy Policy</a>
+        <a href="/terms/index.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

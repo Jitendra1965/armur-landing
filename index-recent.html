@@ -1,0 +1,3117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Armur – The Collector’s Firearm Vault</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Armur is a private firearm record vault for serious collectors. Track provenance, maintenance, range sessions, and documents with local-only storage or encrypted cloud sync. Available now on iPhone and iPad."
+  />
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    :root {
+      --bg: #040b08;
+      --bg-soft: #07150e;
+      --gunmetal: #11171d;
+      --british-green: #0f3b2c;
+      --british-green-soft: #164835;
+      --brass-gold: #c7a15a;
+      --brass-gold-soft: rgba(199, 161, 90, 0.18);
+      --ivory: #f5f2e7;
+      --text-main: #d7e0d6;
+      --text-muted: #9aa69a;
+      --danger: #ff4b5c;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --transition-fast: 0.2s ease-out;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10271c 0, #040b08 52%, #020505 100%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    body { line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 11, 8, 0.96),
+        rgba(4, 11, 8, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f8f4e8 0, #d1b87d 26%, #7f5b24 70%, #221609 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.8), 0 8px 18px rgba(0, 0, 0, 0.9);
+    }
+
+    .logo-mark span {
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a231b;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 20px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass-gold);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover { color: var(--ivory); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      white-space: nowrap;
+      background: none;
+      color: var(--ivory);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brass-gold), #e0c382);
+      color: #1b1508;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      background: linear-gradient(135deg, #e5c887, #f1dba1);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(9, 24, 17, 0.9);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--brass-gold);
+      background: rgba(13, 38, 27, 1);
+    }
+
+    .btn-icon { font-size: 15px; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--ivory);
+      font-size: 22px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+      .nav--open .nav-links,
+      .nav--open .nav-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-top: 10px;
+      }
+      header { background: rgba(4, 11, 8, 0.98); }
+      .nav { flex-wrap: wrap; }
+    }
+
+    main { flex: 1; }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 18px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 64px;
+    }
+
+    .hero-copy-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hero-copy-eyebrow span.badge {
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--brass-gold-soft);
+      background: rgba(16, 46, 29, 0.9);
+      color: var(--brass-gold);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4vw, 44px);
+      margin-top: 14px;
+      margin-bottom: 12px;
+      color: var(--ivory);
+      letter-spacing: 0.02em;
+      line-height: 1.08;
+    }
+
+    .hero-title span { color: var(--brass-gold); }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .hero-cta {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-meta {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero-meta-pill {
+      border-radius: 999px;
+      border: 1px dashed rgba(255, 255, 255, 0.24);
+      padding: 2px 10px;
+    }
+
+    .hero-right { position: relative; }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #1c3b2a, #050b07 60%, #020403);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.10), transparent 58%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .hero-card-chip {
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--brass-gold-soft);
+      color: var(--brass-gold);
+      font-size: 11px;
+    }
+
+    .hero-card-body {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 14px;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-main {
+      background: linear-gradient(135deg, #16271f, #050907);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      min-height: 120px;
+    }
+
+    .hero-card-main h3 {
+      margin: 0 0 4px;
+      font-size: 14px;
+      color: var(--ivory);
+    }
+
+    .hero-card-main p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-card-main-meta {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .hero-card-main-meta span {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-card-side {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .hero-card-side-block {
+      background: rgba(5, 11, 8, 0.95);
+      border-radius: var(--radius-md);
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-card-side-block strong {
+      display: block;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-card-side-block span {
+      font-size: 12px;
+      color: var(--ivory);
+    }
+
+    .hero-card-footer {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 11px;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-footer span.badge-soft {
+      border-radius: 999px;
+      padding: 2px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(6, 12, 9, 0.95);
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: minmax(0, 1fr); padding-top: 24px; }
+      .hero-right { order: -1; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-card-body { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-top: 8px;
+      color: var(--ivory);
+    }
+
+    .section-description {
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .trust-grid,
+    .features-grid,
+    .steps-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .trust-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .steps-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .feature-card,
+    .trust-card,
+    .step-card {
+      background: linear-gradient(145deg, rgba(12, 30, 23, 0.94), #050907);
+      border-radius: var(--radius-lg);
+      padding: 15px 15px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.68);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::after,
+    .trust-card::after,
+    .step-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.10), transparent 58%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .feature-card > *,
+    .trust-card > *,
+    .step-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-icon,
+    .trust-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 10% 0%, rgba(199,161,90,0.7), rgba(6,13,9,1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      color: #1b1508;
+      font-size: 17px;
+    }
+
+    .feature-title,
+    .trust-title,
+    .step-title {
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: var(--ivory);
+    }
+
+    .feature-body,
+    .trust-body,
+    .step-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .feature-tag {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: 1px solid var(--brass-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--brass-gold);
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .trust-grid,
+      .features-grid,
+      .steps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .trust-grid,
+      .features-grid,
+      .steps-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .side-card {
+      background: rgba(5, 11, 8, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 12px 14px 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .side-card h4 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      color: var(--ivory);
+    }
+
+    .side-card ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+
+    .side-card li { margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      .split-layout { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .owner-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .owner-card {
+      background: linear-gradient(135deg, #0a1910, #050907);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .owner-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.10), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .owner-card-inner { position: relative; z-index: 1; }
+
+    .owner-card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      color: var(--ivory);
+    }
+
+    .owner-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .owner-actions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .owner-mini {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .owner-mini a { color: var(--brass-gold); }
+
+    @media (max-width: 900px) {
+      .owner-layout { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .cta-section {
+      margin-top: 8px;
+      margin-bottom: 40px;
+    }
+
+    .cta-inner {
+      border-radius: 22px;
+      padding: 20px 18px 16px;
+      background:
+        radial-gradient(circle at 0 0, rgba(199,161,90,0.18), transparent 55%),
+        linear-gradient(135deg, #08130d, #020403);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cta-inner-text { max-width: 580px; }
+
+    .cta-inner-text h2 {
+      margin: 0 0 4px;
+      font-size: 20px;
+      color: var(--ivory);
+    }
+
+    .cta-inner-text p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text-muted);
+      margin-top: 8px;
+      margin-right: 8px;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--brass-gold);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #020403;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a { font-size: 12px; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--ivory); }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 999;
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      width: min(760px, 100%);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 0 0, rgba(199,161,90,0.12), transparent 55%),
+        linear-gradient(135deg, #08130d, #020403);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.78);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 14px 16px 12px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 16px;
+      color: var(--ivory);
+    }
+
+    .modal-sub {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .modal-close {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(9, 24, 17, 0.85);
+      color: var(--ivory);
+      border-radius: 999px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .modal-body { padding: 14px 16px 16px; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .form-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .field label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(6, 12, 9, 0.92);
+      color: var(--ivory);
+      padding: 10px 12px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(215, 224, 214, 0.45);
+    }
+
+    .form-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(6, 12, 9, 0.90);
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+
+    .checkbox-row {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .checkbox-row input { margin-top: 3px; }
+
+    .modal-actions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <header>
+    <nav class="nav" id="mainNav">
+      <div class="nav-left">
+        <a href="/" class="nav-left" aria-label="Armur home">
+          <div class="logo-mark"><span>A</span></div>
+          <div class="logo-text">
+            <div class="logo-title">ARMUR</div>
+            <div class="logo-sub">Firearm Collector Vault</div>
+          </div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+
+      <div class="nav-links">
+        <a href="#trust">Trust</a>
+        <a href="#features">Features</a>
+        <a href="#export">Export</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#manage-listing">Directory</a>
+        <a href="/faq/index.html">FAQ</a>
+        <a href="/app/index.html">Download</a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/app/index.html">
+          <span>Download</span>
+          <span class="btn-icon">➜</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section hero" id="top">
+      <div>
+        <div class="hero-copy-eyebrow">
+          <span class="badge">Now on the App Store</span>
+          <span>iPhone & iPad live • Android coming soon</span>
+        </div>
+
+        <h1 class="hero-title">
+          Your <span>firearm records</span>. Your control.
+        </h1>
+
+        <p class="hero-subtitle">
+          Armur is a private firearm record vault for serious collectors. Document provenance,
+          maintenance, range sessions, and supporting records in one place — with local-only
+          storage or encrypted sync across devices.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="/app/index.html">
+            Download on the App Store
+            <span class="btn-icon">→</span>
+          </a>
+          <button class="btn btn-ghost" onclick="scrollToId('trust')">
+            Why collectors trust it
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <span class="hero-meta-pill">No subscription required to get started</span>
+          <span>Local-only or encrypted cloud sync</span>
+          <span>Exportable records • No lock-in</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="hero-card-title">Sample Vault Entry</div>
+            <div class="hero-card-chip">Armur Preview</div>
+          </div>
+
+          <div class="hero-card-body">
+            <div class="hero-card-main">
+              <h3>Holland & Holland Royal</h3>
+              <p>
+                12 bore sidelock ejector, cased. Provenance notes, photos,
+                correspondence, service history, and recent range activity.
+              </p>
+              <div class="hero-card-main-meta">
+                <span>Last cleaned: 42 rounds ago</span>
+                <span>Invoice scanned</span>
+              </div>
+            </div>
+
+            <div class="hero-card-side">
+              <div class="hero-card-side-block">
+                <strong>Storage Mode</strong>
+                <span>Local-only or encrypted sync</span>
+              </div>
+              <div class="hero-card-side-block">
+                <strong>Recent Activity</strong>
+                <span>Range log • Added provenance letter</span>
+              </div>
+              <div class="hero-card-side-block">
+                <strong>Data Ownership</strong>
+                <span>Export anytime</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <span>Built to preserve records over time, not trap them in a system.</span>
+            <span class="badge-soft">Private by default</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trust">
+      <div class="section-header">
+        <div class="section-eyebrow">Trust & control</div>
+        <h2 class="section-title">Built for control, not exposure.</h2>
+        <p class="section-description">
+          Collectors invest years into documentation. Your records should not depend on
+          a social feed, a subscription wall, or blind trust in someone else’s system.
+        </p>
+      </div>
+
+      <div class="trust-grid">
+        <article class="trust-card">
+          <div class="trust-icon">🔒</div>
+          <h3 class="trust-title">Local-first option</h3>
+          <p class="trust-body">
+            Keep your records entirely on your own device. No cloud required.
+          </p>
+        </article>
+
+        <article class="trust-card">
+          <div class="trust-icon">☁️</div>
+          <h3 class="trust-title">Encrypted sync</h3>
+          <p class="trust-body">
+            Use cloud sync only if you want secure access across devices.
+          </p>
+        </article>
+
+        <article class="trust-card">
+          <div class="trust-icon">📤</div>
+          <h3 class="trust-title">Export anytime</h3>
+          <p class="trust-body">
+            Your records should remain yours. No lock-in. No dependency.
+          </p>
+        </article>
+      </div>
+
+      <div class="split-layout" style="margin-top: 18px;">
+        <article class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3 class="feature-title">Your data should outlast any app.</h3>
+          <p class="feature-body">
+            Armur is built around a simple idea: if you spend years documenting provenance,
+            maintenance, and ownership history, you should remain in control of that record.
+          </p>
+          <p class="feature-body" style="margin-top: 10px;">
+            <strong style="color: var(--ivory);">Even if Armur disappears tomorrow, your records shouldn’t.</strong>
+          </p>
+        </article>
+
+        <aside class="side-card">
+          <h4>What Armur does not do</h4>
+          <ul>
+            <li>No ad networks</li>
+            <li>No data selling</li>
+            <li>No public sharing by default</li>
+            <li>No requirement to use cloud storage</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-header">
+        <div class="section-eyebrow">What you can record</div>
+        <h2 class="section-title">Keep the full story together.</h2>
+        <p class="section-description">
+          Replace scattered notes, folders, emails, and memory with a structured record that can actually be maintained over time.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">📒</div>
+          <h3 class="feature-title">Firearm records</h3>
+          <p class="feature-body">
+            Log model, maker, serials, configuration, purchase information, photos, and notes.
+          </p>
+          <div class="feature-tag">Structured, searchable, and easy to maintain.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🪪</div>
+          <h3 class="feature-title">Provenance & documents</h3>
+          <p class="feature-body">
+            Attach invoices, letters, auction catalogs, permits, and correspondence directly to the relevant firearm.
+          </p>
+          <div class="feature-tag">Keep the record with the object it belongs to.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🧼</div>
+          <h3 class="feature-title">Maintenance history</h3>
+          <p class="feature-body">
+            Track cleanings, gunsmith work, repairs, upgrades, and service notes over time.
+          </p>
+          <div class="feature-tag">A clearer care history for every firearm.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3 class="feature-title">Range sessions</h3>
+          <p class="feature-body">
+            Log when, where, and what you shot, plus notes, targets, and performance observations.
+          </p>
+          <div class="feature-tag">Useful history, not just raw data.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🔢</div>
+          <h3 class="feature-title">Round counts</h3>
+          <p class="feature-body">
+            Track usage over time and tie reminders to actual use instead of guesswork.
+          </p>
+          <div class="feature-tag">Know what’s being shot and what needs attention.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🧭</div>
+          <h3 class="feature-title">Collector resources</h3>
+          <p class="feature-body">
+            Discover magazines, auctions, gunsmiths, clubs, and shooting grounds curated for enthusiasts.
+          </p>
+          <div class="feature-tag">Reference material, not noise.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="export">
+      <div class="section-header">
+        <div class="section-eyebrow">Export & ownership</div>
+        <h2 class="section-title">Your data, always accessible.</h2>
+        <p class="section-description">
+          A record is only truly yours if you can keep it, back it up, and move it when needed.
+        </p>
+      </div>
+
+      <div class="split-layout">
+        <article class="feature-card">
+          <div class="feature-icon">📤</div>
+          <h3 class="feature-title">No lock-in.</h3>
+          <p class="feature-body">
+            Armur is designed around the idea that your records should remain under your control.
+            Export and portability options are central to that philosophy.
+          </p>
+          <p class="feature-body" style="margin-top: 10px;">
+            The goal is simple: your documentation should remain useful whether you use Armur for a week or for decades.
+          </p>
+        </article>
+
+        <aside class="side-card">
+          <h4>Why this matters</h4>
+          <ul>
+            <li>Software changes</li>
+            <li>Devices fail</li>
+            <li>Companies come and go</li>
+            <li>Your records should endure anyway</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="section-header">
+        <div class="section-eyebrow">How it works</div>
+        <h2 class="section-title">From scattered records to a real vault.</h2>
+      </div>
+
+      <div class="steps-grid">
+        <article class="step-card">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Create your account</h3>
+          <p class="step-body">
+            Sign in, choose local-only or encrypted sync, and set the level of control you want from the start.
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Add your firearms</h3>
+          <p class="step-body">
+            Record the essential details, attach documents, and keep related notes together in one structured entry.
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Maintain the record</h3>
+          <p class="step-body">
+            Log use, cleaning, repairs, and range history so the record becomes more useful over time, not less.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="manage-listing">
+      <div class="section-header">
+        <div class="section-eyebrow">Directory</div>
+        <h2 class="section-title">Manage your listing.</h2>
+        <p class="section-description">
+          Magazines, collector associations, auction houses, ranges, and gunsmiths can request inclusion, claim or update a listing, or ask to be removed.
+        </p>
+      </div>
+
+      <div class="owner-layout">
+        <article class="owner-card">
+          <div class="owner-card-inner">
+            <h3>Request inclusion, updates, or removal — in one place.</h3>
+            <p>
+              Armur’s directory is intended to be a factual, respectful reference: name, a brief descriptive line, and a link to your official website.
+              We do not republish protected articles, subscription content, or imagery without permission.
+            </p>
+
+            <div class="owner-actions">
+              <button class="btn btn-primary" onclick="openListingModal('include')">
+                Request inclusion <span class="btn-icon">➜</span>
+              </button>
+              <button class="btn btn-ghost" onclick="openListingModal('claim')">
+                Claim / update listing
+              </button>
+              <button class="btn btn-ghost" onclick="openListingModal('remove')">
+                Remove listing
+              </button>
+            </div>
+
+            <div class="owner-mini">
+              Prefer email? Write to <a href="mailto:legal@armur.org">legal@armur.org</a>.
+              We may verify authority via an email address listed on your official website.
+            </div>
+          </div>
+        </article>
+
+        <aside class="side-card">
+          <h4>What we include by default</h4>
+          <ul>
+            <li>Organization name</li>
+            <li>One-line factual description</li>
+            <li>Official website link</li>
+            <li>Public contact details if provided</li>
+          </ul>
+
+          <div class="form-note" style="margin-top:10px;">
+            <strong style="color:var(--ivory);">Note:</strong> Logos and images are only used with explicit permission.
+            Removal requests are honored promptly once verified.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section cta-section" id="cta">
+      <div class="cta-inner">
+        <div class="cta-inner-text">
+          <h2>Download Armur on iPhone & iPad.</h2>
+          <p>
+            Armur is live now on the Apple App Store. Android support is coming soon.
+            Start with the free core experience and decide how you want your records stored.
+          </p>
+          <div>
+            <span class="tag-pill"><span class="dot"></span> No subscription required to get started</span>
+            <span class="tag-pill"><span class="dot"></span> Local-only or encrypted sync</span>
+          </div>
+        </div>
+
+        <div class="cta-actions">
+          <a href="/app/index.html" class="btn btn-primary">Download</a>
+          <a href="/faq/index.html" class="btn btn-ghost">Read the FAQ</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Armur. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="/faq/index.html">FAQ</a>
+        <a href="/privacy/index.html">Privacy Policy</a>
+        <a href="/terms/index.html">Terms of Service</a>
+        <a href="mailto:legal@armur.org">Contact</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div class="modal-backdrop" id="listingModal" role="dialog" aria-modal="true" aria-label="Directory listing request">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h3 class="modal-title" id="modalTitle">Directory request</h3>
+        <p class="modal-sub" id="modalSub">
+          Submit a request and we’ll follow up. For safety, we may verify authority before making changes.
+        </p>
+      </div>
+      <button class="modal-close" onclick="closeListingModal()">Close</button>
+    </div>
+
+    <div class="modal-body">
+      <form id="listingForm" onsubmit="submitListingRequest(event)">
+        <input type="hidden" id="requestType" name="requestType" value="include" />
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="orgType">Organization type</label>
+            <select id="orgType" required>
+              <option value="">Select…</option>
+              <option>Magazine / Publication</option>
+              <option>Collector Association</option>
+              <option>Gunsmith / Gunmaker</option>
+              <option>Range / Shooting Ground</option>
+              <option>Auction House</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="orgName">Organization name</label>
+            <input id="orgName" type="text" placeholder="e.g., The Example Gunmakers' Guild" required />
+          </div>
+
+          <div class="field">
+            <label for="website">Official website</label>
+            <input id="website" type="url" placeholder="https://example.org" required />
+          </div>
+
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" type="text" placeholder="City, Region/State, Country" />
+          </div>
+
+          <div class="field">
+            <label for="contactName">Your name</label>
+            <input id="contactName" type="text" placeholder="Full name" />
+          </div>
+
+          <div class="field">
+            <label for="contactEmail">Your email</label>
+            <input id="contactEmail" type="email" placeholder="name@organization.org" required />
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:12px;">
+          <label for="details">Details / requested changes</label>
+          <textarea id="details" placeholder="For inclusion: a short factual description you’d like us to use, or notes. For updates: what should change? For removal: any context (optional)."></textarea>
+        </div>
+
+        <div class="checkbox-row">
+          <input id="authConfirm" type="checkbox" required />
+          <label for="authConfirm">
+            I confirm I am authorized to request inclusion, updates, or removal for this organization.
+          </label>
+        </div>
+
+        <div class="checkbox-row">
+          <input id="logoConfirm" type="checkbox" />
+          <label for="logoConfirm">
+            If we use a logo or imagery later, we will obtain explicit written permission first.
+          </label>
+        </div>
+
+        <div class="form-note">
+          Submitting this form opens your email client to <strong style="color:var(--ivory);">legal@armur.org</strong>
+          with a pre-filled request. No data is sent to a server from this page.
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" onclick="closeListingModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">
+            Submit request <span class="btn-icon">➜</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function scrollToId(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function toggleNav() {
+    const nav = document.getElementById("mainNav");
+    nav.classList.toggle("nav--open");
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function openListingModal(type) {
+    const modal = document.getElementById("listingModal");
+    const requestType = document.getElementById("requestType");
+    const title = document.getElementById("modalTitle");
+    const sub = document.getElementById("modalSub");
+    const details = document.getElementById("details");
+
+    requestType.value = type;
+
+    if (type === "include") {
+      title.textContent = "Request inclusion in the Armur directory";
+      sub.textContent = "Provide basic details and optionally approved wording. We may verify authority before publishing.";
+      details.placeholder = "Optional: Approved one-line description you’d like us to use, plus any notes.";
+    } else if (type === "claim") {
+      title.textContent = "Claim or update an existing directory listing";
+      sub.textContent = "Tell us what should change. We may verify authority first.";
+      details.placeholder = "What should be updated? Description, phone/email, address, hours, categories, or website link.";
+    } else {
+      title.textContent = "Request removal from the Armur directory";
+      sub.textContent = "We’ll remove or amend the listing once we verify you’re authorized to request the change.";
+      details.placeholder = "Optional: Reason for removal or preferred wording.";
+    }
+
+    document.getElementById("authConfirm").checked = false;
+    modal.classList.add("open");
+    setTimeout(() => document.getElementById("orgType").focus(), 60);
+  }
+
+  function closeListingModal() {
+    document.getElementById("listingModal").classList.remove("open");
+  }
+
+  document.getElementById("listingModal").addEventListener("click", (e) => {
+    if (e.target.id === "listingModal") closeListingModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeListingModal();
+  });
+
+  function submitListingRequest(e) {
+    e.preventDefault();
+
+    const type = document.getElementById("requestType").value;
+    const orgType = document.getElementById("orgType").value.trim();
+    const orgName = document.getElementById("orgName").value.trim();
+    const website = document.getElementById("website").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const contactName = document.getElementById("contactName").value.trim();
+    const contactEmail = document.getElementById("contactEmail").value.trim();
+    const details = document.getElementById("details").value.trim();
+
+    let subjectAction = "Request";
+    if (type === "include") subjectAction = "Inclusion Request";
+    if (type === "claim") subjectAction = "Claim/Update Request";
+    if (type === "remove") subjectAction = "Removal Request";
+
+    const subject = `Armur Directory – ${subjectAction}: ${orgName}`;
+
+    const bodyLines = [
+      `Request type: ${type}`,
+      "",
+      `Organization type: ${orgType}`,
+      "",
+      `Organization name: ${orgName}`,
+      "",
+      `Official website: ${website}`,
+      "",
+      location ? `Location: ${location}` : null,
+      "",
+      "Requester",
+      contactName ? `Name: ${contactName}` : null,
+      `Email: ${contactEmail}`,
+      "",
+      "Details",
+      details ? details : "(none provided)",
+      "",
+      "Notes",
+      "- Please verify authority if needed.",
+      "- By default, Armur listings are factual: name, a brief description, and a link.",
+      "",
+      "Sent from armur.org."
+    ].filter(Boolean);
+
+    const mailto = `mailto:legal@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = mailto;
+    closeListingModal();
+  }
+</script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Armur – The Collector’s Firearm Vault</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Armur is a secure firearm collection vault for serious collectors – track provenance, maintenance, range sessions, and more. Available now on iPhone and iPad. Android coming soon."
+  />
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    :root {
+      --bg: #040b08;
+      --bg-soft: #07150e;
+      --gunmetal: #11171d;
+      --british-green: #0f3b2c;
+      --british-green-soft: #164835;
+      --brass-gold: #c7a15a;
+      --brass-gold-soft: rgba(199, 161, 90, 0.18);
+      --ivory: #f5f2e7;
+      --text-main: #d7e0d6;
+      --text-muted: #9aa69a;
+      --danger: #ff4b5c;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --transition-fast: 0.2s ease-out;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10271c 0, #040b08 52%, #020505 100%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    body { line-height: 1.5; }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 11, 8, 0.96),
+        rgba(4, 11, 8, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left { display: flex; align-items: center; gap: 10px; }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f8f4e8 0, #d1b87d 26%, #7f5b24 70%, #221609 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.8), 0 8px 18px rgba(0, 0, 0, 0.9);
+    }
+
+    .logo-mark span {
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a231b;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-text { display: flex; flex-direction: column; }
+
+    .logo-title {
+      font-size: 20px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ivory);
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass-gold);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover { color: var(--ivory); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta { display: flex; align-items: center; gap: 10px; }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      white-space: nowrap;
+      background: none;
+      color: var(--ivory);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brass-gold), #e0c382);
+      color: #1b1508;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      background: linear-gradient(135deg, #e5c887, #f1dba1);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(9, 24, 17, 0.9);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--brass-gold);
+      background: rgba(13, 38, 27, 1);
+    }
+
+    .btn-icon { font-size: 15px; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--ivory);
+      font-size: 22px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+      .nav--open .nav-links,
+      .nav--open .nav-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-top: 10px;
+      }
+      header { background: rgba(4, 11, 8, 0.98); }
+      .nav { flex-wrap: wrap; }
+    }
+
+    main { flex: 1; }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 18px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 64px;
+    }
+
+    .hero-copy-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hero-copy-eyebrow span.badge {
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--brass-gold-soft);
+      background: rgba(16, 46, 29, 0.9);
+      color: var(--brass-gold);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 4vw, 40px);
+      margin-top: 14px;
+      margin-bottom: 12px;
+      color: var(--ivory);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span { color: var(--brass-gold); }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .hero-cta {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-meta {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .hero-meta-pill {
+      border-radius: 999px;
+      border: 1px dashed rgba(255, 255, 255, 0.24);
+      padding: 2px 10px;
+    }
+
+    .hero-right { position: relative; }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #1c3b2a, #050b07 60%, #020403);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .hero-card-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .hero-card-chip {
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--brass-gold-soft);
+      color: var(--brass-gold);
+      font-size: 11px;
+    }
+
+    .hero-card-body {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .hero-card-main {
+      background: linear-gradient(135deg, #16271f, #050907);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      min-height: 120px;
+      position: relative;
+    }
+
+    .hero-card-main h3 {
+      margin: 0 0 4px;
+      font-size: 14px;
+      color: var(--ivory);
+    }
+
+    .hero-card-main p {
+      margin: 0;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .hero-card-main-meta {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .hero-card-main-meta span {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-card-side {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .hero-card-side-block {
+      background: rgba(5, 11, 8, 0.95);
+      border-radius: var(--radius-md);
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-card-side-block strong {
+      display: block;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .hero-card-side-block span {
+      font-size: 12px;
+      color: var(--ivory);
+    }
+
+    .hero-card-glow {
+      position: absolute;
+      inset: -100px;
+      background: radial-gradient(circle at 70% 0%, rgba(199, 161, 90, 0.18), transparent 60%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .hero-card-footer {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-card-footer span.badge-soft {
+      border-radius: 999px;
+      padding: 2px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(6, 12, 9, 0.95);
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: minmax(0, 1fr); padding-top: 24px; }
+      .hero-right { order: -1; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-card-body { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-top: 8px;
+      color: var(--ivory);
+    }
+
+    .section-description {
+      margin-top: 4px;
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .features-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .feature-card {
+      background: linear-gradient(145deg, rgba(12, 30, 23, 0.94), #050907);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 10% 0%, rgba(199,161,90,0.7), rgba(6,13,9,1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      color: #1b1508;
+      font-size: 17px;
+    }
+
+    .feature-title {
+      font-size: 15px;
+      margin-bottom: 4px;
+      color: var(--ivory);
+    }
+
+    .feature-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .feature-tag {
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+      opacity: 0.9;
+    }
+
+    .feature-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.12), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    @media (max-width: 900px) {
+      .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .step-card {
+      background: rgba(7, 15, 10, 0.96);
+      border-radius: var(--radius-lg);
+      padding: 14px 14px 12px;
+      border: 1px solid var(--border-soft);
+      position: relative;
+    }
+
+    .step-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid var(--brass-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: var(--brass-gold);
+      margin-bottom: 8px;
+    }
+
+    .step-title {
+      font-size: 14px;
+      color: var(--ivory);
+      margin-bottom: 4px;
+    }
+
+    .step-body {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 900px) {
+      .steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      .steps-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .trust-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .trust-card {
+      background: linear-gradient(135deg, #0a1910, #050907);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 12px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .trust-card h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 16px;
+      color: var(--ivory);
+    }
+
+    .trust-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .trust-list {
+      margin-top: 8px;
+      padding-left: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .trust-chip-row {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .trust-chip {
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(7, 16, 11, 0.98);
+    }
+
+    .trust-side-card {
+      background: rgba(5, 11, 8, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 12px 14px 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .trust-side-card h4 {
+      margin: 0 0 4px;
+      font-size: 13px;
+      color: var(--ivory);
+    }
+
+    @media (max-width: 900px) {
+      .trust-layout { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .owner-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .owner-card {
+      background: linear-gradient(135deg, #0a1910, #050907);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .owner-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.10), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .owner-card-inner { position: relative; }
+
+    .owner-card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+      color: var(--ivory);
+    }
+
+    .owner-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .owner-actions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .owner-mini {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .owner-mini a { color: var(--brass-gold); }
+
+    .owner-side {
+      background: rgba(5, 11, 8, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 12px 14px 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .owner-side h4 {
+      margin: 0 0 6px;
+      font-size: 13px;
+      color: var(--ivory);
+    }
+
+    .owner-side ul {
+      margin: 8px 0 0 18px;
+      padding: 0;
+    }
+
+    .owner-side li { margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      .owner-layout { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .cta-section {
+      margin-top: 8px;
+      margin-bottom: 40px;
+    }
+
+    .cta-inner {
+      border-radius: 22px;
+      padding: 20px 18px 16px;
+      background:
+        radial-gradient(circle at 0 0, rgba(199,161,90,0.18), transparent 55%),
+        linear-gradient(135deg, #08130d, #020403);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cta-inner-text { max-width: 560px; }
+
+    .cta-inner-text h2 {
+      margin: 0 0 4px;
+      font-size: 20px;
+      color: var(--ivory);
+    }
+
+    .cta-inner-text p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text-muted);
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--brass-gold);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #020403;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a { font-size: 12px; color: var(--text-muted); }
+    .footer-links a:hover { color: var(--ivory); }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 999;
+    }
+
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      width: min(760px, 100%);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 0 0, rgba(199,161,90,0.12), transparent 55%),
+        linear-gradient(135deg, #08130d, #020403);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 26px 70px rgba(0,0,0,0.78);
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 14px 16px 12px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 16px;
+      color: var(--ivory);
+    }
+
+    .modal-sub {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .modal-close {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(9, 24, 17, 0.85);
+      color: var(--ivory);
+      border-radius: 999px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .modal-body { padding: 14px 16px 16px; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    @media (max-width: 700px) {
+      .form-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .field label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(6, 12, 9, 0.92);
+      color: var(--ivory);
+      padding: 10px 12px;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .field textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: rgba(215, 224, 214, 0.45);
+    }
+
+    .form-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(6, 12, 9, 0.90);
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+
+    .checkbox-row {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .checkbox-row input { margin-top: 3px; }
+
+    .modal-actions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+
+    .inline-status {
+      margin-top: 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(6, 12, 9, 0.90);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    .inline-status.show {
+      display: block;
+    }
+
+    .inline-status strong {
+      color: var(--ivory);
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <header>
+    <nav class="nav" id="mainNav">
+      <div class="nav-left">
+        <div class="logo-mark"><span>A</span></div>
+        <div class="logo-text">
+          <div class="logo-title">ARMUR</div>
+          <div class="logo-sub">Firearm Collector Vault</div>
+        </div>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#trust">Security</a>
+        <a href="#directory">Directory</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="/faq/index.html">FAQ</a>
+        <a href="#manage-listing">Manage Your Listing</a>
+        <a href="/app/index.html">Download</a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/app/index.html">
+          <span>Download</span>
+          <span class="btn-icon">➜</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section hero" id="top">
+      <div>
+        <div class="hero-copy-eyebrow">
+          <span class="badge">Now available on App Store</span>
+          <span>Cloud sync • Local-only • Android coming soon</span>
+        </div>
+
+        <h1 class="hero-title">
+          Your <span>firearm collection</span>, curated like a vault.
+        </h1>
+
+        <p class="hero-subtitle">
+          Armur helps serious collectors log firearms, provenance, range sessions,
+          maintenance, and documents — with a choice between encrypted cloud sync
+          or strict local-only storage. Record Trap, Skeet, and 5-Stand scores using an
+          intuitive visual station layout and track performance through clear, insightful charts.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="/app/index.html">
+            Download on the App Store
+            <span class="btn-icon">→</span>
+          </a>
+          <button class="btn btn-ghost" onclick="scrollToId('features')">
+            Explore features
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <span class="hero-meta-pill">• No subscription required to get started</span>
+          <span>• Logs, notes, photos, documents & activity heatmaps</span>
+          <span>• iPhone & iPad available now • Android coming soon</span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-glow"></div>
+          <div class="hero-card-header">
+            <div class="hero-card-title">Sample Vault Entry</div>
+            <div class="hero-card-chip">Armur App Preview</div>
+          </div>
+
+          <div class="hero-card-body">
+            <div class="hero-card-main">
+              <h3>Holland & Holland Royal</h3>
+              <p>
+                12 bore sidelock ejector, cased. Notes, provenance, photos, and
+                recent range sessions at your fingertips.
+              </p>
+              <div class="hero-card-main-meta">
+                <span>Last cleaned: 42 rounds ago</span>
+                <span>Next reminder: 08 Mar</span>
+              </div>
+            </div>
+
+            <div class="hero-card-side">
+              <div class="hero-card-side-block">
+                <strong>Storage Mode</strong>
+                <span>Cloud Sync (encrypted)</span>
+              </div>
+              <div class="hero-card-side-block">
+                <strong>Recent Activity</strong>
+                <span>Range session • Patterning • Added invoice scan</span>
+              </div>
+              <div class="hero-card-side-block">
+                <strong>Scorecard</strong>
+                <span>5-Stand • 41/50 • Trend: ↑</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card-footer">
+            <span>Track maintenance, round count & usage across your collection.</span>
+            <span class="badge-soft">Private by default • You stay in control</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-header">
+        <div class="section-eyebrow">Features</div>
+        <h2 class="section-title">Built for collectors, not social media.</h2>
+        <p class="section-description">
+          Armur stays out of your way. It quietly becomes the one place that truly
+          knows your collection — better than any spreadsheet or notebook ever did.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">📒</div>
+          <h3 class="feature-title">Collection vault</h3>
+          <p class="feature-body">
+            Log every firearm in detail: configuration, photos, serials, purchase
+            info, notes, and documents like receipts or proof of provenance.
+          </p>
+          <div class="feature-tag">Replace scattered notes and folders.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🧼</div>
+          <h3 class="feature-title">Maintenance & round counts</h3>
+          <p class="feature-body">
+            Track cleanings, repairs, upgrades, and round counts per firearm.
+            Get gentle reminders based on usage, not guesswork.
+          </p>
+          <div class="feature-tag">Keep your guns in top shape.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3 class="feature-title">Range sessions</h3>
+          <p class="feature-body">
+            Log when, where, and what you shot.
+            Record Trap, Skeet, 5-Stand, and more using a visual,
+            station-by-station layout. Track trends over time with clean performance charts.
+          </p>
+          <div class="feature-tag">Know what actually works for you.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">☁️</div>
+          <h3 class="feature-title">Cloud or local-only</h3>
+          <p class="feature-body">
+            Choose encrypted cloud sync across devices — or local-only mode where
+            everything lives on your device and never leaves it.
+          </p>
+          <div class="feature-tag">You control where your data lives.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🪪</div>
+          <h3 class="feature-title">Documents & provenance</h3>
+          <p class="feature-body">
+            Attach scans of invoices, letters, auction catalogs, export permits,
+            or maker correspondence directly to each firearm.
+          </p>
+          <div class="feature-tag">Bring the story into the vault.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🧭</div>
+          <h3 class="feature-title">Resources for collectors</h3>
+          <p class="feature-body">
+            Discover magazines, auctions, gunsmiths, shooting grounds, and
+            collector associations curated for enthusiasts.
+            Browse by country, region, and city — or switch to nearby mode to sort by distance.
+            Open club sites, add missing ranges, and read ratings & reviews from other collectors.
+          </p>
+          <div class="feature-tag">Optional — you decide what you use.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="directory">
+      <div class="section-header">
+        <div class="section-eyebrow">Directory</div>
+        <h2 class="section-title">Find ranges and gunsmiths you can trust.</h2>
+        <p class="section-description">
+          Armur isn’t just a vault — it helps you find where to shoot and who to call when you need work done.
+          Filter by location, switch to nearby mode, and use community ratings.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <article class="step-card">
+          <div class="step-number">📌</div>
+          <h3 class="step-title">Filter by location</h3>
+          <p class="step-body">
+            Search ranges by country, region/state, and city. No guesswork — just results that match where you are.
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">📍</div>
+          <h3 class="step-title">Nearby mode</h3>
+          <p class="step-body">
+            Sort by distance when you need something close. Perfect for travel, matches, or a last-minute range day.
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">★</div>
+          <h3 class="step-title">Ratings & reviews</h3>
+          <p class="step-body">
+            See what others recommend. Leave your own review after a visit to help the community find the best spots.
+          </p>
+        </article>
+      </div>
+
+      <div style="margin-top:14px; text-align:center; font-size:12px; color: var(--text-muted);">
+        Are you a listing owner? <a href="#manage-listing" style="color: var(--brass-gold);">Claim or manage your listing</a>.
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="section-header">
+        <div class="section-eyebrow">How it works</div>
+        <h2 class="section-title">From blank app to living collection in minutes.</h2>
+      </div>
+
+      <div class="steps-grid">
+        <article class="step-card">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Create your vault</h3>
+          <p class="step-body">
+            Make an account and set your storage preferences. Pick <strong>Cloud Sync</strong> for backup across devices, or
+            choose <strong>Local-only</strong> mode if you prefer everything to
+            remain on your phone or tablet. You can switch later with a guided
+            migration.
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Add your first firearms</h3>
+          <p class="step-body">
+            Add key details, photos, and documents. Armur gives you sensible
+            fields for collectors — not a generic “notes” box and nothing else.
+          </p>
+        </article>
+
+        <article class="step-card">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Log real activity</h3>
+          <p class="step-body">
+            Record range sessions and maintenance in seconds. Over time your
+            vault becomes a history of use, care, and ownership — all in one
+            place. View heatmaps of when you shot each gun, cleaning maintenance, and more.
+            Armur helps you see patterns in your usage
+            and get reminders for maintenance based on actual usage, not just calendar dates.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="trust">
+      <div class="section-header">
+        <div class="section-eyebrow">Security & privacy</div>
+        <h2 class="section-title">Armur is not another social network.</h2>
+        <p class="section-description">
+          Armur is built for personal record-keeping first. Just you, your collection, and the tools to manage it properly.
+          If you choose to showcase your firearm in a public gallery to tell a story, it’s on your terms.
+        </p>
+      </div>
+
+      <div class="trust-layout">
+        <article class="trust-card">
+          <h3>Designed to be boring to everyone but you.</h3>
+          <p>
+            Your collection data is sensitive. Armur treats it that way with
+            clear, opinionated safeguards:
+          </p>
+          <ul class="trust-list">
+            <li>Private by default: your collection stays yours.</li>
+            <li>No third-party ad networks or trackers inside the app.</li>
+            <li>Role of cloud is backup & sync — not “monetize your data.”</li>
+            <li>Local-only mode keeps everything on your device.</li>
+            <li>Share reviews and scores without exposing your personal inventory details.</li>
+            <li>Ratings & reviews help you choose ranges and gunsmiths — without exposing your personal inventory.</li>
+          </ul>
+
+          <div class="trust-chip-row">
+            <span class="trust-chip">End-to-end mindset, even in UI copy</span>
+            <span class="trust-chip">Clear storage-mode explanations</span>
+            <span class="trust-chip">Export & backup options</span>
+          </div>
+        </article>
+
+        <article class="trust-side-card">
+          <h4>What about legal compliance?</h4>
+          <p>
+            Armur is a personal record-keeping tool for collectors. It does not
+            replace your local legal requirements. Always follow your country’s
+            laws for safe storage, transfer, and record keeping.
+          </p>
+          <p style="margin-top:6px;">
+            We’re building Armur to be a helpful companion — not a source of
+            legal advice.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="manage-listing">
+      <div class="section-header">
+        <div class="section-eyebrow">Manage your listing</div>
+        <h2 class="section-title">Manage your listing.</h2>
+        <p class="section-description">
+          Magazines, collector associations, auction houses, ranges, and gunsmiths can request inclusion,
+          claim or update a listing, or ask to be removed.
+        </p>
+      </div>
+
+      <div class="owner-layout">
+        <article class="owner-card">
+          <div class="owner-card-inner">
+            <h3>Request inclusion, updates, or removal — in one place.</h3>
+            <p>
+              Armur’s directory is intended to be a factual, respectful reference: name, a brief descriptive line, and a link to your official website.
+              We do not republish copyrighted articles, protected imagery, or subscription content without explicit permission.
+            </p>
+
+            <div class="owner-actions">
+              <button class="btn btn-primary" onclick="openListingModal('include')">
+                Request inclusion <span class="btn-icon">➜</span>
+              </button>
+              <button class="btn btn-ghost" onclick="openListingModal('claim')">
+                Claim / update listing
+              </button>
+              <button class="btn btn-ghost" onclick="openListingModal('remove')">
+                Remove listing
+              </button>
+            </div>
+
+            <div class="owner-mini">
+              Prefer email? Write to <a href="mailto:legal@armur.org">legal@armur.org</a>.
+              We may verify authority via an email address listed on your official website.
+            </div>
+          </div>
+        </article>
+
+        <aside class="owner-side">
+          <h4>What we include (by default)</h4>
+          <ul>
+            <li>Organization name</li>
+            <li>One-line factual description</li>
+            <li>Link to official website</li>
+            <li>Public contact details (if provided)</li>
+          </ul>
+
+          <div class="form-note" style="margin-top:10px;">
+            <strong style="color:var(--ivory);">Note:</strong> Logos and images are only used with explicit permission.
+            Removal requests are honored promptly once verified.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section cta-section" id="cta">
+      <div class="cta-inner">
+        <div class="cta-inner-text">
+          <h2>Download Armur on iPhone & iPad.</h2>
+          <p>
+            Armur is now available on the Apple App Store. Android support is coming soon.
+            If you’re on Android, you can request a notification when it becomes available.
+          </p>
+          <div style="margin-top:8px;">
+            <span class="tag-pill">
+              <span class="dot"></span>
+              iPhone & iPad available now
+            </span>
+            <span class="tag-pill">
+              <span class="dot"></span>
+              Android release updates by email
+            </span>
+          </div>
+
+          <div id="androidStatus" class="inline-status" aria-live="polite"></div>
+        </div>
+
+        <div class="cta-actions">
+          <a
+            href="/app/index.html"
+            class="btn btn-primary"
+          >
+            Download
+          </a>
+
+          <button
+            type="button"
+            class="btn btn-ghost"
+            onclick="handleAndroidNotify()"
+          >
+            Notify me for Android
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Armur. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="/faq/index.html">FAQ</a>
+        <a href="mailto:legal@armur.org">Contact</a>
+        <a href="/dmca/index.html">DMCA Policy</a>
+        <a href="/privacy/index.html">Privacy Policy</a>
+        <a href="/terms/index.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div class="modal-backdrop" id="listingModal" role="dialog" aria-modal="true" aria-label="Directory listing request">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h3 class="modal-title" id="modalTitle">Directory request</h3>
+        <p class="modal-sub" id="modalSub">
+          Submit a request and we’ll follow up. For safety, we may verify authority before making changes.
+        </p>
+      </div>
+      <button class="modal-close" onclick="closeListingModal()">Close</button>
+    </div>
+
+    <div class="modal-body">
+      <form id="listingForm" onsubmit="submitListingRequest(event)">
+        <input type="hidden" id="requestType" name="requestType" value="include" />
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="orgType">Organization type</label>
+            <select id="orgType" required>
+              <option value="">Select…</option>
+              <option>Magazine / Publication</option>
+              <option>Collector Association</option>
+              <option>Gunsmith / Gunmaker</option>
+              <option>Range / Shooting Ground</option>
+              <option>Auction House</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="orgName">Organization name</label>
+            <input id="orgName" type="text" placeholder="e.g., The Example Gunmakers' Guild" required />
+          </div>
+
+          <div class="field">
+            <label for="website">Official website</label>
+            <input id="website" type="url" placeholder="https://example.org" required />
+          </div>
+
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" type="text" placeholder="City, Region/State, Country" />
+          </div>
+
+          <div class="field">
+            <label for="contactName">Your name</label>
+            <input id="contactName" type="text" placeholder="Full name" />
+          </div>
+
+          <div class="field">
+            <label for="contactEmail">Your email</label>
+            <input id="contactEmail" type="email" placeholder="name@organization.org" required />
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:12px;">
+          <label for="details">Details / requested changes</label>
+          <textarea id="details" placeholder="For inclusion: a short factual description you’d like us to use, or notes. For updates: what should change? For removal: any context (optional)."></textarea>
+        </div>
+
+        <div class="checkbox-row">
+          <input id="authConfirm" type="checkbox" required />
+          <label for="authConfirm">
+            I confirm I am authorized to request inclusion, updates, or removal for this organization.
+          </label>
+        </div>
+
+        <div class="checkbox-row" id="logoRow">
+          <input id="logoConfirm" type="checkbox" />
+          <label for="logoConfirm">
+            If we use a logo or imagery later, we will obtain explicit written permission first.
+          </label>
+        </div>
+
+        <div class="form-note">
+          Submitting this form opens your email client to <strong style="color:var(--ivory);">legal@armur.org</strong>
+          with a pre-filled request. No data is sent to a server from this page.
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" onclick="closeListingModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">
+            Submit request <span class="btn-icon">➜</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const APP_STORE_URL = "https://apps.apple.com/us/app/armur/id6758026045";
+
+  function scrollToId(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function toggleNav() {
+    const nav = document.getElementById("mainNav");
+    nav.classList.toggle("nav--open");
+  }
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function handleAndroidNotify() {
+    const subject = "Armur – Notify me when Android is available";
+    const body = [
+      "Hello Armur team,",
+      "",
+      "Please notify me when the Android version of Armur is available.",
+      "",
+      "Thank you,"
+    ].join("\n");
+
+    const mailto = `mailto:jitendra.puri@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+
+    const status = document.getElementById("androidStatus");
+    status.innerHTML = `
+      <strong>Almost done.</strong><br>
+      Your email draft has been opened. Please send it to complete your Android notification request.
+    `;
+    status.classList.add("show");
+  }
+
+  function openListingModal(type) {
+    const modal = document.getElementById("listingModal");
+    const requestType = document.getElementById("requestType");
+    const title = document.getElementById("modalTitle");
+    const sub = document.getElementById("modalSub");
+    const details = document.getElementById("details");
+
+    requestType.value = type;
+
+    if (type === "include") {
+      title.textContent = "Request inclusion in the Armur directory";
+      sub.textContent = "Provide basic details and optionally approved wording. We may verify authority before publishing.";
+      details.placeholder = "Optional: Approved one-line description you’d like us to use, plus any notes.";
+    } else if (type === "claim") {
+      title.textContent = "Claim or update an existing directory listing";
+      sub.textContent = "Tell us what should change. We may verify authority first.";
+      details.placeholder = "What should be updated? Description, phone/email, address, hours, categories, or website link.";
+    } else {
+      title.textContent = "Request removal from the Armur directory";
+      sub.textContent = "We’ll remove or amend the listing once we verify you’re authorized to request the change.";
+      details.placeholder = "Optional: Reason for removal or preferred wording.";
+    }
+
+    document.getElementById("authConfirm").checked = false;
+    modal.classList.add("open");
+
+    setTimeout(() => document.getElementById("orgType").focus(), 60);
+  }
+
+  function closeListingModal() {
+    document.getElementById("listingModal").classList.remove("open");
+  }
+
+  document.getElementById("listingModal").addEventListener("click", (e) => {
+    if (e.target.id === "listingModal") closeListingModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeListingModal();
+  });
+
+  function submitListingRequest(e) {
+    e.preventDefault();
+
+    const type = document.getElementById("requestType").value;
+    const orgType = document.getElementById("orgType").value.trim();
+    const orgName = document.getElementById("orgName").value.trim();
+    const website = document.getElementById("website").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const contactName = document.getElementById("contactName").value.trim();
+    const contactEmail = document.getElementById("contactEmail").value.trim();
+    const details = document.getElementById("details").value.trim();
+
+    let subjectAction = "Request";
+    if (type === "include") subjectAction = "Inclusion Request";
+    if (type === "claim") subjectAction = "Claim/Update Request";
+    if (type === "remove") subjectAction = "Removal Request";
+
+    const subject = `Armur Directory – ${subjectAction}: ${orgName}`;
+
+    const bodyLines = [
+      `Request type: ${type}`,
+      "",
+      `Organization type: ${orgType}`,
+      "",
+      `Organization name: ${orgName}`,
+      "",
+      `Official website: ${website}`,
+      "",
+      location ? `Location: ${location}` : null,
+      "",
+      "Requester",
+      contactName ? `Name: ${contactName}` : null,
+      `Email: ${contactEmail}`,
+      "",
+      "Details",
+      details ? details : "(none provided)",
+      "",
+      "Notes",
+      "- Please verify authority if needed.",
+      "- By default, Armur listings are factual: name, a brief description, and a link.",
+      "",
+      "Sent from armur.org."
+    ].filter(Boolean);
+
+    const mailto = `mailto:legal@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    window.location.href = mailto;
+
+    closeListingModal();
+
+    const status = document.getElementById("androidStatus");
+    status.innerHTML = `
+      <strong>Email draft opened.</strong><br>
+      Please send the draft to complete your directory request.
+    `;
+    status.classList.add("show");
+
+    scrollToId("cta");
+  }
+</script>
+</body>
+</html> -->
