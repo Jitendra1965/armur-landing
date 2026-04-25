@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Armur – Download</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Download Armur on iPhone and iPad. Scan the QR code or use the App Store link."
+  />
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    :root {
+      --bg: #040b08;
+      --bg-soft: #07150e;
+      --gunmetal: #11171d;
+      --british-green: #0f3b2c;
+      --british-green-soft: #164835;
+      --brass-gold: #c7a15a;
+      --brass-gold-soft: rgba(199, 161, 90, 0.18);
+      --ivory: #f5f2e7;
+      --text-main: #d7e0d6;
+      --text-muted: #9aa69a;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --transition-fast: 0.2s ease-out;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10271c 0, #040b08 52%, #020505 100%);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    body { line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 11, 8, 0.96),
+        rgba(4, 11, 8, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f8f4e8 0, #d1b87d 26%, #7f5b24 70%, #221609 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.8), 0 8px 18px rgba(0, 0, 0, 0.9);
+    }
+
+    .logo-mark span {
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a231b;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 20px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass-gold);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover { color: var(--ivory); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      white-space: nowrap;
+      background: none;
+      color: var(--ivory);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brass-gold), #e0c382);
+      color: #1b1508;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      background: linear-gradient(135deg, #e5c887, #f1dba1);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(9, 24, 17, 0.9);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--brass-gold);
+      background: rgba(13, 38, 27, 1);
+    }
+
+    .btn-icon { font-size: 15px; }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--ivory);
+      font-size: 22px;
+      margin-left: auto;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+
+      .nav--open .nav-links,
+      .nav--open .nav-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-top: 10px;
+      }
+
+      header { background: rgba(4, 11, 8, 0.98); }
+      .nav { flex-wrap: wrap; }
+    }
+
+    main { flex: 1; }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 48px 8px;
+      
+    }
+
+    .download-hero {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.92fr) minmax(280px, 1.08fr);
+      gap: 24px;
+      align-items: stretch;
+      padding-top: 42px;
+      padding-bottom: 42px;
+    }
+
+    @media (max-width: 900px) {
+      .download-hero { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .banner-card,
+    .download-panel {
+      background: radial-gradient(circle at top, #1c3b2a, #050b07 60%, #020403);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-card { padding: 0px; }
+
+    .banner-card::after,
+    .download-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.12), transparent 55%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .banner-card-inner {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      /* align-items: center; */
+      margin-left: -10px;
+      margin-right: -10px;
+      justify-content: center;
+    }
+
+    .vertical-banner {
+      width: 100%;
+      max-height: calc(100vh - 190px);
+      object-fit: contain;
+      display: block;
+      border-radius: 14px;
+      /* background: #efe7d7; */
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.35);
+    }
+
+    .download-panel {
+      padding: clamp(18px, 3vw, 28px);
+      display: flex;
+      align-items: center;
+    }
+
+    .download-panel-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--brass-gold-soft);
+      background: rgba(16, 46, 29, 0.9);
+      color: var(--brass-gold);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4vw, 46px);
+      line-height: 1.08;
+      margin: 14px 0 12px;
+      color: var(--ivory);
+      letter-spacing: 0.02em;
+      max-width: 620px;
+    }
+
+    .hero-title span { color: var(--brass-gold); }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0;
+    }
+
+    .hero-actions {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .microcopy {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .micro-pill {
+      border-radius: 999px;
+      border: 1px dashed rgba(255, 255, 255, 0.24);
+      padding: 2px 10px;
+    }
+
+    .qr-box {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(6, 12, 9, 0.90);
+    }
+
+    @media (max-width: 640px) {
+      .qr-box { grid-template-columns: 1fr; }
+    }
+
+    .qr {
+      width: 150px;
+      height: 150px;
+      border-radius: 14px;
+      background: #ffffff;
+      border: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .qr img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .qr-text strong { color: var(--ivory); }
+    .qr-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .appstore-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #000;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 12px;
+      padding: 10px 16px;
+      min-height: 50px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.42);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .appstore-badge:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 34px rgba(0,0,0,0.52);
+    }
+
+    .apple-logo svg {
+      width: 23px;
+      height: 23px;
+      display: block;
+      fill: #fff;
+    }
+
+    .appstore-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      text-align: left;
+    }
+
+    .appstore-text small {
+      font-size: 10px;
+      opacity: 0.72;
+      margin-bottom: 3px;
+    }
+
+    .appstore-text strong {
+      font-size: 18px;
+      letter-spacing: 0.2px;
+    }
+
+    .status-live {
+      margin-top: 18px;
+      color: #b7e7ba;
+      font-size: 13px;
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(6, 12, 9, 0.90);
+      border-radius: 14px;
+      padding: 10px 12px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #020403;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+
+
+    .brochure-card {
+      padding: 0;
+      background: #f3eee4;
+    }
+
+    .brochure-mini {
+      width: 100%;
+      background: #f3eee4;
+      color: #061f18;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+
+    .brochure-mini h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin: 0 0 14px;
+    }
+
+    .brochure-mini p {
+      font-size: 15px;
+      line-height: 1.4;
+      color: #2f3b35;
+      margin: 0;
+    }
+
+    .brochure-eyebrow {
+      color: #9d671f;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .brochure-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 28px;
+      background: linear-gradient(90deg, #f6f0e6, #efe5d8);
+    }
+
+    .brochure-hero img {
+      width: 100%;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .brochure-vault {
+      padding: 28px;
+      background: #f5eee3;
+      border-top: 1px solid rgba(6,31,24,0.12);
+    }
+
+    .brochure-pills {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .brochure-pills span {
+      border: 1px solid rgba(6,31,24,0.18);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .brochure-brand {
+      padding: 30px;
+      background:
+        radial-gradient(circle at 70% 20%, rgba(32,83,65,0.6), transparent 40%),
+        linear-gradient(135deg, #06251d, #00110d);
+      color: #fffaf1;
+    }
+
+    .brochure-logo {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 6vw, 62px);
+      letter-spacing: 0.18em;
+      margin-bottom: 8px;
+    }
+
+    .brochure-brand p {
+      color: #fffaf1;
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .brochure-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .brochure-features span {
+      color: #c7a15a;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    @media (max-width: 700px) {
+      .brochure-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .brochure-pills,
+      .brochure-features {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-links a:hover { color: var(--ivory); }
+
+    @media (max-width: 900px) {
+      .download-panel { order: -1; }
+      .vertical-banner { max-height: 64vh; }
+    }
+
+    @media (max-width: 520px) {
+      .section { padding: 24px 14px; }
+      .download-hero { gap: 16px; }
+      .logo-title { font-size: 18px; letter-spacing: 0.28em; }
+      .logo-sub { font-size: 10px; }
+      .hero-title { font-size: 30px; }
+      .vertical-banner { max-height: 58vh; }
+      .appstore-badge { width: 100%; justify-content: center; }
+      .qr { width: 142px; height: 142px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <nav class="nav" id="mainNav">
+        <a class="nav-left" href="/" aria-label="Armur home">
+          <div class="logo-mark"><span>A</span></div>
+          <div class="logo-text">
+            <div class="logo-title">ARMUR</div>
+            <div class="logo-sub">Firearm Collector Vault</div>
+          </div>
+        </a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+
+        <div class="nav-links">
+          <a href="/#features">Features</a>
+          <a href="/#how-it-works">How it works</a>
+          <a href="/#trust">Security</a>
+          <a href="/faq/index.html">FAQ</a>
+        </div>
+
+        <div class="nav-cta">
+          <a class="btn btn-primary" href="https://apps.apple.com/us/app/armur/id6758026045">
+            <span>Download</span>
+            <span class="btn-icon">➜</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- <section class="section download-hero" id="top">
+        <section class="banner-card" aria-label="Armur vertical promotional banner">
+          <div class="banner-card-inner">
+            <img
+              class="vertical-banner"
+              src="ArmurBrochure.png"
+              alt="Armur vertical banner showing firearm collection management features"
+            />
+          </div>
+        </section> -->
+
+        <section class="banner-card brochure-card" aria-label="Armur brochure preview">
+          <div class="brochure-mini">
+
+            <section class="brochure-hero">
+              <div>
+                <div class="brochure-eyebrow">The Challenge</div>
+                <h2>Serious collections<br>get lost in pieces.</h2>
+                <p>Important records are scattered, forgotten, or lost — putting your collection and its value at risk.</p>
+              </div>
+              <img src="armur_brochure_assets/hero-records.png" alt="Firearm collection records">
+            </section>
+
+            <section class="brochure-vault">
+              <div class="brochure-eyebrow">The Armur Vault</div>
+              <h2>Everything in one<br>private vault.</h2>
+
+              <div class="brochure-pills">
+                <span>Local or Cloud</span>
+                <span>Encrypted by Design</span>
+                <span>You Own Your Data</span>
+                <span>Export Anytime</span>
+              </div>
+            </section>
+
+            <section class="brochure-brand">
+              <div class="brochure-logo">ARMUR</div>
+              <p>Private records. Collector control.</p>
+              <div class="brochure-features">
+                <span>Provenance</span>
+                <span>Maintenance</span>
+                <span>Range Logs</span>
+                <span>Documents</span>
+              </div>
+            </section>
+
+          </div>
+        </section>
+
+
+        <aside class="download-panel" aria-label="Download Armur on the App Store">
+          <div class="download-panel-inner">
+            <div class="hero-eyebrow">
+              <span class="badge">Now available</span>
+              <span>iPhone & iPad</span>
+            </div>
+
+            <h1 class="hero-title">
+              Your vault is ready. <span>Download Armur today.</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Scan the QR code or open Armur directly in the App Store.
+              Built for private firearm records, provenance, maintenance, and documents.
+            </p>
+
+            <div class="hero-actions">
+              <a href="https://apps.apple.com/us/app/armur/id6758026045" 
+                target="_blank" 
+                class="appstore-badge">
+                <img src="Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg" 
+                    alt="Download on the App Store">
+              </a>  
+
+              <!-- <a class="btn btn-ghost" href="https://armur.org" target="_blank" rel="noopener noreferrer">
+                Visit armur.org
+              </a> -->
+            </div>
+
+            <div class="microcopy">
+              <span class="micro-pill">Private by default</span>
+              <span class="micro-pill">On-device or cloud</span>
+              <span class="micro-pill">Export anytime</span>
+            </div>
+
+            <div class="qr-box" id="qrSection" aria-label="App Store QR code">
+              <a class="qr" href="https://apps.apple.com/us/app/armur/id6758026045" target="_blank" rel="noopener noreferrer">
+                <img
+                  id="qrImage"
+                  alt="QR code for Armur on the App Store"
+                  src="armur-app-store-qr.png"
+                />
+              </a>
+              <div class="qr-text">
+                <strong>On desktop?</strong><br />
+                Scan this QR code with your iPhone camera to open Armur directly in the App Store.
+              </div>
+            </div>
+
+            <p class="status-live">
+              Available now on iPhone & iPad • Android coming soon
+            </p>
+
+            <div class="note">
+              Private records. Total control. Provenance. Maintenance. Documents.
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Armur. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/faq/index.html">FAQ</a>
+          <a href="/privacy/index.html">Privacy Policy</a>
+          <a href="/terms/index.html">Terms of Service</a>
+          <a href="mailto:jitendra.puri@armur.org">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function toggleNav() {
+      const nav = document.getElementById("mainNav");
+      nav.classList.toggle("nav--open");
+    }
+  </script>
+</body>
+</html>

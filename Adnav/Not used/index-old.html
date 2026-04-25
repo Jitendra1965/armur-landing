@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Armur Banner</title>
+  <style>
+    :root {
+      --armur-green: #0B2A23;
+      --armur-deep: #061714;
+      --armur-brass: #C6A75E;
+      --armur-ivory: #F5F3EF;
+      --armur-muted: #A8B0AD;
+      --armur-cream: #EDEAE4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--armur-green), var(--armur-deep));
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--armur-ivory);
+    }
+
+    .page {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 40px);
+    }
+
+    .wrap {
+      width: min(1180px, 100%);
+      display: grid;
+      grid-template-columns: minmax(280px, 0.58fr) minmax(260px, 0.42fr);
+      gap: clamp(18px, 4vw, 40px);
+      align-items: center;
+    }
+
+    .banner-card {
+      min-width: 0;
+    }
+
+    .banner {
+      width: 100%;
+      height: auto;
+      max-height: calc(100svh - 80px);
+      object-fit: contain;
+      display: block;
+      border-radius: clamp(8px, 1.5vw, 16px);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      background: var(--armur-cream);
+    }
+
+    .qr-panel {
+      text-align: center;
+      padding: clamp(22px, 4vw, 38px) clamp(18px, 4vw, 32px);
+      border: 1px solid rgba(198, 167, 94, 0.45);
+      border-radius: clamp(14px, 2vw, 24px);
+      background: rgba(6, 23, 20, 0.76);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.25);
+    }
+
+    .brand {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+    }
+
+    .tagline {
+      color: var(--armur-brass);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      font-size: clamp(11px, 1.3vw, 14px);
+      margin-bottom: clamp(18px, 3vw, 30px);
+    }
+
+    .qr-box {
+      display: inline-block;
+      background: white;
+      padding: clamp(10px, 2vw, 16px);
+      border-radius: 12px;
+      border: 2px solid var(--armur-brass);
+      margin-bottom: clamp(16px, 2.5vw, 24px);
+    }
+
+    .qr-box img {
+      width: clamp(150px, 20vw, 220px);
+      height: auto;
+      display: block;
+    }
+
+    .cta {
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 750;
+      margin: 4px 0 6px;
+    }
+
+    .url {
+      color: var(--armur-brass);
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 750;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .url:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      margin: clamp(14px, 2.5vw, 22px) 0 0;
+      color: rgba(245, 243, 239, 0.8);
+      line-height: 1.45;
+      font-size: clamp(14px, 1.6vw, 16px);
+    }
+
+    .mobile-summary {
+      display: none;
+    }
+
+    .appstore-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #000;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .appstore-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.4);
+    }
+
+    .appstore-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .appstore-text small {
+      font-size: 10px;
+      opacity: 0.7;
+    }
+
+    .appstore-text strong {
+      font-size: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        align-items: flex-start;
+      }
+
+      .wrap {
+        grid-template-columns: 1fr;
+        max-width: 640px;
+      }
+
+      .qr-panel {
+        order: -1;
+      }
+
+      .banner {
+        max-height: 62svh;
+      }
+
+      .mobile-summary {
+        display: block;
+        margin: 0 0 18px;
+        color: rgba(245, 243, 239, 0.85);
+        font-size: 15px;
+        line-height: 1.45;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .page {
+        padding: 14px;
+      }
+
+      .wrap {
+        gap: 14px;
+      }
+
+      .qr-panel {
+        padding: 20px 16px;
+      }
+
+      .brand {
+        letter-spacing: 0.1em;
+      }
+
+      .banner {
+        max-height: 54svh;
+        border-radius: 10px;
+      }
+
+      .qr-box img {
+        width: 150px;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .wrap {
+        width: min(1300px, 92vw);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="wrap">
+      <section class="banner-card">
+        <img class="banner" src="armur-vertical-banner.png" alt="Armur firearm collector vault vertical banner" />
+      </section>
+
+      <aside class="qr-panel">
+        <h1 class="brand">ARMUR</h1>
+        <div class="tagline">Firearm Collector Vault</div>
+
+        <p class="mobile-summary">
+          Private firearm records, provenance, maintenance, and documents — organized in one vault.
+        </p>
+
+        <a class="qr-box" href="https://apps.apple.com/us/app/armur/id6758026045" target="_blank" rel="noopener noreferrer" aria-label="Download Armur on the App Store">
+          <img src="armur-app-store-qr.png" alt="QR code linking to Armur on the App Store" />
+        </a>
+
+        <a class="appstore-btn" href="https://apps.apple.com/us/app/armur/id6758026045" target="_blank">
+          <span class="apple-logo">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="white">
+              <path d="M16.365 1.43c0 1.14-.465 2.21-1.235 2.97-.77.76-1.8 1.23-2.92 1.14-.14-1.1.44-2.27 1.21-3.03.77-.78 2.04-1.34 2.94-1.08zM20.54 17.34c-.6 1.35-.89 1.95-1.67 3.1-1.09 1.58-2.62 3.56-4.5 3.58-1.66.02-2.08-1.08-4.32-1.07-2.25.01-2.7 1.1-4.35 1.08-1.88-.02-3.33-1.8-4.42-3.37C-1.5 16.86-.5 9.44 3.46 8.99c1.9-.22 3.08 1.03 4.25 1.03 1.17 0 2.67-1.27 4.5-1.08.77.03 2.94.31 4.33 2.33-.11.07-2.58 1.5-2.56 4.47.02 3.55 3.1 4.73 3.12 4.74z"/>
+            </svg>
+          </span>
+          <span class="appstore-text">
+            <small>Download on the</small>
+            <strong>App Store</strong>
+          </span>
+        </a>
+        <a class="url" href="https://apps.apple.com/us/app/armur/id6758026045" target="_blank" rel="noopener noreferrer">armur.org</a>
+
+        <p class="note">
+          Private records. Total control.<br />
+          Provenance. Maintenance. Documents.
+        </p>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
