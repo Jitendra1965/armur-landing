@@ -233,7 +233,7 @@
     }
 
     .brochure-section {
-      padding: 22px 24px;
+      padding: 18px 20px;
       border-bottom: 1px solid rgba(6, 31, 24, 0.12);
       flex: 1 1 auto;
       min-height: 0;
@@ -268,7 +268,7 @@
 
     .brochure-section h2 {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(25px, 2.9vw, 34px);
+      font-size: clamp(22px, 2.5vw, 30px);
       line-height: .98;
       letter-spacing: -.04em;
       margin: 0 0 10px;
@@ -294,7 +294,7 @@
 
     .brochure-hero img {
       width: 100%;
-      max-height: 155px;
+      max-height: 130px;
       object-fit: cover;
       border-radius: 14px;
       display: block;
@@ -303,7 +303,7 @@
 
     .brochure-pills {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 8px;
       margin-top: 14px;
     }
@@ -421,6 +421,18 @@
       align-items: center;
     }
 
+
+    .early-access {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #c7a15a;
+      background: rgba(199, 161, 90, 0.12);
+      border: 1px solid rgba(199, 161, 90, 0.35);
+      border-radius: 999px;
+    }
     .microcopy {
       margin-top: 16px;
       font-size: 12px;
@@ -647,11 +659,11 @@
 
               <div class="brochure-pills">
                 <span>Local or Cloud</span>
-                <span>Encrypted by Design</span>
+                <span>Encrypted </span>
                 <span>You Own Your Data</span>
                 <span>Export Anytime</span>
-                <span>No lock-in</span>
-                <span>Free to Use</span>
+                <!-- <span>No lock-in</span> -->
+                <span>Free Early Access</span>
               </div>
             </section>
             <div></br></div>
@@ -685,6 +697,8 @@
               Your vault is ready. <span>Download Armur today.</span>
             </h1>
 
+            
+
             <p class="hero-subtitle">
               Scan the QR code or open Armur directly in the App Store.
               Built for private firearm records, provenance, maintenance, and documents.
@@ -699,6 +713,10 @@
                     alt="Download on the App Store">
               </a>
             </div>
+
+            <p class="early-access">
+              Early users enjoy FREE access to core features.
+            </p>
 
             <div class="microcopy">
               <span class="micro-pill">Private by default</span>
@@ -754,5 +772,16 @@
       nav.classList.toggle("nav--open");
     }
   </script>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6D6D1DLHJE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6D6D1DLHJE');
+</script>
 </body>
 </html>
