@@ -982,6 +982,21 @@
       gap: 10px;
       justify-content: flex-end;
     }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: nowrap; /* keeps them on same row */
+    }
+
+    .store-badge img {
+      height: 40px;   /* same visual size */
+      width: auto;    /* preserves aspect ratio */
+      display: block;
+    }
+    .playstore-badge img {
+      height: 40px;
+    }
   </style>
 </head>
 
@@ -1018,12 +1033,12 @@
         <a href="/faq/index.html">FAQ</a>
       </div>
 
-      <div class="nav-cta">
+      <!-- <div class="nav-cta">
         <a class="btn btn-primary" href="/app/index.html">
           <span>Download</span>
           <span class="btn-icon">➜</span>
         </a>
-      </div>
+      </div> -->
     </nav>
   </header>
 
@@ -1031,8 +1046,8 @@
     <section class="section hero" id="top">
       <div>
         <div class="hero-copy-eyebrow">
-          <span class="badge">Now on the App Store</span>
-          <span>iPhone & iPad live • Android coming soon</span>
+          <span class="badge">Now on the App Store / Google Play</span>
+          <span>iPhone & iPad live • Android Phone or Tablet</span>
         </div>
 
         <h1 class="hero-title">
@@ -1046,22 +1061,32 @@
         </p>
 
         <div class="hero-cta">
-          <a class="btn btn-primary" href="/app/index.html">
+          <!-- <a class="btn btn-primary" href="/app/index.html">
             Download on the App Store
             <span class="btn-icon">→</span>
-          </a>
+          </a> -->
           <button class="btn btn-ghost" onclick="scrollToId('trust')">
             Trust, privacy & ownership
           </button>
         </div>
         <div></br></div>
         <div class="hero-actions">
+          <!-- Apple Store -->
           <a href="https://apps.apple.com/us/app/armur/id6758026045"
             target="_blank"
             class="appstore-badge"
             rel="noopener noreferrer">
             <img src="Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
                 alt="Download on the App Store">
+          </a>
+
+          <!-- Google Play -->
+          <a href="https://play.google.com/store/apps/details?id=com.armory.app"
+            target="_blank"
+            class="playstore-badge"
+            rel="noopener noreferrer">
+            <img src="GetItOnGooglePlay_Badge_Web_color_English.png"
+                alt="Get it on Google Play">
           </a>
         </div>
 

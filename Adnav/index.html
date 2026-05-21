@@ -549,6 +549,63 @@
       color: var(--text-muted);
     }
 
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: nowrap; /* keeps them on same row */
+    }
+
+    .store-badge img {
+      height: 40px;   /* same visual size */
+      width: auto;    /* preserves aspect ratio */
+      display: block;
+    }
+    .playstore-badge img {
+      height: 51px;
+    }
+
+    .qr-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: nowrap; /* always same row */
+      margin-top: 16px;
+    }
+
+    .qr-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .qr-box img {
+      width: 64px;   /* smaller QR size */
+      height: 64px;
+      display: block;
+    }
+
+    .qr-text {
+      font-size: 0.85rem;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 600px) {
+      .qr-section {
+        gap: 12px;
+      }
+
+      .qr-box img {
+        width: 52px;
+        height: 52px;
+      }
+
+      .qr-text {
+        font-size: 0.8rem;
+      }
+    }
+
     .footer-links a:hover { color: var(--ivory); }
 
     @media (max-width: 900px) {
@@ -690,7 +747,7 @@
           <div class="download-panel-inner">
             <div class="hero-eyebrow">
               <span class="badge">Now available</span>
-              <span>iPhone & iPad</span>
+              <span>iPhone & iPad / Android Phone or Tablet</span>
             </div>
 
             <h1 class="hero-title">
@@ -705,12 +762,23 @@
             </p>
 
             <div class="hero-actions">
+
+               <!-- Apple Store -->
               <a href="https://apps.apple.com/us/app/armur/id6758026045"
                 target="_blank"
                 class="appstore-badge"
                 rel="noopener noreferrer">
-                <img src="Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg"
+                <img src="Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
                     alt="Download on the App Store">
+              </a>
+
+              <!-- Google Play -->
+              <a href="https://play.google.com/store/apps/details?id=com.armory.app"
+                target="_blank"
+                class="playstore-badge"
+                rel="noopener noreferrer">
+                <img src="GetItOnGooglePlay_Badge_Web_color_English.png"
+                    alt="Get it on Google Play">
               </a>
             </div>
 
@@ -723,23 +791,49 @@
               <span class="micro-pill">On-device or cloud</span>
               <span class="micro-pill">Export anytime</span>
             </div>
+            
+            <div class="qr-section" aria-label="Download Armur">
+              <bold>On desktop?</bold><br>
+              <!-- Apple QR -->
+              <div class="qr-box">
+                <a class=""
+                  href="https://apps.apple.com/us/app/armur/id6758026045"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <img
+                    alt="QR code for Armur on the App Store"
+                    src="armur-app-store-qr.png"
+                  />
+                </a>
 
-            <div class="qr-box" id="qrSection" aria-label="App Store QR code">
-              <a class="qr" href="https://apps.apple.com/us/app/armur/id6758026045" target="_blank" rel="noopener noreferrer">
-                <img
-                  id="qrImage"
-                  alt="QR code for Armur on the App Store"
-                  src="armur-app-store-qr.png"
-                />
-              </a>
-              <div class="qr-text">
-                <strong>On desktop?</strong><br />
-                Scan this QR code with your iPhone camera to open Armur directly in the App Store.
+                <div class="qr-text">
+                  <strong>iPhone</strong><br>
+                  Scan to download
+                </div>
               </div>
+
+              <!-- Google Play QR -->
+              <div class="qr-box">
+                <a class=""
+                  href="https://play.google.com/store/apps/details?id=com.armory.app"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <img
+                    alt="QR code for Armur on Google Play"
+                    src="armur-google-play-qr.png"
+                  />
+                </a>
+
+                <div class="qr-text">
+                  <strong>Android</strong><br>
+                  Scan to download
+                </div>
+              </div>
+
             </div>
 
             <p class="status-live">
-              Available now on iPhone & iPad • Android coming soon
+              Available now on iPhone & iPad • Android Phone or Tablet
             </p>
 
             <div class="note">
