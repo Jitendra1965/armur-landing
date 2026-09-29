@@ -127,4 +127,8 @@ body.modal-open { overflow: hidden; }
 .podcast-copy h2 span { color: var(--brass-gold); }
 .podcast-copy p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
 .podcast-copy .btn { margin-top: 8px; }
+@media (min-width: 1024px) {
+  .podcast-sponsor-card { grid-template-columns: minmax(0,160px) minmax(0,1fr); }
+  .podcast-artwork { max-width: 160px; }
+}
 @media (max-width: 600px) { .podcast-sponsor-card { grid-template-columns: minmax(0,1fr); } }
