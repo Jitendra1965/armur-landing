@@ -8,7 +8,7 @@
     name="description"
     content="Frequently Asked Questions about Armur — the Collector’s Firearm Vault. Privacy-first documentation, provenance, maintenance logs, public gallery, and curated resources."
   />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
   <style>
     :root {
@@ -443,7 +443,7 @@
       flex: 0 0 auto;
     }
 
-    .faq-item[aria-expanded="true"] .chev {
+    .faq-item[data-expanded="true"] .chev {
       transform: rotate(180deg);
       border-color: rgba(199, 161, 90, 0.55);
       color: var(--brass-gold);
@@ -458,7 +458,7 @@
       z-index: 1;
     }
 
-    .faq-item[aria-expanded="true"] .faq-a { display: block; }
+    .faq-item[data-expanded="true"] .faq-a { display: block; }
 
     .faq-a p { margin: 0 0 10px; }
     .faq-a ul { margin: 0; padding-left: 18px; }
@@ -531,6 +531,8 @@
       border: 0;
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script src="/assets/site.js" defer></script>
 </head>
 
 <body>
@@ -547,9 +549,9 @@
           </a>
         </div>
 
-        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
 
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
           <a href="/#features">Features</a>
           <a href="/#how-it-works">How it works</a>
           <a href="/#trust">Security</a>
@@ -607,10 +609,11 @@
       </section>
 
       <section class="section" id="faq">
+        <p id="faqStatus" role="status" aria-live="polite"></p>
         <div class="faq-grid" id="faqGrid">
 
-          <article class="faq-item" aria-expanded="false" data-tags="what is armur vault documentation collectors">
-            <button class="faq-q" type="button" aria-controls="a1" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="what is armur vault documentation collectors">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a1" onclick="toggleFaq(this)">
               <h3>What is Armur?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -626,23 +629,23 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="available now app store iphone ipad android coming soon download">
-            <button class="faq-q" type="button" aria-controls="a2" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="available now app store iphone ipad android google play download">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a2" onclick="toggleFaq(this)">
               <h3>Is Armur available now?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
             <div class="faq-a" id="a2">
               <p>
-                Yes. Armur is now available on the Apple App Store for iPhone and iPad.
+                Yes. Armur is available on the Apple App Store for iPhone and iPad, and on Google Play for Android.
               </p>
               <p>
-                Android support is coming soon.
+                Armur is also available on Google Play for Android phones and tablets.
               </p>
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="how does it work add firearms documents maintenance range sessions">
-            <button class="faq-q" type="button" aria-controls="a3" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="how does it work add firearms documents maintenance range sessions">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a3" onclick="toggleFaq(this)">
               <h3>How does Armur work?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -665,8 +668,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="account required why login security authentication">
-            <button class="faq-q" type="button" aria-controls="a4" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="account required why login security authentication">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a4" onclick="toggleFaq(this)">
               <h3>Is an account required?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -681,8 +684,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="subscription free features get started premium collector plan">
-            <button class="faq-q" type="button" aria-controls="a5" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="subscription free features get started premium collector plan">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a5" onclick="toggleFaq(this)">
               <h3>Do I need a subscription to get started?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -696,8 +699,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="cloud sync local mode local-only difference offline">
-            <button class="faq-q" type="button" aria-controls="a6" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="cloud sync local mode local-only difference offline">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a6" onclick="toggleFaq(this)">
               <h3>What’s the difference between Cloud Sync and Local Mode?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -714,8 +717,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="switch storage mode cloud local migration change devices">
-            <button class="faq-q" type="button" aria-controls="a7" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="switch storage mode cloud local migration change devices">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a7" onclick="toggleFaq(this)">
               <h3>What happens if I switch storage modes?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -729,8 +732,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="security privacy encrypted trackers ads data selling">
-            <button class="faq-q" type="button" aria-controls="a8" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="security privacy encrypted trackers ads data selling">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a8" onclick="toggleFaq(this)">
               <h3>Is my data secure?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -747,8 +750,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="private public share nothing hidden completely private">
-            <button class="faq-q" type="button" aria-controls="a9" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="private public share nothing hidden completely private">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a9" onclick="toggleFaq(this)">
               <h3>Can I use Armur completely privately?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -762,8 +765,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="legal compliance advice laws record keeping">
-            <button class="faq-q" type="button" aria-controls="a10" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="legal compliance advice laws record keeping">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a10" onclick="toggleFaq(this)">
               <h3>Does Armur replace legal record-keeping requirements?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -778,8 +781,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="sales transfers marketplace background checks escrow payments">
-            <button class="faq-q" type="button" aria-controls="a11" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="sales transfers marketplace background checks escrow payments">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a11" onclick="toggleFaq(this)">
               <h3>Does Armur facilitate firearm sales or transfers?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -798,8 +801,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="public gallery showcase share story discussion">
-            <button class="faq-q" type="button" aria-controls="a12" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="public gallery showcase share story discussion">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a12" onclick="toggleFaq(this)">
               <h3>What is the Public Gallery?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -814,8 +817,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="control visibility private public serial numbers sensitive info">
-            <button class="faq-q" type="button" aria-controls="a13" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="control visibility private public serial numbers sensitive info">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a13" onclick="toggleFaq(this)">
               <h3>Can I control what information is public?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -829,8 +832,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="documents provenance invoices permits catalogs letters">
-            <button class="faq-q" type="button" aria-controls="a14" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="documents provenance invoices permits catalogs letters">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a14" onclick="toggleFaq(this)">
               <h3>Can I attach documents and provenance?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -844,8 +847,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="maintenance round counts cleanings repairs upgrades range logs">
-            <button class="faq-q" type="button" aria-controls="a15" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="maintenance round counts cleanings repairs upgrades range logs">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a15" onclick="toggleFaq(this)">
               <h3>Can I track maintenance and round counts?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -860,8 +863,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="shotguns rifles pistols accessories collection types">
-            <button class="faq-q" type="button" aria-controls="a16" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="shotguns rifles pistols accessories collection types">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a16" onclick="toggleFaq(this)">
               <h3>Does Armur work for shotguns only?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -873,23 +876,23 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="devices iphone ipad ios android supported">
-            <button class="faq-q" type="button" aria-controls="a17" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="devices iphone ipad ios android supported">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a17" onclick="toggleFaq(this)">
               <h3>What devices does Armur support?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
             <div class="faq-a" id="a17">
               <p>
-                Armur is currently available for iPhone and iPad.
+                Armur is available for iPhone, iPad, and Android.
               </p>
               <p>
-                Android support is planned.
+                Android phones and tablets are also supported.
               </p>
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="insurance documentation records claims">
-            <button class="faq-q" type="button" aria-controls="a18" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="insurance documentation records claims">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a18" onclick="toggleFaq(this)">
               <h3>Can I use Armur for insurance documentation?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -901,8 +904,8 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="delete app data loss local mode cloud sync recover">
-            <button class="faq-q" type="button" aria-controls="a19" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="delete app data loss local mode cloud sync recover">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a19" onclick="toggleFaq(this)">
               <h3>What happens if I delete the app?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -916,20 +919,70 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="export data portability backup">
-            <button class="faq-q" type="button" aria-controls="a20" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="export data portability backup pdf catalog collection photographs provenance maintenance range sessions">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a20" onclick="toggleFaq(this)">
               <h3>Can I export my data?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
             <div class="faq-a" id="a20">
               <p>
-                Yes, gun collection can be currently exported as nicely formatted pdf file.
+                Yes. Collection Export generates a professionally formatted PDF catalog of your entire collection. It includes each item’s maintenance records, photographs, provenance documents, range sessions, and other collection details.
               </p>
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="who is it for collectors enthusiasts heritage fine guns">
-            <button class="faq-q" type="button" aria-controls="a21" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="gun research serial number maker proof marks identification history">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a23" onclick="toggleFaq(this)">
+              <h3>How can I research a gun?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a23">
+              <p>Use Gun Research to explore a firearm by serial number, gun maker, or proof marks and learn more about its identity and history.</p>
+            </div>
+          </article>
+
+          <article class="faq-item" data-expanded="false" data-tags="range session performance trends trap skeet sporting clays rifle pistol target practice gun">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a24" onclick="toggleFaq(this)">
+              <h3>Can I track my shooting performance for each gun?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a24">
+              <p>Yes. Associate range sessions with a specific gun in your collection and track your personal performance over time. Follow trends in Trap, Skeet, Sporting Clays, and Rifle or Pistol target practice.</p>
+            </div>
+          </article>
+
+          <article class="faq-item" data-expanded="false" data-tags="invite shooters collectors community referrals refer gun appraisers gunsmiths">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a25" onclick="toggleFaq(this)">
+              <h3>Can I invite others and refer specialists?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a25">
+              <p>Yes. Invite fellow shooters and collectors to join the Armur community. You can also refer gun appraisers and gunsmiths to other members.</p>
+            </div>
+          </article>
+
+          <article class="faq-item" data-expanded="false" data-tags="import upload excel csv spreadsheet collection bulk records">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a26" onclick="toggleFaq(this)">
+              <h3>Can I import my collection from Excel or CSV?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a26">
+              <p>Yes. Upload an Excel spreadsheet or CSV file to bring your existing collection records into Armur without retyping each entry.</p>
+            </div>
+          </article>
+
+          <article class="faq-item" data-expanded="false" data-tags="voice to text speech dictation microphone typing fields notes">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a27" onclick="toggleFaq(this)">
+              <h3>Can I enter information by voice?</h3>
+              <span class="chev" aria-hidden="true">⌄</span>
+            </button>
+            <div class="faq-a" id="a27">
+              <p>Yes. Armur’s voice-to-text feature lets you speak to fill in fields, making it easier to capture collection details and notes without typing.</p>
+            </div>
+          </article>
+
+          <article class="faq-item" data-expanded="false" data-tags="who is it for collectors enthusiasts heritage fine guns">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a21" onclick="toggleFaq(this)">
               <h3>Who is Armur for?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
@@ -941,17 +994,17 @@
             </div>
           </article>
 
-          <article class="faq-item" aria-expanded="false" data-tags="download app store iphone ipad install">
-            <button class="faq-q" type="button" aria-controls="a22" onclick="toggleFaq(this)">
+          <article class="faq-item" data-expanded="false" data-tags="download app store iphone ipad install">
+            <button class="faq-q" type="button" aria-expanded="false" aria-controls="a22" onclick="toggleFaq(this)">
               <h3>How do I download Armur?</h3>
               <span class="chev" aria-hidden="true">⌄</span>
             </button>
             <div class="faq-a" id="a22">
               <p>
-                You can download Armur now from the Apple App Store for iPhone and iPad.
+                Download Armur from the Apple App Store for iPhone and iPad, or Google Play for Android.
               </p>
               <p>
-                Visit the download page or use the App Store link provided on armur.org.
+                Visit the <a href="/app/index.html">download page</a> to choose your app store.
               </p>
             </div>
           </article>
@@ -966,7 +1019,7 @@
             </p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-ghost" href="mailto:jitendra.puri@armur.org?subject=Armur%20FAQ%20Question">Contact</a>
+            <a class="btn btn-ghost" href="mailto:support@armur.org?subject=Armur%20FAQ%20Question">Contact</a>
             <a class="btn btn-primary" href="/app/index.html">Download ➜</a>
           </div>
         </div>
@@ -980,22 +1033,19 @@
           <a href="#top">Back to top</a>
           <a href="/privacy/index.html">Privacy Policy</a>
           <a href="/terms/index.html">Terms of Use</a>
-          <a href="mailto:jitendra.puri@armur.org">Contact</a>
+          <a href="mailto:support@armur.org">Contact</a>
         </div>
       </div>
     </footer>
   </div>
 
   <script>
-    function toggleNav() {
-      const nav = document.getElementById("mainNav");
-      nav.classList.toggle("nav--open");
-    }
 
     function toggleFaq(btn) {
       const item = btn.closest(".faq-item");
-      const expanded = item.getAttribute("aria-expanded") === "true";
-      item.setAttribute("aria-expanded", expanded ? "false" : "true");
+      const expanded = item.getAttribute("data-expanded") === "true";
+      item.setAttribute("data-expanded", expanded ? "false" : "true");
+      btn.setAttribute("aria-expanded", String(!expanded));
     }
 
     const searchInput = document.getElementById("faqSearch");
@@ -1008,12 +1058,15 @@
     function applyFilter() {
       const q = normalize(searchInput.value);
 
+      let visibleCount = 0;
       faqItems.forEach((item) => {
-        const text = normalize(item.innerText);
+        const text = normalize(item.textContent);
         const tags = normalize(item.getAttribute("data-tags"));
         const match = !q || text.includes(q) || tags.includes(q);
         item.style.display = match ? "" : "none";
+        if (match) visibleCount++;
       });
+      document.getElementById("faqStatus").textContent = q ? (visibleCount ? `${visibleCount} matching questions` : "No matching questions. Try another search or contact support.") : "";
     }
 
     searchInput.addEventListener("input", applyFilter);
@@ -1027,7 +1080,10 @@
       if (e.key === "Escape") {
         searchInput.value = "";
         applyFilter();
-        faqItems.forEach((item) => item.setAttribute("aria-expanded", "false"));
+        faqItems.forEach((item) => {
+          item.setAttribute("data-expanded", "false");
+          item.querySelector("button").setAttribute("aria-expanded", "false");
+        });
         searchInput.blur();
       }
     });

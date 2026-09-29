@@ -9,7 +9,7 @@
     name="description"
     content="Armur Privacy Policy – how HoplonTec Inc. collects, uses, discloses, and safeguards information."
   />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
   <style>
     :root {
@@ -284,6 +284,8 @@
     .footer-links a { font-size: 12px; color: var(--text-muted); }
     .footer-links a:hover { color: var(--ivory); }
   </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script src="/assets/site.js" defer></script>
 </head>
 
 <body>
@@ -300,7 +302,8 @@
         </a>
       </div>
 
-      <div class="nav-links">
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <div class="nav-links" id="navLinks">
         
         <a href="/terms/index.html">Terms</a>
         <a href="/dmca/index.html">DMCA</a>
@@ -448,7 +451,7 @@
 
             <p>We use third-party services for payment processing (e.g., subscriptions). We do not store or collect your payment card details directly.</p>
 
-            <h3 id="s4-1">4.1 Apple In-App Purchases</h4>
+            <h3 id="s4-1">4.1 Apple In-App Purchases</h3>
             <p>If you subscribe via the Apple App Store, your purchase is subject to Apple’s Privacy Policy. Apple processes your payment information and provides us with a "receipt" and unique identifiers to confirm your subscription status.</p>
             <ul>
               <li>HoplonTec does not see your credit card number or billing address.</li>
@@ -456,14 +459,14 @@
             </ul>
             <p>Apple Privacy Policy: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">https://www.apple.com/legal/privacy/</a></p>
 
-            <div class="legal-note" id="store-note">
+            <div class="legal-note" id="apple-store-note">
               <strong>App Store / Apple Notice:</strong> When you purchase a subscription through the Apple App Store, your personal data is 
               processed by Apple Inc. in accordance with their policies. Any subscription management or refund requests 
               must be initiated through your Apple ID account settings. HoplonTec Inc. cannot directly issue refunds for 
               transactions processed by Apple.
             </div>
 
-            <h3 id="s4-2">4.2 Stripe Payments</h4>
+            <h3 id="s4-2">4.2 Stripe Payments</h3>
             <p>For payments made via our website, processing is handled by Stripe, Inc. HoplonTec does not store full payment card numbers. We may receive limited metadata such as payment status, subscription tier, and country/region for tax compliance.</p>
             <p>Stripe Privacy Policy: <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">https://stripe.com/privacy</a></p>
 

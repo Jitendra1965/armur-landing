@@ -5,7 +5,7 @@
   <title>Armur Classifieds</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Explore Armur Classifieds for tasteful, collector-focused listings and marketplace discovery." />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <style>
     :root {
       --bg: #040b08;
@@ -894,6 +894,8 @@
       justify-content: flex-end;
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script src="/assets/site.js" defer></script>
 </head>
 
 <body>
@@ -911,9 +913,9 @@
         </a>
       </div>
 
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
 
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="/index.html">Home</a>
         <a href="/gallery/index.html">Gallery</a>
         <a href="/social/index.html">Social</a>
@@ -939,10 +941,10 @@
           <span>Part of the Armur ecosystem</span>
         </div>
 
-        <h1 class="hero-title">A more visual way to <span>explore collections</span>.</h1>
+        <h1 class="hero-title">Collector listings with <span>the details that matter</span>.</h1>
 
         <p class="hero-subtitle">
-          The gallery is where presentation, craftsmanship, rarity, and collector taste can be surfaced in a more editorial, image-led format.
+          Explore collector listings in the Armur app, with photographs, condition details, and provenance together in one place.
         </p>
 
         <div class="hero-cta">
@@ -963,13 +965,13 @@
       <div class="hero-right">
         <div class="hero-card">
           <div class="hero-card-header">
-            <div class="hero-card-title">Armur Gallery</div>
+            <div class="hero-card-title">Armur Classifieds</div>
             <div class="hero-card-chip">Armur Preview</div>
           </div>
 
           <div class="hero-card-body">
             <div class="hero-card-main">
-              <h3>Armur Gallery</h3>
+              <h3>Armur Classifieds</h3>
               <p>
                 Explore Armur Classifieds for tasteful, collector-focused listings and marketplace discovery.
               </p>
@@ -1052,7 +1054,7 @@
         <article class="feature-card">
           <div class="feature-icon">🤝</div>
           <h3 class="feature-title">Armur ecosystem fit</h3>
-          <p class="feature-body">Let listings sit alongside the vault, gallery, and resources ecosystem while preserving the original premium tone of the product.</p>
+          <p class="feature-body">Explore listings, gallery highlights, and collector resources from the same app, separate from your private vault.</p>
           <div class="feature-tag">Integrated, not intrusive</div>
         </article>
       </div>
@@ -1063,7 +1065,7 @@
         <div class="cta-inner-text">
           <h2>Keep the vault at the center.</h2>
           <p>
-            Armur can expand into listings and buyer discovery while preserving the original premium, private-first look and feel.
+            Explore listings in the Armur app while keeping your private collection records separate.
           </p>
         </div>
 
@@ -1083,17 +1085,13 @@
         <a href="/faq/index.html">FAQ</a>
         <a href="/privacy/index.html">Privacy Policy</a>
         <a href="/terms/index.html">Terms of Service</a>
-        <a href="mailto:legal@armur.org">Contact</a>
+        <a href="mailto:support@armur.org">Contact</a>
       </div>
     </div>
   </footer>
 </div>
 
 <script>
-  function toggleNav() {
-    const nav = document.getElementById("mainNav");
-    nav.classList.toggle("nav--open");
-  }
 
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>

@@ -8,7 +8,7 @@
     name="description"
     content="Armur is a private firearm record vault for serious collectors. Track provenance, maintenance, range sessions, and documents with local-only storage or encrypted cloud sync. Available now on iPhone and iPad."
   />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
   <style>
     :root {
@@ -998,6 +998,8 @@
       height: 40px;
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script src="/assets/site.js" defer></script>
 </head>
 
 <body>
@@ -1015,9 +1017,9 @@
         </a>
       </div>
 
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
 
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="#trust">Trust &amp; Control</a>
         <a href="#features">Core Vault Features</a>
         <div class="nav-item-dropdown">
@@ -1097,48 +1099,32 @@
         </div>
       </div>
 
-      <div class="hero-right">
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <div class="hero-card-title">Sample Vault Entry</div>
-            <div class="hero-card-chip">Armur Preview</div>
-          </div>
-
-          <div class="hero-card-body">
-            <div class="hero-card-main">
-              <h3>Holland & Holland Royal</h3>
-              <p>
-                12 bore sidelock ejector, cased. Provenance notes, photos,
-                correspondence, service history, and recent range activity.
-              </p>
-              <div class="hero-card-main-meta">
-                <span>Last cleaned: 42 rounds ago</span>
-                <span>Invoice scanned</span>
-              </div>
-            </div>
-
-            <div class="hero-card-side">
-              <div class="hero-card-side-block">
-                <strong>Storage Mode</strong>
-                <span>Local-only or encrypted sync</span>
-              </div>
-              <div class="hero-card-side-block">
-                <strong>Recent Activity</strong>
-                <span>Range log • Added provenance letter</span>
-              </div>
-              <div class="hero-card-side-block">
-                <strong>Data Ownership</strong>
-                <span>Export anytime</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-card-footer">
-            <span>Built to preserve records over time, not trap them in a system.</span>
-            <span class="badge-soft">Private by default</span>
-          </div>
-        </div>
+      <div class="hero-right app-hero-preview">
+        <figure class="app-hero-figure">
+          <a href="/assets/screenshots/collection-record.jpg" target="_blank" rel="noopener" aria-label="View the collection record screenshot at full size (opens in a new tab)">
+            <img src="/assets/screenshots/collection-record.jpg" width="602" height="1308" fetchpriority="high" alt="Armur firearm record with a shotgun photograph and links to maintenance, photos, documents, and activity history." />
+          </a>
+          <figcaption>Your collection. Every detail in one place.</figcaption>
+        </figure>
+        <a class="app-preview-link" href="#inside-armur">See inside the app <span aria-hidden="true">↓</span></a>
       </div>
+    </section>
+
+    <section class="section press-feature" id="press" aria-labelledby="press-title">
+      <div class="press-copy">
+        <div class="section-eyebrow">In the press</div>
+        <h2 id="press-title">Featured in <em>Shooting Sportsman</em>.</h2>
+        <p class="press-issue">November–December 2026 · Game &amp; Gun Gazette · Page 22</p>
+        <blockquote>“Armur’s ‘Digital Vault’ for Gun Collectors”</blockquote>
+        <p>Tom Sternal introduces Armur as a way to bring firearm details, provenance, and maintenance history together, with a choice of local storage or cloud sync.</p>
+        <a class="btn btn-ghost" href="/assets/press/shooting-sportsman-nov-dec-2026.jpeg" target="_blank" rel="noopener">View the magazine feature <span aria-hidden="true">↗</span><span class="press-sr-only"> (opens in a new tab)</span></a>
+      </div>
+      <figure class="press-image">
+        <a href="/assets/press/shooting-sportsman-nov-dec-2026.jpeg" target="_blank" rel="noopener" aria-label="View the Shooting Sportsman magazine page at full size (opens in a new tab)">
+          <img src="/assets/press/shooting-sportsman-nov-dec-2026.jpeg" width="2480" height="3300" loading="lazy" decoding="async" alt="Page 22 of Shooting Sportsman, November–December 2026, with the Armur digital vault feature in the right-hand column." />
+        </a>
+        <figcaption>Article by Tom Sternal · <cite>Shooting Sportsman</cite></figcaption>
+      </figure>
     </section>
 
     <section class="section" id="trust">
@@ -1172,7 +1158,7 @@
           <div class="trust-icon">📤</div>
           <h3 class="trust-title">Export & ownership</h3>
           <p class="trust-body">
-            Keep portable records under your control with exportability built into the philosophy.
+            Generate a professional PDF collection catalog with photographs, documents, maintenance records, and range sessions.
           </p>
         </article>
       </div>
@@ -1207,7 +1193,7 @@
         <div class="section-eyebrow">Core vault features</div>
         <h2 class="section-title">The vault stays at the center.</h2>
         <p class="section-description">
-          Document firearms, provenance, maintenance, and range history in one structured record that remains useful over time.
+          Research your firearms, track performance with each gun, connect with the Armur community, and preserve your entire collection in a professional PDF catalog.
         </p>
       </div>
 
@@ -1219,6 +1205,24 @@
             Log model, maker, serials, configuration, purchase information, photos, and notes.
           </p>
           <div class="feature-tag">Structured, searchable, and easy to maintain.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">Excel &amp; CSV import</h3>
+          <p class="feature-body">
+            Upload your collection from an Excel spreadsheet or CSV file to bring existing records into Armur without retyping each entry.
+          </p>
+          <div class="feature-tag">From spreadsheet to collection, with less effort.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🎙️</div>
+          <h3 class="feature-title">Voice-to-text entry</h3>
+          <p class="feature-body">
+            Speak instead of typing. Use voice-to-text to fill in fields and capture collection details and notes more easily.
+          </p>
+          <div class="feature-tag">More recording. Less typing.</div>
         </article>
 
         <article class="feature-card">
@@ -1241,11 +1245,11 @@
 
         <article class="feature-card">
           <div class="feature-icon">🎯</div>
-          <h3 class="feature-title">Range sessions</h3>
+          <h3 class="feature-title">Range sessions &amp; performance</h3>
           <p class="feature-body">
-            Log when, where, and what you shot, plus notes, targets, and performance observations.
+            Track your personal performance for each gun in your collection. Follow trends across Trap, Skeet, Sporting Clays, and Rifle or Pistol target practice.
           </p>
-          <div class="feature-tag">Useful history, not just raw data.</div>
+          <div class="feature-tag">Every session linked to the gun you used.</div>
         </article>
 
         <article class="feature-card">
@@ -1261,13 +1265,105 @@
           <div class="feature-icon">🧭</div>
           <h3 class="feature-title">Collector resources</h3>
           <p class="feature-body">
-            Discover magazines, auctions, gunsmiths, clubs, and shooting grounds curated for enthusiasts.
+            Discover magazines, auctions, gun appraisers, gunsmiths, clubs, and shooting grounds curated for enthusiasts.
           </p>
           <div class="feature-tag">Reference material, not noise.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🔎</div>
+          <h3 class="feature-title">Gun research</h3>
+          <p class="feature-body">
+            Research a firearm using its serial number, gun maker, or proof marks to explore its identity and history.
+          </p>
+          <div class="feature-tag">Discover the story behind each gun.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3 class="feature-title">Community &amp; referrals</h3>
+          <p class="feature-body">
+            Invite other shooters and collectors to the Armur community, and refer gun appraisers and gunsmiths to fellow members.
+          </p>
+          <div class="feature-tag">Connect through shared interests and expertise.</div>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">📄</div>
+          <h3 class="feature-title">Collection export</h3>
+          <p class="feature-body">
+            Generate a professionally formatted PDF catalog of your entire collection, including each item’s maintenance records, photographs, provenance documents, and range sessions.
+          </p>
+          <div class="feature-tag">Your collection and its history, in one catalog.</div>
         </article>
       </div>
     </section>
 
+
+    <section class="section app-showcase" id="inside-armur" aria-labelledby="app-showcase-title">
+      <div class="section-header">
+        <div class="section-eyebrow">Inside Armur</div>
+        <h2 class="section-title" id="app-showcase-title">From collection records to range results.</h2>
+        <p class="section-description">See how Armur helps you organize, research, and enjoy your collection. Select any screenshot for a full-size view.</p>
+      </div>
+
+      <article class="app-story" aria-labelledby="collection-story-title">
+        <div class="app-story-copy">
+          <div class="section-eyebrow">01 / Your collection</div>
+          <h3 id="collection-story-title">Every gun. Its whole story.</h3>
+          <p>Keep photographs, maintenance records, and provenance documents with the firearm they belong to, so its history is always close at hand.</p>
+          <ul>
+            <li>Bring existing records into Armur from Excel or CSV.</li>
+            <li>Capture details and notes with voice-to-text.</li>
+            <li>Export your collection as a professional PDF catalog.</li>
+          </ul>
+        </div>
+        <div class="app-story-media"><figure class="app-screen">
+            <a class="app-screenshot-link" href="/assets/screenshots/collection-record.jpg" target="_blank" rel="noopener" aria-label="View a record for every gun at full size (opens in a new tab)">
+              <img src="/assets/screenshots/collection-record.jpg" width="602" height="1308" loading="lazy" decoding="async" alt="Armur collection item with its photograph and maintenance, photo, document, and activity records." />
+            </a>
+            <figcaption>A record for every gun</figcaption>
+          </figure></div>
+      </article>
+
+      <article class="app-story app-story-reverse" aria-labelledby="research-story-title">
+        <div class="app-story-copy">
+          <div class="section-eyebrow">02 / Your research</div>
+          <h3 id="research-story-title">Discover the details behind the firearm.</h3>
+          <p>Research by serial number, gun maker, or proof marks to explore a firearm’s identity and history.</p>
+          <p>The proof mark search starts with what you can see: characters, symbols, and the location of a stamp.</p>
+        </div>
+        <div class="app-story-media"><figure class="app-screen">
+            <a class="app-screenshot-link" href="/assets/screenshots/proof-mark-research.jpg" target="_blank" rel="noopener" aria-label="View proof mark research at full size (opens in a new tab)">
+              <img src="/assets/screenshots/proof-mark-research.jpg" width="602" height="1308" loading="lazy" decoding="async" alt="Proof Mark Research with fields for visible characters, symbols, year, and stamp location." />
+            </a>
+            <figcaption>Proof mark research</figcaption>
+          </figure></div>
+      </article>
+
+      <article class="app-story app-story-range" aria-labelledby="range-story-title">
+        <div class="app-story-copy">
+          <div class="section-eyebrow">03 / Your progress</div>
+          <h3 id="range-story-title">Log the session. See the improvement.</h3>
+          <p>Connect each range session to the gun you used, then follow your personal performance over time.</p>
+          <p>Track Trap, Skeet, Sporting Clays, and Rifle or Pistol target practice. The Skeet scorecard and performance chart shown here bring those records to life.</p>
+        </div>
+        <div class="app-story-media app-screen-pair">
+          <figure class="app-screen">
+            <a class="app-screenshot-link" href="/assets/screenshots/range-session.png" target="_blank" rel="noopener" aria-label="View record your session at full size (opens in a new tab)">
+              <img src="/assets/screenshots/range-session.png" width="1242" height="2688" loading="lazy" decoding="async" alt="A Skeet range session scorecard with station hit counts." />
+            </a>
+            <figcaption>Record your session</figcaption>
+          </figure>
+          <figure class="app-screen">
+            <a class="app-screenshot-link" href="/assets/screenshots/range-performance.png" target="_blank" rel="noopener" aria-label="View follow your performance at full size (opens in a new tab)">
+              <img src="/assets/screenshots/range-performance.png" width="1242" height="2688" loading="lazy" decoding="async" alt="Range accuracy trends for a Westley Richards firearm, comparing Trap and Skeet sessions." />
+            </a>
+            <figcaption>Follow your performance</figcaption>
+          </figure>
+        </div>
+      </article>
+    </section>
 
     <section class="section" id="explore">
       <div class="section-header">
@@ -1286,7 +1382,7 @@
           <p class="feature-body">
             Browse exceptional firearms, collections, details, and presentation-worthy imagery in a dedicated space.
           </p>
-          <div class="feature-tag"><a href="/gallery/index.html" style="color: var(--brass-gold);">Open Gallery →</a></div>
+          <div class="feature-tag"><a href="/gallery/index.html" style="color: var(--brass-gold);">Explore Gallery →</a></div>
         </article>
 
         <article class="feature-card">
@@ -1295,7 +1391,7 @@
           <p class="feature-body">
             Follow conversations, collector updates, and shared insights without turning the vault itself into a feed.
           </p>
-          <div class="feature-tag"><a href="/social/index.html" style="color: var(--brass-gold);">Open Social →</a></div>
+          <div class="feature-tag"><a href="/social/index.html" style="color: var(--brass-gold);">Explore Social →</a></div>
         </article>
 
         <article class="feature-card">
@@ -1304,7 +1400,7 @@
           <p class="feature-body">
             Discover directories, ranges, curated magazines, collector associations, auction houses, and gunsmiths.
           </p>
-          <div class="feature-tag"><a href="/resources/index.html" style="color: var(--brass-gold);">Open Resources →</a></div>
+          <div class="feature-tag"><a href="/resources/index.html" style="color: var(--brass-gold);">Explore Resources →</a></div>
         </article>
 
         <article class="feature-card">
@@ -1337,7 +1433,7 @@
           <div class="step-number">2</div>
           <h3 class="step-title">Add your firearms</h3>
           <p class="step-body">
-            Record the essential details, attach documents, and keep related notes together in one structured entry.
+            Import your collection from Excel or CSV, or add records individually. Use voice-to-text to enter details and notes without typing.
           </p>
         </article>
 
@@ -1354,9 +1450,9 @@
     <section class="section cta-section" id="cta">
       <div class="cta-inner">
         <div class="cta-inner-text">
-          <h2>Download Armur on iPhone & iPad.</h2>
+          <h2>Download Armur on iPhone, iPad & Android.</h2>
           <p>
-            Armur is live now on the Apple App Store. Android support is coming soon.
+            Armur is available on the Apple App Store and Google Play.
             Start with the free core experience and decide how you want your records stored.
           </p>
           <div>
@@ -1381,7 +1477,7 @@
         <a href="/faq/index.html">FAQ</a>
         <a href="/privacy/index.html">Privacy Policy</a>
         <a href="/terms/index.html">Terms of Service</a>
-        <a href="mailto:legal@armur.org">Contact</a>
+        <a href="mailto:support@armur.org">Contact</a>
       </div>
     </div>
   </footer>
@@ -1485,11 +1581,6 @@
     el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  function toggleNav() {
-    const nav = document.getElementById("mainNav");
-    nav.classList.toggle("nav--open");
-  }
-
   document.getElementById("year").textContent = new Date().getFullYear();
 
   function openListingModal(type) {
@@ -1517,7 +1608,7 @@
 
     document.getElementById("authConfirm").checked = false;
     modal.classList.add("open");
-    setTimeout(() => document.getElementById("orgType").focus(), 60);
+    document.getElementById("orgType").focus();
   }
 
   function closeListingModal() {

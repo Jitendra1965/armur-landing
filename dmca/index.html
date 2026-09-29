@@ -8,7 +8,7 @@
     name="description"
     content="Armur (HoplonTec Inc.) DMCA Copyright Policy and procedures for notices and counter-notices under 17 U.S.C. § 512."
   />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
   <style>
     :root {
@@ -430,6 +430,8 @@
     .footer-links a { font-size: 12px; color: var(--text-muted); }
     .footer-links a:hover { color: var(--ivory); }
   </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script src="/assets/site.js" defer></script>
 </head>
 
 <body>
@@ -448,9 +450,9 @@
         </a>
       </div>
 
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
 
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="#policy">DMCA Policy</a>
         <a href="#notice">Takedown Notice</a>
         <a href="#counter">Counter-Notice</a>
@@ -506,7 +508,7 @@
           <p>
             <strong>Designated DMCA Agent</strong><br />
             HoplonTec Inc.<br />
-            <strong>[Attn: Legal Department, 1111B S Governors Ave # 87194,Dover, DE - 19904]</strong><br />
+            <strong>Attn: Legal Department<br />1111B S Governors Ave # 87194<br />Dover, DE 19904</strong><br />
             Email: <strong>legal@armur.org</strong>
           </p>
           <!-- <p class="legal-note">
@@ -605,7 +607,7 @@
           <p>
             <strong>HoplonTec Inc.</strong><br />
             Attn: DMCA Agent<br />
-            <strong>[Attn: Legal Department, 1111B S Governors Ave # 87194,Dover, DE - 19904]</strong><br />
+            <strong>Attn: Legal Department<br />1111B S Governors Ave # 87194<br />Dover, DE 19904</strong><br />
             Email: <strong>legal@armur.org</strong>
           </p>
 
@@ -625,7 +627,7 @@
           </div>
 
           <div style="margin-top:12px;">
-            <div class="pill"><span class="dot"></span> Email: <code>dmca@armur.org</code></div>
+            <div class="pill"><span class="dot"></span> Email: <code>legal@armur.org</code></div>
             <div class="pill" style="margin-top:8px;"><span class="dot"></span> Company: <code>HoplonTec Inc.</code></div>
           </div>
 
@@ -651,10 +653,6 @@
 </div>
 
 <script>
-  function toggleNav() {
-    const nav = document.getElementById("mainNav");
-    nav.classList.toggle("nav--open");
-  }
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>

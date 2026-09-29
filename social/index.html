@@ -569,10 +569,13 @@
       }
     }
   </style>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script src="/assets/site.js" defer></script>
 </head>
 <body>
   <header>
-    <nav class="nav">
+    <nav class="nav" id="mainNav">
       <div class="nav-left">
         <a href="/index.html" class="nav-left" aria-label="Armur home">
           <div class="logo-mark"><span>A</span></div>
@@ -583,7 +586,8 @@
         </a>
       </div>
 
-      <div class="nav-links">
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <div class="nav-links" id="navLinks">
         <a href="/index.html#trust">Trust</a>
         <a href="/index.html#features">Features</a>
         <a href="/gallery/index.html">Gallery</a>
@@ -710,8 +714,8 @@
 
           <div class="feed-row">
             <small>DISCUSSION TYPE</small>
-            <strong>Collector-to-collector exchange</strong>
-            <p>Knowledge shared in a more restrained setting, without the incentives of public platforms.</p>
+            <strong>Invitations &amp; referrals</strong>
+            <p>Invite fellow shooters and collectors to the Armur community, and refer gun appraisers and gunsmiths to other members.</p>
           </div>
         </div>
       </div>

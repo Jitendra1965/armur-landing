@@ -5,7 +5,7 @@
   <title>Armur – Download</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Download Armur on iPhone and iPad. Scan the QR code or use the App Store link." />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
   <style>
     :root {
@@ -664,6 +664,8 @@
       .brochure-section { padding: 22px; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script src="/assets/site.js" defer></script>
 </head>
 
 <body>
@@ -678,9 +680,9 @@
           </div>
         </a>
 
-        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
 
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
           <a href="/faq/index.html">FAQ</a>
         </div>
 
@@ -757,7 +759,7 @@
             
 
             <p class="hero-subtitle">
-              Scan the QR code or open Armur directly in the App Store.
+              Scan a QR code or choose the App Store or Google Play.
               Built for private firearm records, provenance, maintenance, and documents.
             </p>
 
@@ -860,11 +862,6 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    function toggleNav() {
-      const nav = document.getElementById("mainNav");
-      nav.classList.toggle("nav--open");
-    }
   </script>
 
 

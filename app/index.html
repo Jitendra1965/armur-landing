@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Download Armur on iPhone and iPad. Android is coming soon."
+    content="Download Armur for iPhone and iPad on the App Store, or for Android on Google Play."
   />
-  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
   <style>
     :root {
@@ -515,6 +515,8 @@
       border: 0;
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script src="/assets/site.js" defer></script>
 </head>
 
 <body>
@@ -529,9 +531,9 @@
           </div>
         </a>
 
-        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
 
-        <div class="nav-links">
+        <div class="nav-links" id="navLinks">
           <a href="/#features">Features</a>
           <a href="/#how-it-works">How it works</a>
           <a href="/#trust">Security</a>
@@ -545,7 +547,7 @@
         <div>
           <div class="hero-eyebrow">
             <span class="badge">Now available</span>
-            <span>iPhone & iPad</span>
+            <span>iPhone, iPad & Android</span>
           </div>
 
           <h1 class="hero-title">
@@ -553,19 +555,17 @@
           </h1>
 
           <p class="hero-subtitle">
-            Armur is now available on the Apple App Store. Log firearms, document provenance,
+            Armur is available on the Apple App Store and Google Play. Log firearms, document provenance,
             track maintenance and range sessions, and keep your collection organized in one private vault.
           </p>
 
 
           <div class="hero-actions">
-            <button class="btn btn-primary" id="downloadBtn" onclick="handleDownload()">    
-              Download Armur <span class="btn-icon">➜</span>
-            </button>
+            <a class="btn btn-primary" href="#storeLinks">Choose your app store <span class="btn-icon">➜</span></a>
             <a class="btn btn-ghost" href="/faq/index.html">Read the FAQ</a>
           </div>
 
-          <div class="hero-actions">
+          <div class="hero-actions" id="storeLinks">
             <a href="https://apps.apple.com/us/app/armur/id6758026045"
               target="_blank"
               class="appstore-badge"
@@ -573,6 +573,7 @@
               <img src="Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"
                   alt="Download on the App Store">
             </a>
+            <a href="https://play.google.com/store/apps/details?id=com.armory.app" class="playstore-badge" target="_blank" rel="noopener noreferrer"><img src="/GetItOnGooglePlay_Badge_Web_color_English.png" alt="Get it on Google Play" /></a>
           </div>
 
           <p class="early-access">
@@ -586,61 +587,36 @@
           </div>
 
           <p style="margin-top:10px; font-size:12px; color:var(--text-muted);">
-            Available now on iPhone & iPad • Android coming soon
+            Available now on iPhone, iPad & Android
           </p>
         </div>
 
-        <aside class="card" aria-label="Download status and Android notifications">
+        <aside class="card" aria-label="Download options">
           <div class="card-inner">
             <h3 class="card-title">Status</h3>
             <p class="status-live">
-              Armur is live on the Apple App Store.
+              Armur is live on the Apple App Store and Google Play.
             </p>
             <p>
-              If you are on iPhone or iPad, download now. If you are on Android, leave your email and we’ll notify you when the Android version is ready.
+              Choose the Apple App Store for iPhone or iPad, or Google Play for an Android phone or tablet.
             </p>
 
             <div class="pill-row">
               <span class="pill">iPhone & iPad live</span>
-              <span class="pill">Android coming soon</span>
+              <span class="pill">Android available</span>
               <span class="pill">Secure vault</span>
               <span class="pill">Optional public gallery</span>
             </div>
 
-            <div class="notify" id="androidNotifySection" aria-label="Android notify form">
-              <div class="field">
-                <label for="email">Email for Android release updates</label>
-                <input id="email" type="email" placeholder="you@example.com" autocomplete="email" />
-              </div>
-
-              <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                <button class="btn btn-primary" onclick="requestAndroidNotice()">
-                  Notify me when Android is available
-                </button>
-                <a class="btn btn-ghost" href="mailto:jitendra.puri@armur.org?subject=Armur%20Android%20release%20notification">
-                  Email us instead
-                </a>
-              </div>
-
-              <div class="note">
-                This button opens your email client to <strong style="color:var(--ivory);">jitendra.puri@armur.org</strong>
-                with a pre-filled request for the Android release notification.
-              </div>
-            </div>
-
-            <div class="qr-box" id="qrSection" aria-label="App Store QR code">
-              <div class="qr">
-                <img
-                  id="qrImage"
-                  alt="QR code for Armur on the App Store"
-                  src=""
-                />
-              </div>
-              <div class="qr-text">
-                <strong>On desktop?</strong><br />
-                Scan this QR code with your iPhone camera to open Armur directly in the App Store.
-                You can also bookmark <span style="color:var(--ivory);">armur.org/app</span> and return later on your phone.
-              </div>
+            <div class="download-qr-grid" aria-label="Scan to download Armur">
+              <a class="qr-box" href="https://apps.apple.com/us/app/armur/id6758026045">
+                <img width="140" height="140" src="/Adnav/armur-app-store-qr.png" alt="QR code for Armur on the App Store" />
+                <span class="qr-text">iPhone &amp; iPad<br />Scan or tap for the App Store</span>
+              </a>
+              <a class="qr-box" href="https://play.google.com/store/apps/details?id=com.armory.app">
+                <img width="140" height="140" src="/Adnav/armur-google-play-qr.png" alt="QR code for Armur on Google Play" />
+                <span class="qr-text">Android<br />Scan or tap for Google Play</span>
+              </a>
             </div>
 
             <small>
@@ -651,6 +627,20 @@
             </small>
           </div>
         </aside>
+      </section>
+      <section class="section download-welcome" aria-labelledby="welcome-title">
+        <div>
+          <div class="section-eyebrow">Your next step</div>
+          <h2 id="welcome-title">Your collection starts here.</h2>
+          <p>Download Armur, create your account, and bring your collection together. Already a member? Sign in to return to your vault.</p>
+          <a class="app-preview-link" href="#storeLinks">Choose your app store <span aria-hidden="true">↑</span></a>
+        </div>
+        <figure class="app-screen">
+            <a class="app-screenshot-link" href="/assets/screenshots/sign-in.jpg" target="_blank" rel="noopener" aria-label="View welcome to your armur vault at full size (opens in a new tab)">
+              <img src="/assets/screenshots/sign-in.jpg" width="602" height="1308" loading="lazy" decoding="async" alt="Armur login with username, password, and Face ID options." />
+            </a>
+            <figcaption>Welcome to your Armur vault</figcaption>
+          </figure>
       </section>
     </main>
 
@@ -671,114 +661,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    function toggleNav() {
-      const nav = document.getElementById("mainNav");
-      nav.classList.toggle("nav--open");
-    }
-
-    // -------- CONFIGURATION --------
-    const IOS_APP_LIVE = true;
-    const ANDROID_APP_LIVE = false;
-
-    const APP_STORE_URL = "https://apps.apple.com/us/app/armur/id6758026045";
-    const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=YOUR_PACKAGE";
-
-    // Public QR generator endpoint
-    const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(APP_STORE_URL)}`;
-
-    // -------- PLATFORM DETECTION --------
-    function isIOS() {
-      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    }
-
-    function isAndroid() {
-      return /Android/.test(navigator.userAgent);
-    }
-
-    function isDesktop() {
-      return !isIOS() && !isAndroid();
-    }
-
-    function notifyUser(message) {
-      alert(message);
-    }
-
-    // -------- DOWNLOAD HANDLER --------
-    function handleDownload() {
-      if (isIOS()) {
-        if (IOS_APP_LIVE) {
-          window.location.href = APP_STORE_URL;
-          return;
-        }
-
-        notifyUser("The iPhone version of Armur is not yet available.");
-        return;
-      }
-
-      if (isAndroid()) {
-        if (ANDROID_APP_LIVE) {
-          window.location.href = PLAY_STORE_URL;
-          return;
-        }
-
-        document.getElementById("androidNotifySection")?.scrollIntoView({ behavior: "smooth", block: "start" });
-        notifyUser("Android is coming soon. You can leave your email on this page to be notified.");
-        return;
-      }
-
-      document.getElementById("qrSection")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      notifyUser("Scan the QR code to open Armur directly in the App Store on your iPhone.");
-    }
-
-    function requestAndroidNotice() {
-      const email = (document.getElementById("email").value || "").trim();
-
-      const subject = "Armur – Notify me when Android is available";
-      const body = [
-        "Hello Armur team,",
-        "",
-        "Please notify me when the Android version of Armur is available.",
-        "",
-        email ? `Email: ${email}` : null,
-        "",
-        "Thank you,",
-        ""
-      ].filter(Boolean).join("\n");
-
-      const mailto =
-        `mailto:jitendra.puri@armur.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-      window.location.href = mailto;
-    }
-
-    function setupPageForPlatform() {
-      const qrImage = document.getElementById("qrImage");
-      const qrSection = document.getElementById("qrSection");
-      const androidNotifySection = document.getElementById("androidNotifySection");
-      const downloadBtn = document.getElementById("downloadBtn");
-
-      if (qrImage) {
-        qrImage.src = QR_URL;
-      }
-
-      if (isIOS()) {
-        if (qrSection) {
-          qrSection.style.display = "none";
-        }
-      }
-
-      if (isDesktop()) {
-        if (androidNotifySection) {
-          androidNotifySection.style.display = "grid";
-        }
-      }
-
-      if (isAndroid() && downloadBtn) {
-        downloadBtn.innerHTML = 'Get notified for Android <span class="btn-icon">➜</span>';
-      }
-    }
-
-    setupPageForPlatform();
   </script>
 </body>
 </html>

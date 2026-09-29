@@ -5,7 +5,7 @@
   <title>Armur Resources</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Discover collector resources, directories, ranges, publications, and service providers through Armur." />
-  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   <style>
     :root {
       --bg: #040b08;
@@ -894,6 +894,8 @@
       justify-content: flex-end;
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script src="/assets/site.js" defer></script>
 </head>
 
 <body>
@@ -911,9 +913,9 @@
         </a>
       </div>
 
-      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
 
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="/index.html">Home</a>
         <a href="/gallery/index.html">Gallery</a>
         <a href="/social/index.html">Social</a>
@@ -995,7 +997,7 @@
           </div>
 
           <div class="hero-card-footer">
-            <span>This is where directories and ecosystem references can live without crowding the homepage.</span>
+            <span>Find collector resources inside the Armur app.</span>
             <span class="badge-soft">Private by default</span>
           </div>
         </div>
@@ -1036,9 +1038,9 @@
 
         <article class="feature-card">
           <div class="feature-icon">🔨</div>
-          <h3 class="feature-title">Gunsmiths</h3>
-          <p class="feature-body">Maintain listings for makers, specialists, repair experts, and restoration services.</p>
-          <div class="feature-tag">Service network</div>
+          <h3 class="feature-title">Gun appraisers &amp; gunsmiths</h3>
+          <p class="feature-body">Find gun appraisers and gunsmiths, and refer specialists to fellow members of the Armur community.</p>
+          <div class="feature-tag">Expertise worth sharing</div>
         </article>
 
         <article class="feature-card">
@@ -1124,7 +1126,7 @@
         <div class="cta-inner-text">
           <h2>Keep the vault at the center.</h2>
           <p>
-            Armur can expand into discovery and community while preserving the original premium, private-first look and feel.
+            Explore more in the Armur app while keeping your collection records private and under your control.
           </p>
         </div>
 
@@ -1144,7 +1146,7 @@
         <a href="/faq/index.html">FAQ</a>
         <a href="/privacy/index.html">Privacy Policy</a>
         <a href="/terms/index.html">Terms of Service</a>
-        <a href="mailto:legal@armur.org">Contact</a>
+        <a href="mailto:support@armur.org">Contact</a>
       </div>
     </div>
   </footer>
@@ -1243,11 +1245,6 @@
 
 <script>
 
-  function toggleNav() {
-    const nav = document.getElementById("mainNav");
-    nav.classList.toggle("nav--open");
-  }
-
   document.getElementById("year").textContent = new Date().getFullYear();
 
 
@@ -1276,7 +1273,7 @@
 
     document.getElementById("authConfirm").checked = false;
     modal.classList.add("open");
-    setTimeout(() => document.getElementById("orgType").focus(), 60);
+    document.getElementById("orgType").focus();
   }
 
   function closeListingModal() {
