@@ -15,8 +15,8 @@ button, .btn, .nav-toggle, .nav-links a, .footer-links a { min-height: 44px; }
 .nav-links a, .footer-links a { display: inline-flex; align-items: center; }
 .btn { white-space: normal; text-align: center; max-width: 100%; }
 .hero-actions, .hero-cta, .qr-section, .footer-links, .microcopy, .pill-row { flex-wrap: wrap; }
-.hero-actions img { width: auto; height: 44px; object-fit: contain; }
-.hero-actions .playstore-badge img { height: 52px; }
+.hero-actions :is(.appstore-badge, .playstore-badge) { display: inline-flex; align-items: center; }
+.hero-actions img { display: block; width: auto; height: 44px; object-fit: contain; }
 :focus-visible { outline: 2px solid var(--brass-gold, #c7a15a); outline-offset: 4px; }
 .field :is(input, select, textarea):focus-visible { outline: 2px solid var(--brass-gold, #c7a15a); }
 .dropdown-menu { top: 100%; padding-top: 12px; }
