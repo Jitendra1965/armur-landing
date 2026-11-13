@@ -118,6 +118,16 @@ body.modal-open { overflow: hidden; }
 .press-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 700px) { .press-feature { grid-template-columns: minmax(0,1fr); } }
 
+/* Keep the explainer beside its introduction, then stack on phones. */
+.video-overview { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); align-items: center; gap: clamp(24px,4vw,48px); }
+.video-overview-copy, .video-overview-player { min-width: 0; }
+.video-overview-copy .section-title { margin: 12px 0 16px; }
+.video-overview-copy p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+.video-overview-copy .btn { margin-top: 8px; }
+.video-overview-player { aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid rgba(199,161,90,.35); border-radius: 16px; background: #07100b; }
+.video-overview-player iframe { display: block; width: 100%; height: 100%; border: 0; }
+@media (max-width: 600px) { .video-overview { grid-template-columns: minmax(0,1fr); } }
+
 /* Podcast sponsorship uses the show's original cover artwork. */
 .podcast-sponsor-card { display: grid; grid-template-columns: minmax(0,220px) minmax(0,1fr); align-items: center; gap: clamp(24px,4vw,48px); padding: clamp(20px,3vw,36px); border: 1px solid rgba(199,161,90,.25); border-radius: 22px; background: linear-gradient(135deg,#10251a,#07100b); }
 .podcast-artwork { display: block; width: 100%; max-width: 220px; justify-self: center; }
