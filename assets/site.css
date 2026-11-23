@@ -141,3 +141,7 @@ body.modal-open { overflow: hidden; }
   .podcast-artwork { max-width: 160px; }
 }
 @media (max-width: 600px) { .podcast-sponsor-card { grid-template-columns: minmax(0,1fr); } }
+
+.collection-guides ul { padding-left: 22px; color: var(--text-muted); line-height: 1.8; }
+.collection-guides li { margin: 14px 0; }
+.collection-guides a { color: var(--brass-gold); text-decoration: underline; text-underline-offset: 4px; }

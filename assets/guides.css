@@ -1,0 +1,17 @@
+:root { --brass-gold: #c7a15a; }
+body { margin: 0; background: #07150e; color: #f5f2e7; font: 17px/1.75 system-ui, sans-serif; }
+a { color: #d9bc83; text-underline-offset: 4px; }
+header, footer { background: #040b08; padding: 20px; }
+nav { max-width: 960px; margin: auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.guide-brand { font-size: 24px; font-weight: 700; letter-spacing: .2em; margin-right: auto; text-decoration: none; }
+main { max-width: 800px; margin: auto; padding: clamp(24px,5vw,64px) 20px; }
+h1 { font-size: clamp(30px,5vw,46px); line-height: 1.2; }
+h2 { font-size: 25px; line-height: 1.3; margin-top: 40px; }
+p { color: #d7e0d6; }
+.guide-eyebrow { color: #c7a15a; text-transform: uppercase; letter-spacing: .15em; font-size: 13px; }
+.guide-intro { font-size: 21px; }
+aside { border-top: 1px solid #516045; margin-top: 40px; }
+.btn { display: inline-flex; align-items: center; padding: 12px 18px; border: 1px solid #c7a15a; border-radius: 12px; }
+footer { text-align: center; }
+@media (max-width: 480px) { nav { gap: 8px 24px; } .guide-brand { width: 100%; } }
