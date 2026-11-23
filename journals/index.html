@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Armur Journals &amp; Stories | Collecting Memories &amp; Discoveries</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Keep personal journals and collecting stories in Armur. Capture memories, discoveries, and range visits, then choose what to share with the community." />
+
+  <style>
+    :root {
+      --bg: #040b08;
+      --bg-soft: #07150e;
+      --gunmetal: #11171d;
+      --british-green: #0f3b2c;
+      --british-green-soft: #164835;
+      --brass-gold: #c7a15a;
+      --brass-gold-soft: rgba(199, 161, 90, 0.18);
+      --ivory: #f5f2e7;
+      --text-main: #d7e0d6;
+      --text-muted: #9aa69a;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --transition-fast: 0.2s ease-out;
+      --max-width: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #10271c 0, #040b08 52%, #020505 100%);
+      color: var(--text-main);
+    }
+
+    body { line-height: 1.5; }
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(4, 11, 8, 0.96),
+        rgba(4, 11, 8, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #f8f4e8 0, #d1b87d 26%, #7f5b24 70%, #221609 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.8), 0 8px 18px rgba(0, 0, 0, 0.9);
+    }
+
+    .logo-mark span {
+      font-weight: 700;
+      font-size: 18px;
+      color: #1a231b;
+      letter-spacing: 0.1em;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 20px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brass-gold);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover { color: var(--ivory); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 8px 18px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      white-space: nowrap;
+      background: none;
+      color: var(--ivory);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brass-gold), #e0c382);
+      color: #1b1508;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9);
+      background: linear-gradient(135deg, #e5c887, #f1dba1);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(9, 24, 17, 0.9);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--brass-gold);
+      background: rgba(13, 38, 27, 1);
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 18px;
+    }
+
+    .hero-social {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 28px;
+      align-items: center;
+      padding-top: 34px;
+      padding-bottom: 30px;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .hero-eyebrow .badge {
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--brass-gold-soft);
+      background: rgba(16, 46, 29, 0.9);
+      color: var(--brass-gold);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 4vw, 44px);
+      margin-top: 14px;
+      margin-bottom: 12px;
+      color: var(--ivory);
+      letter-spacing: 0.02em;
+      line-height: 1.08;
+    }
+
+    .hero-title span { color: var(--brass-gold); }
+
+    .hero-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 560px;
+    }
+
+    .hero-meta {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-meta-pill {
+      border-radius: 999px;
+      border: 1px dashed rgba(255, 255, 255, 0.24);
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .salon-card,
+    .panel,
+    .quote-card,
+    .lockout-card,
+    .feed-card {
+      background: linear-gradient(145deg, rgba(12, 30, 23, 0.94), #050907);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.68);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .salon-card::after,
+    .panel::after,
+    .quote-card::after,
+    .lockout-card::after,
+    .feed-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 0 0, rgba(199, 161, 90, 0.10), transparent 58%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .salon-card > *,
+    .panel > *,
+    .quote-card > *,
+    .lockout-card > *,
+    .feed-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .salon-card {
+      padding: 18px;
+    }
+
+    .salon-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .salon-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .salon-chip {
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: var(--brass-gold-soft);
+      color: var(--brass-gold);
+      font-size: 11px;
+    }
+
+    .salon-thread {
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .salon-thread:first-of-type { border-top: none; padding-top: 0; }
+
+    .salon-label {
+      font-size: 11px;
+      color: var(--brass-gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .salon-thread strong {
+      display: block;
+      color: var(--ivory);
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .salon-thread p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .panel {
+      padding: 18px;
+    }
+
+    .panel h3 {
+      margin: 0 0 14px;
+      font-size: 15px;
+      color: var(--ivory);
+    }
+
+    .manifesto-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .manifesto-item {
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .manifesto-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .manifesto-item h4 {
+      margin: 0 0 4px;
+      font-size: 14px;
+      color: var(--ivory);
+    }
+
+    .manifesto-item p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .quote-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .quote-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .quote-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--ivory);
+      line-height: 1.2;
+    }
+
+    .quote-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .protocol-box {
+      margin-top: 16px;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.28);
+      border-radius: 10px;
+      border: 1px solid var(--border-soft);
+      display: grid;
+      gap: 6px;
+    }
+
+    .protocol-box code {
+      color: var(--brass-gold);
+      font-size: 11px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .feed-card {
+      margin-top: 18px;
+      padding: 18px;
+    }
+
+    .feed-card h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      color: var(--ivory);
+    }
+
+    .feed-row {
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .feed-row:first-of-type { border-top: none; padding-top: 0; }
+
+    .feed-row small {
+      color: var(--brass-gold);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+
+    .feed-row strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--ivory);
+      font-size: 14px;
+    }
+
+    .feed-row p {
+      margin: 4px 0 0;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+
+    .lockout-card {
+      margin-top: 22px;
+      padding: 24px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 0 0, rgba(199,161,90,0.12), transparent 55%),
+        linear-gradient(135deg, #08130d, #020403);
+    }
+
+    .lockout-icon {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .lockout-card h2 {
+      color: var(--ivory);
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .lockout-card p {
+      margin: 0 auto;
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 760px;
+    }
+
+    .lockout-tags {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--text-muted);
+      background: rgba(6, 12, 9, 0.7);
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--brass-gold);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #020403;
+      margin-top: 34px;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 18px;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a { color: var(--text-muted); }
+    .footer-links a:hover { color: var(--ivory); }
+
+    @media (max-width: 900px) {
+      .hero-social,
+      .grid-two {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script src="/assets/site.js" defer></script>
+  <link rel="canonical" href="https://armur.org/journals/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Armur" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Armur Journals &amp; Stories | Collecting Memories &amp; Discoveries" />
+  <meta property="og:description" content="Keep personal journals and collecting stories in Armur. Capture memories, discoveries, and range visits, then choose what to share with the community." />
+  <meta property="og:url" content="https://armur.org/journals/" />
+  <meta property="og:image" content="https://armur.org/assets/social/armur-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Armur: Your firearm records. Your control. Available for iPhone, iPad and Android." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Armur Journals &amp; Stories | Collecting Memories &amp; Discoveries" />
+  <meta name="twitter:description" content="Keep personal journals and collecting stories in Armur. Capture memories, discoveries, and range visits, then choose what to share with the community." />
+  <meta name="twitter:image" content="https://armur.org/assets/social/armur-preview.png" />
+  <meta name="twitter:image:alt" content="Armur firearm collection management app" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://armur.org/#organization",
+      "name": "HoplonTec Inc.",
+      "url": "https://armur.org/",
+      "brand": {
+        "@type": "Brand",
+        "name": "Armur"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://armur.org/#website",
+      "url": "https://armur.org/",
+      "name": "Armur",
+      "publisher": {
+        "@id": "https://armur.org/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://armur.org/journals/#webpage",
+      "url": "https://armur.org/journals/",
+      "name": "Armur Journals & Stories | Collecting Memories & Discoveries",
+      "description": "Keep personal journals and collecting stories in Armur. Capture memories, discoveries, and range visits, then choose what to share with the community.",
+      "isPartOf": {
+        "@id": "https://armur.org/#website"
+      }
+    }
+  ]
+}</script>
+<link rel="stylesheet" href="/assets/feature-details.css" />
+</head>
+<body>
+  <header>
+    <nav class="nav" id="mainNav">
+      <div class="nav-left">
+        <a href="/" class="nav-left" aria-label="Armur home">
+          <div class="logo-mark"><span>A</span></div>
+          <div class="logo-text">
+            <div class="logo-title">ARMUR</div>
+            <div class="logo-sub">Firearm Collector Vault</div>
+          </div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="/#trust">Trust</a>
+        <a href="/#features">Features</a>
+        <a href="/journals/">Journals &amp; Stories</a>
+        <a href="/social/">Social</a>
+        <a href="/gallery/">Gallery</a>
+        <a href="/resources/">Resources</a>
+        <a href="/classifieds/">Classifieds</a>
+      </div>
+
+      <div class="nav-cta">
+        <a class="btn btn-primary" href="/app/">Download</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="section feature-detail"><section class="hero-social" aria-labelledby="journals-title">
+ <div><div class="hero-eyebrow"><span class="badge">Journals &amp; Stories</span><span>The experiences worth remembering</span></div>
+ <h1 class="hero-title" id="journals-title">Every collection has <span>a human story.</span></h1>
+ <p class="hero-subtitle">The first day with a long-sought piece. A conversation that opened a new line of research. An afternoon at the range with someone who introduced you to the sport.</p>
+ <p class="hero-subtitle">Keep personal journals and stories in Armur, and choose which ones to share with the community. Preserve the observations, memories, and discoveries that make collecting personal.</p>
+ <div class="detail-actions"><a class="btn btn-primary" href="/app/">Explore Journals in Armur</a><a class="btn btn-ghost" href="#journal-ideas">What could you write about?</a></div></div>
+ <aside class="salon-card" aria-label="Illustrative journal entry"><div class="salon-head"><div class="salon-title">More than a record</div><div class="salon-chip">Illustrative story</div></div>
+ <div class="salon-thread"><div class="salon-label">A collecting memory</div><strong>The letter that changed the story</strong><p>“I had looked at the maker’s name a hundred times. It was a note tucked into the case that finally gave me somewhere new to start.”</p><p>A journal can preserve the discovery, the questions it raised, and the next step in the research. The supporting letter belongs in the collection record; the experience of finding it deserves to be remembered too.</p></div></aside>
+</section>
+<section class="detail-section" id="journal-ideas" aria-labelledby="journal-ideas-title"><div class="hero-eyebrow">Ideas for your next entry</div><h2 id="journal-ideas-title">Capture what the numbers leave out.</h2>
+ <div class="detail-grid"><article class="panel"><h3>A day at the range</h3><p>Remember the people, setting, and moments that made an outing worthwhile. A range log records your results; a journal can capture what you noticed and what you want to remember about the day.</p></article>
+ <article class="panel"><h3>A discovery in your research</h3><p>Describe how a document, maker’s mark, or conversation changed your understanding of a firearm. Note the sources that helped and the questions still unanswered.</p></article>
+ <article class="panel"><h3>A collection with meaning</h3><p>Tell the story of why a piece matters to you: a family connection, years of searching, an appreciation for craftsmanship, or a memorable encounter with another collector.</p></article></div>
+</section>
+<section class="detail-section detail-split" aria-labelledby="journals-writing-title"><div><h2 id="journals-writing-title">Start with a moment. Add the context.</h2><p>You do not need a polished article to begin. A few sentences recorded while a memory is fresh can become the starting point for a fuller story.</p><p>Describe what happened, why it mattered, and what you learned. Names, dates, and places can help you understand the memory later; include only the personal details you are comfortable recording.</p></div>
+ <aside class="panel"><h3>Four prompts to get started</h3><ol><li>What happened, or what did you discover?</li><li>What detail would you otherwise forget?</li><li>How did it change your understanding or experience?</li><li>What would you like to explore next?</li></ol></aside></section>
+<section class="detail-section" aria-labelledby="journals-connections-title"><h2 id="journals-connections-title">The record, the story, and the conversation.</h2>
+ <div class="detail-grid"><article class="panel"><div class="hero-eyebrow">Collection vault</div><h3>Keep the evidence</h3><p>Store the factual history of each firearm: photographs, provenance documents, maintenance records, and range sessions. Preserve original sources alongside your interpretation.</p><a href="/guides/firearm-provenance/">Read about provenance →</a></article>
+ <article class="panel"><div class="hero-eyebrow">Journals &amp; Stories</div><h3>Preserve the experience</h3><p>Give the memory or discovery its context. Explain why the moment mattered to you and distinguish what you know from what you are still investigating.</p></article>
+ <article class="panel"><div class="hero-eyebrow">Social</div><h3>Connect through an interest</h3><p>Find other people interested in collecting, research, and the sporting life. Use Social for discussion, invitations, and referrals within the Armur community.</p><a href="/social/">Explore Armur Social →</a></article></div>
+</section>
+<section class="detail-section detail-split" aria-labelledby="journals-sharing-title"><div><h2 id="journals-sharing-title">Personal to you. Shared by choice.</h2><p>Some entries are memories you want to keep for yourself. Others are stories you would like fellow shooters and collectors to read. You choose which journals and stories to share with the Armur community.</p><p>Writing a personal entry and sharing it are separate choices. You do not have to share a story to make it worth preserving.</p></div><aside class="panel"><h3>When you choose to share</h3><p>Give readers the context behind the experience: what happened, why it mattered, and what you discovered. Review any personal details before sharing, and credit the people or sources that helped shape the story.</p><a href="/social/">Learn about the community →</a></aside></section>
+<section class="lockout-card"><h2>Keep the stories that make it your collection.</h2><p>Explore Journals &amp; Stories in Armur on iPhone, iPad, and Android.</p><div class="detail-actions"><a class="btn btn-primary" href="/app/">Get Armur</a><a class="btn btn-ghost" href="/social/">Meet the community</a></div></section>
+</main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Armur. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/resources/">Resources</a>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
