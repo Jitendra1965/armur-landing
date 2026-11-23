@@ -51,3 +51,27 @@
     }
   });
 })();
+
+
+// Native iframe lazy loading can fetch several screens ahead on mobile.
+// Load the player only as it approaches the viewport, without requiring a click.
+(() => {
+  const frames = document.querySelectorAll('iframe[data-video-src]');
+  const load = (frame) => {
+    if (!frame.dataset.videoSrc) return;
+    frame.src = frame.dataset.videoSrc;
+    delete frame.dataset.videoSrc;
+  };
+  if (!('IntersectionObserver' in window)) {
+    frames.forEach(load);
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(({ target, isIntersecting }) => {
+      if (!isIntersecting) return;
+      load(target);
+      observer.unobserve(target);
+    });
+  }, { rootMargin: '150px 0px' });
+  frames.forEach((frame) => observer.observe(frame));
+})();
